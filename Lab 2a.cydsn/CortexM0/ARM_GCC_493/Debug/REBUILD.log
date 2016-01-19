@@ -1,0 +1,8 @@
+--------------- Rebuild Started: 01/14/2016 16:05:51 Project: main.c, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Debug\main.o
+.\main.c: In function 'main':
+.\main.c:41:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+     sprintf(str, "%d", count);
+     ^
+.\main.c:41:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+--------------- Rebuild Succeeded: 01/14/2016 16:05:51 ---------------

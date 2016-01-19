@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Workspace01\Lab 2a\Source Files\main.c">
+<ExpandedNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Lab 1 Blink\TopDesign</v>
+<v>Workspace01\Lab 1 Blink\Lab 1 Blink.cydwr</v>
+<v>Workspace01\Lab 1 Blink\Header Files</v>
+<v>Workspace01\Lab 1 Blink\Header Files\cyapicallbacks.h</v>
+<v>Workspace01\Lab 1 Blink\Source Files</v>
+<v>Workspace01\Lab 1 Blink\Source Files\main.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\Cm0Start.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\core_cm0.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\core_cm0_psoc4.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\CyFlash.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\CyLib.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\CyLib.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\cypins.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\cyPm.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\cyPm.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\cytypes.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_boot\cyutils.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_lfclk\CyLFClk.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cy_lfclk\CyLFClk.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\Pin_Red</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\Pin_Red\Pin_Red.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\Pin_Red\Pin_Red.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\Pin_Red\Pin_Red_aliases.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\UART_1</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\UART_1\UART_1.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\UART_1\UART_1.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\UART_1\UART_1_BOOT.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\UART_1\UART_1_INT.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\UART_1\UART_1_PM.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\UART_1_IntClock</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\UART_1_IntClock\UART_1_IntClock.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\UART_1_IntClock\UART_1_IntClock.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cyfitter.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cyfittergnu.inc</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cyfitteriar.inc</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cyfitterrv.inc</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\cymetadata.c</v>
+<v>Workspace01\Lab 1 Blink\Generated_Source\PSoC4\project.h</v>
+<v>Workspace01\Lab 1c\TopDesign</v>
+<v>Workspace01\Lab 1c\Lab 1c.cydwr</v>
+<v>Workspace01\Lab 1c\Header Files\cyapicallbacks.h</v>
+<v>Workspace01\Lab 1c\Source Files</v>
+<v>Workspace01\Lab 1c\Source Files\main.c</v>
+<v>Workspace01\Lab 1c\Generated_Source</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\Cm0Start.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\core_cm0.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\core_cm0_psoc4.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\CyFlash.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\CyLib.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\CyLib.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\cypins.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\cyPm.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\cyPm.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\cytypes.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_boot\cyutils.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_lfclk\CyLFClk.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cy_lfclk\CyLFClk.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\Pin_Red</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\Pin_Red\Pin_Red.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\Pin_Red\Pin_Red.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\Pin_Red\Pin_Red_aliases.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\UART_1</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\UART_1\UART_1.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\UART_1\UART_1.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\UART_1\UART_1_BOOT.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\UART_1\UART_1_INT.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\UART_1\UART_1_PM.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\UART_1_IntClock</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\UART_1_IntClock\UART_1_IntClock.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\UART_1_IntClock\UART_1_IntClock.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cyfitter.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cyfittergnu.inc</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cyfitteriar.inc</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cyfitterrv.inc</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\cymetadata.c</v>
+<v>Workspace01\Lab 1c\Generated_Source\PSoC4\project.h</v>
+<v>Workspace01\Lab 2a</v>
+<v>Workspace01\Lab 2a\TopDesign</v>
+<v>Workspace01\Lab 2a\Lab 2a.cydwr</v>
+<v>Workspace01\Lab 2a\Header Files</v>
+<v>Workspace01\Lab 2a\Header Files\cyapicallbacks.h</v>
+<v>Workspace01\Lab 2a\Source Files</v>
+<v>Workspace01\Lab 2a\Source Files\main.c</v>
+<v>Workspace01\Lab 2a\Generated_Source</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\Cm0Start.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\core_cm0.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\core_cm0_psoc4.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyFlash.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyLib.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyLib.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cypins.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cyPm.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cyPm.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cytypes.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cyutils.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_lfclk\CyLFClk.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_lfclk\CyLFClk.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1_BOOT.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1_INT.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1_PM.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1_IntClock</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1_IntClock\UART_1_IntClock.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1_IntClock\UART_1_IntClock.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cyfitter.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cyfittergnu.inc</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cyfitteriar.inc</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cyfitterrv.inc</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cymetadata.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\project.h</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Lab 1 Blink</v>
+<v>Workspace01\Lab 1c</v>
+<v>Workspace01\Lab 2a</v>
+<v>Workspace01\Lab 2a\TopDesign</v>
+<v>Workspace01\Lab 2a\Lab 2a.cydwr</v>
+<v>Workspace01\Lab 2a\Header Files</v>
+<v>Workspace01\Lab 2a\Header Files\cyapicallbacks.h</v>
+<v>Workspace01\Lab 2a\Source Files</v>
+<v>Workspace01\Lab 2a\Source Files\main.c</v>
+<v>Workspace01\Lab 2a\Generated_Source</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\Cm0Start.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\core_cm0.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\core_cm0_psoc4.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyFlash.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyLib.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\CyLib.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cypins.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cyPm.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cyPm.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cytypes.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_boot\cyutils.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_lfclk\CyLFClk.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cy_lfclk\CyLFClk.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1_BOOT.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1_INT.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1\UART_1_PM.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1_IntClock</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1_IntClock\UART_1_IntClock.c</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\UART_1_IntClock\UART_1_IntClock.h</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>Workspace01\Lab 2a\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Lab 1 Blink</v>
+<v>Workspace01\Lab 1 Blink\TopDesign</v>
+<v>Workspace01\Lab 1 Blink\TopDesign\TopDesign.cysch</v>
+<v>Workspace01\Lab 1c</v>
+<v>Workspace01\Lab 1c\TopDesign</v>
+<v>Workspace01\Lab 1c\TopDesign\TopDesign.cysch</v>
+<v>Workspace01\Lab 2a</v>
+<v>Workspace01\Lab 2a\TopDesign</v>
+<v>Workspace01\Lab 2a\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Lab 1 Blink</v>
+<v>Workspace01\Lab 1 Blink\TopDesign</v>
+<v>Workspace01\Lab 1 Blink\TopDesign\TopDesign.cysch</v>
+<v>Workspace01\Lab 1c</v>
+<v>Workspace01\Lab 1c\TopDesign</v>
+<v>Workspace01\Lab 1c\TopDesign\TopDesign.cysch</v>
+<v>Workspace01\Lab 2a</v>
+<v>Workspace01\Lab 2a\TopDesign</v>
+<v>Workspace01\Lab 2a\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Lab 1 Blink</v>
+<v>Workspace01\Lab 1 Blink\CortexM0</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_Red.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_INT.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_PM.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Lab 1 Blink.elf</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Lab 1 Blink.hex</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Lab 1 Blink.map</v>
+<v>Workspace01\Lab 1 Blink\Lab 1 Blink.gpdsc</v>
+<v>Workspace01\Lab 1 Blink\Lab 1 Blink.rpt</v>
+<v>Workspace01\Lab 1 Blink\Lab 1 Blink_timing.html</v>
+<v>Workspace01\Lab 1c</v>
+<v>Workspace01\Lab 1c\CortexM0</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_Red.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_INT.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_PM.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Lab 1c.elf</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Lab 1c.hex</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Lab 1c.map</v>
+<v>Workspace01\Lab 1c\Lab 1c.gpdsc</v>
+<v>Workspace01\Lab 1c\Lab 1c.rpt</v>
+<v>Workspace01\Lab 1c\Lab 1c_timing.html</v>
+<v>Workspace01\Lab 2a</v>
+<v>Workspace01\Lab 2a\CortexM0</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_INT.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_PM.lst</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Lab 2a.elf</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Lab 2a.hex</v>
+<v>Workspace01\Lab 2a\CortexM0\ARM_GCC_493\Debug\Lab 2a.map</v>
+<v>Workspace01\Lab 2a\Lab 2a.gpdsc</v>
+<v>Workspace01\Lab 2a\Lab 2a.rpt</v>
+<v>Workspace01\Lab 2a\Lab 2a_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Lab 1 Blink</v>
+<v>Workspace01\Lab 1 Blink\CortexM0</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_Red.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_INT.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_PM.lst</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Lab 1 Blink.elf</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Lab 1 Blink.hex</v>
+<v>Workspace01\Lab 1 Blink\CortexM0\ARM_GCC_493\Debug\Lab 1 Blink.map</v>
+<v>Workspace01\Lab 1 Blink\Lab 1 Blink.gpdsc</v>
+<v>Workspace01\Lab 1 Blink\Lab 1 Blink.rpt</v>
+<v>Workspace01\Lab 1 Blink\Lab 1 Blink_timing.html</v>
+<v>Workspace01\Lab 1c</v>
+<v>Workspace01\Lab 1c\CortexM0</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\Pin_Red.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>Workspace01\Lab 1c\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_1_INT.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Lab 1 Blink</v>
+<v>Workspace01\Lab 1 Blink\PSoC 4 Architecture TRM</v>
+<v>Workspace01\Lab 1 Blink\PSoC 4200 Family Datasheet</v>
+<v>Workspace01\Lab 1 Blink\System Reference Guides</v>
+<v>Workspace01\Lab 1 Blink\System Reference Guides\cy_boot_v5_20</v>
+<v>Workspace01\Lab 1 Blink\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Workspace01\Lab 1 Blink\cy_pins_v2_10</v>
+<v>Workspace01\Lab 1 Blink\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Workspace01\Lab 1 Blink\UART_v2_50.pdf</v>
+<v>Workspace01\Lab 1c</v>
+<v>Workspace01\Lab 1c\PSoC 4 Architecture TRM</v>
+<v>Workspace01\Lab 1c\PSoC 4200 Family Datasheet</v>
+<v>Workspace01\Lab 1c\System Reference Guides</v>
+<v>Workspace01\Lab 1c\System Reference Guides\cy_boot_v5_20</v>
+<v>Workspace01\Lab 1c\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Workspace01\Lab 1c\cy_pins_v2_10</v>
+<v>Workspace01\Lab 1c\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Workspace01\Lab 1c\UART_v2_50.pdf</v>
+<v>Workspace01\Lab 2a</v>
+<v>Workspace01\Lab 2a\PSoC 4 Architecture TRM</v>
+<v>Workspace01\Lab 2a\PSoC 4200 Family Datasheet</v>
+<v>Workspace01\Lab 2a\System Reference Guides</v>
+<v>Workspace01\Lab 2a\System Reference Guides\cy_boot_v5_20</v>
+<v>Workspace01\Lab 2a\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Workspace01\Lab 2a\cy_pins_v2_10</v>
+<v>Workspace01\Lab 2a\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Workspace01\Lab 2a\UART_v2_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Lab 1 Blink</v>
+<v>Workspace01\Lab 1 Blink\PSoC 4 Architecture TRM</v>
+<v>Workspace01\Lab 1 Blink\PSoC 4200 Family Datasheet</v>
+<v>Workspace01\Lab 1 Blink\System Reference Guides</v>
+<v>Workspace01\Lab 1 Blink\System Reference Guides\cy_boot_v5_20</v>
+<v>Workspace01\Lab 1 Blink\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Workspace01\Lab 1 Blink\cy_pins_v2_10</v>
+<v>Workspace01\Lab 1 Blink\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Workspace01\Lab 1 Blink\UART_v2_50.pdf</v>
+<v>Workspace01\Lab 1c</v>
+<v>Workspace01\Lab 1c\PSoC 4 Architecture TRM</v>
+<v>Workspace01\Lab 1c\PSoC 4200 Family Datasheet</v>
+<v>Workspace01\Lab 1c\System Reference Guides</v>
+<v>Workspace01\Lab 1c\System Reference Guides\cy_boot_v5_20</v>
+<v>Workspace01\Lab 1c\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Workspace01\Lab 1c\cy_pins_v2_10</v>
+<v>Workspace01\Lab 1c\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Workspace01\Lab 1c\UART_v2_50.pdf</v>
+<v>Workspace01\Lab 2a</v>
+<v>Workspace01\Lab 2a\PSoC 4 Architecture TRM</v>
+<v>Workspace01\Lab 2a\PSoC 4200 Family Datasheet</v>
+<v>Workspace01\Lab 2a\System Reference Guides</v>
+<v>Workspace01\Lab 2a\System Reference Guides\cy_boot_v5_20</v>
+<v>Workspace01\Lab 2a\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Workspace01\Lab 2a\cy_pins_v2_10</v>
+<v>Workspace01\Lab 2a\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Workspace01\Lab 2a\UART_v2_50.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Lab 2a.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Lab 2a.cydsn\main.c" />
+<name v=".\Lab 2a.cydsn\Lab 2a.cydwr" />
+</OpenDocs>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
