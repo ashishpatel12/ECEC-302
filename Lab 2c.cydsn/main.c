@@ -32,32 +32,40 @@ uint8 rearrange(uint8 v)
     int ones =1;
     char str1[15];
     char str2[15];
+    char str3[8];
+    int result;
     
-    
-    UART_1_PutString("Binary Representation: \n \r ");
+    //UART_1_PutString("Binary Representation: \n\r");
    
+    // add code to store rearranged binary value
     
     for(counter1 = 0; counter1<count;counter1 = counter1+1)
     {
         //char str1[15];
         sprintf(str1,"%d",ones);
         UART_1_PutString(str1);
+        strcat(str3, str1);
     }
     
     for(counter=0; counter<numzero; counter = counter + 1)
     {   
         //char str2[15];
         sprintf(str2,"%d", zero);
-        UART_1_PutString(str2);    
+        UART_1_PutString(str2);  
+        strcat(str3, str2);
     }   
     
-    return 0;
+    UART_1_PutString("\n\r");
+    
+    sscanf(str3, "%d", &result);
+    
+    return result;
 }
 
 void WriteHex(int a)
 {
     char str[15];
-    sprintf(str,"0x%x\n\r",a);
+    sprintf(str,"%x\n\r",a);
     UART_1_PutString(str);
 }
 
@@ -66,9 +74,9 @@ int main()
     CyGlobalIntEnable; /* Enable global interrupts. */
     
     UART_1_Start();
-    UART_1_PutString("Hello \n \r");
+    UART_1_PutString("\n \r");
     
-    uint8 v1 = 12;
+    uint8 v1 = 18;
     uint8 v2 = rearrange(v1);
     WriteHex(v2);
     for(;;)

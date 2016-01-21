@@ -3,13 +3,14 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspc" version="5" xml_contents_version="3" name="Workspace01" persistent="" platform="NOT_USED">
-<current_project name=".\Lab 2a.cydsn\Lab 2a.cyprj" />
+<current_project name=".\Lab 2c.cydsn\Lab 2c.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
 <v>.\Lab 1 Blink.cydsn\Lab 1 Blink.cyprj</v>
 <v>.\Lab 1c.cydsn\Lab 1c.cyprj</v>
 <v>.\Lab 2a.cydsn\Lab 2a.cyprj</v>
+<v>.\Lab 2c.cydsn\Lab 2c.cyprj</v>
 </projects>
 <workspace_id v="a34b3786-bcc7-4d3e-ae89-c1e18daf456a" />
 <WriteAppVersionLastSavedWith v="3.3.0.410" />
