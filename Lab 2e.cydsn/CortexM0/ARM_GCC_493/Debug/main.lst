@@ -1,0 +1,1737 @@
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.WriteHex,"ax",%progbits
+  18              		.align	2
+  19              		.global	WriteHex
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	WriteHex, %function
+  23              	WriteHex:
+  24              	.LFB33:
+  25              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** #include <stdio.h>
+  14:.\main.c      **** 
+  15:.\main.c      **** void WriteHex(int a)
+  16:.\main.c      **** {
+  26              		.loc 1 16 0
+  27              		.cfi_startproc
+  28              	.LVL0:
+  29 0000 00B5     		push	{lr}
+  30              		.cfi_def_cfa_offset 4
+  31              		.cfi_offset 14, -4
+  32 0002 89B0     		sub	sp, sp, #36
+  33              		.cfi_def_cfa_offset 40
+  34 0004 021C     		mov	r2, r0
+  17:.\main.c      ****     char str[31];
+  18:.\main.c      ****     sprintf(str,"%x\n\r",a);
+  35              		.loc 1 18 0
+  36 0006 6846     		mov	r0, sp
+  37              	.LVL1:
+  38 0008 0349     		ldr	r1, .L2
+  39 000a FFF7FEFF 		bl	sprintf
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 2
+
+
+  40              	.LVL2:
+  19:.\main.c      ****     UART_1_PutString(str);
+  41              		.loc 1 19 0
+  42 000e 6846     		mov	r0, sp
+  43 0010 FFF7FEFF 		bl	UART_1_PutString
+  44              	.LVL3:
+  20:.\main.c      **** }
+  45              		.loc 1 20 0
+  46 0014 09B0     		add	sp, sp, #36
+  47              		@ sp needed
+  48 0016 00BD     		pop	{pc}
+  49              	.L3:
+  50              		.align	2
+  51              	.L2:
+  52 0018 00000000 		.word	.LC0
+  53              		.cfi_endproc
+  54              	.LFE33:
+  55              		.size	WriteHex, .-WriteHex
+  56              		.section	.text.interleaveBits,"ax",%progbits
+  57              		.align	2
+  58              		.global	interleaveBits
+  59              		.code	16
+  60              		.thumb_func
+  61              		.type	interleaveBits, %function
+  62              	interleaveBits:
+  63              	.LFB34:
+  21:.\main.c      **** 
+  22:.\main.c      **** uint32 interleaveBits(uint16 x, uint16 y)
+  23:.\main.c      **** {
+  64              		.loc 1 23 0
+  65              		.cfi_startproc
+  66              	.LVL4:
+  67 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  68              		.cfi_def_cfa_offset 20
+  69              		.cfi_offset 4, -20
+  70              		.cfi_offset 5, -16
+  71              		.cfi_offset 6, -12
+  72              		.cfi_offset 7, -8
+  73              		.cfi_offset 14, -4
+  74 0002 8DB0     		sub	sp, sp, #52
+  75              		.cfi_def_cfa_offset 72
+  76 0004 071C     		mov	r7, r0
+  77 0006 0E1C     		mov	r6, r1
+  78              	.LVL5:
+  24:.\main.c      ****     //UART_1_PutString("Starting bit interleave. \r\n");
+  25:.\main.c      ****     int count = 0;
+  26:.\main.c      ****     int xCount = 0;
+  79              		.loc 1 26 0
+  80 0008 0025     		mov	r5, #0
+  27:.\main.c      ****     int yCount = 0;
+  28:.\main.c      ****     char xChar[1];
+  29:.\main.c      ****     char yChar[1];
+  30:.\main.c      ****     char strInter[32];
+  31:.\main.c      ****     int result;
+  32:.\main.c      ****     
+  33:.\main.c      ****     //memcpy(xChar, (char*)&x, sizeof(x));
+  34:.\main.c      ****     //memcpy(xChar, (char*)&y, sizeof(y));
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 3
+
+
+  35:.\main.c      ****     
+  36:.\main.c      ****     
+  37:.\main.c      ****     for(count = 0; count < 16; count = count + 1)
+  81              		.loc 1 37 0
+  82 000a 0024     		mov	r4, #0
+  83 000c 30E0     		b	.L5
+  84              	.LVL6:
+  85              	.L12:
+  38:.\main.c      ****     {
+  39:.\main.c      ****         if (count % 2 == 0)
+  86              		.loc 1 39 0
+  87 000e E307     		lsl	r3, r4, #31
+  88 0010 17D4     		bmi	.L6
+  89              	.LBB2:
+  40:.\main.c      ****         {
+  41:.\main.c      ****             uint16 xbit = (1 << xCount) & x;
+  90              		.loc 1 41 0
+  91 0012 0123     		mov	r3, #1
+  92 0014 AB40     		lsl	r3, r3, r5
+  93              	.LVL7:
+  42:.\main.c      ****             
+  43:.\main.c      ****             if (xbit > 0){
+  94              		.loc 1 43 0
+  95 0016 1F42     		tst	r7, r3
+  96 0018 05D0     		beq	.L7
+  44:.\main.c      ****                 sprintf( xChar, "%d", 1);
+  97              		.loc 1 44 0
+  98 001a 0BA8     		add	r0, sp, #44
+  99 001c 1B49     		ldr	r1, .L13
+ 100 001e 0122     		mov	r2, #1
+ 101 0020 FFF7FEFF 		bl	sprintf
+ 102              	.LVL8:
+ 103 0024 04E0     		b	.L8
+ 104              	.LVL9:
+ 105              	.L7:
+  45:.\main.c      ****             }else{
+  46:.\main.c      ****                 sprintf( xChar, "%d", 0);
+ 106              		.loc 1 46 0
+ 107 0026 0BA8     		add	r0, sp, #44
+ 108 0028 1849     		ldr	r1, .L13
+ 109 002a 0022     		mov	r2, #0
+ 110 002c FFF7FEFF 		bl	sprintf
+ 111              	.LVL10:
+ 112              	.L8:
+  47:.\main.c      ****             }
+  48:.\main.c      ****             
+  49:.\main.c      ****             strcat(strInter, xChar);
+ 113              		.loc 1 49 0
+ 114 0030 02A8     		add	r0, sp, #8
+ 115 0032 0BA9     		add	r1, sp, #44
+ 116 0034 FFF7FEFF 		bl	strcat
+ 117              	.LVL11:
+  50:.\main.c      ****             xCount = xCount + 1;
+ 118              		.loc 1 50 0
+ 119 0038 0135     		add	r5, r5, #1
+ 120              	.LVL12:
+  51:.\main.c      ****             
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 4
+
+
+  52:.\main.c      ****             UART_1_PutString(yChar);
+ 121              		.loc 1 52 0
+ 122 003a 0AA8     		add	r0, sp, #40
+ 123 003c FFF7FEFF 		bl	UART_1_PutString
+ 124              	.LVL13:
+ 125              	.LBE2:
+ 126 0040 15E0     		b	.L9
+ 127              	.LVL14:
+ 128              	.L6:
+ 129              	.LBB3:
+  53:.\main.c      ****         }else
+  54:.\main.c      ****         {
+  55:.\main.c      ****             uint16 ybit = (1 << xCount) & y;
+ 130              		.loc 1 55 0
+ 131 0042 0123     		mov	r3, #1
+ 132 0044 AB40     		lsl	r3, r3, r5
+ 133              	.LVL15:
+  56:.\main.c      ****             if (ybit > 0){
+ 134              		.loc 1 56 0
+ 135 0046 1E42     		tst	r6, r3
+ 136 0048 05D0     		beq	.L10
+  57:.\main.c      ****                 sprintf( yChar, "%d", 1);
+ 137              		.loc 1 57 0
+ 138 004a 0AA8     		add	r0, sp, #40
+ 139 004c 0F49     		ldr	r1, .L13
+ 140 004e 0122     		mov	r2, #1
+ 141 0050 FFF7FEFF 		bl	sprintf
+ 142              	.LVL16:
+ 143 0054 04E0     		b	.L11
+ 144              	.LVL17:
+ 145              	.L10:
+  58:.\main.c      ****             }else{
+  59:.\main.c      ****                 sprintf( yChar, "%d", 0);
+ 146              		.loc 1 59 0
+ 147 0056 0AA8     		add	r0, sp, #40
+ 148 0058 0C49     		ldr	r1, .L13
+ 149 005a 0022     		mov	r2, #0
+ 150 005c FFF7FEFF 		bl	sprintf
+ 151              	.LVL18:
+ 152              	.L11:
+  60:.\main.c      ****             }
+  61:.\main.c      ****             
+  62:.\main.c      ****             strcat(strInter, yChar);
+ 153              		.loc 1 62 0
+ 154 0060 02A8     		add	r0, sp, #8
+ 155 0062 0AA9     		add	r1, sp, #40
+ 156 0064 FFF7FEFF 		bl	strcat
+ 157              	.LVL19:
+  63:.\main.c      ****             yCount = yCount + 1;
+  64:.\main.c      ****             
+  65:.\main.c      ****             UART_1_PutString(yChar);
+ 158              		.loc 1 65 0
+ 159 0068 0AA8     		add	r0, sp, #40
+ 160 006a FFF7FEFF 		bl	UART_1_PutString
+ 161              	.LVL20:
+ 162              	.L9:
+ 163              	.LBE3:
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 5
+
+
+  37:.\main.c      ****     {
+ 164              		.loc 1 37 0 discriminator 2
+ 165 006e 0134     		add	r4, r4, #1
+ 166              	.LVL21:
+ 167              	.L5:
+  37:.\main.c      ****     {
+ 168              		.loc 1 37 0 is_stmt 0 discriminator 1
+ 169 0070 0F2C     		cmp	r4, #15
+ 170 0072 CCDD     		ble	.L12
+  66:.\main.c      ****             //UART_1_PutString("\n\r");
+  67:.\main.c      ****         }
+  68:.\main.c      ****     }
+  69:.\main.c      ****     
+  70:.\main.c      ****     //UART_1_PutString(strInter);
+  71:.\main.c      ****     UART_1_PutString("\n\r");
+ 171              		.loc 1 71 0 is_stmt 1
+ 172 0074 0648     		ldr	r0, .L13+4
+ 173 0076 FFF7FEFF 		bl	UART_1_PutString
+ 174              	.LVL22:
+  72:.\main.c      ****     
+  73:.\main.c      ****     sscanf(strInter, "%d", &result);
+ 175              		.loc 1 73 0
+ 176 007a 02A8     		add	r0, sp, #8
+ 177 007c 0349     		ldr	r1, .L13
+ 178 007e 01AA     		add	r2, sp, #4
+ 179 0080 FFF7FEFF 		bl	sscanf
+ 180              	.LVL23:
+  74:.\main.c      ****     
+  75:.\main.c      ****     return result;   
+  76:.\main.c      **** }
+ 181              		.loc 1 76 0
+ 182 0084 0198     		ldr	r0, [sp, #4]
+ 183 0086 0DB0     		add	sp, sp, #52
+ 184              		@ sp needed
+ 185              	.LVL24:
+ 186              	.LVL25:
+ 187 0088 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 188              	.L14:
+ 189 008a C046     		.align	2
+ 190              	.L13:
+ 191 008c 08000000 		.word	.LC2
+ 192 0090 0C000000 		.word	.LC4
+ 193              		.cfi_endproc
+ 194              	.LFE34:
+ 195              		.size	interleaveBits, .-interleaveBits
+ 196              		.section	.text.main,"ax",%progbits
+ 197              		.align	2
+ 198              		.global	main
+ 199              		.code	16
+ 200              		.thumb_func
+ 201              		.type	main, %function
+ 202              	main:
+ 203              	.LFB35:
+  77:.\main.c      **** 
+  78:.\main.c      **** int main()
+  79:.\main.c      **** {
+ 204              		.loc 1 79 0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 6
+
+
+ 205              		.cfi_startproc
+ 206 0000 08B5     		push	{r3, lr}
+ 207              		.cfi_def_cfa_offset 8
+ 208              		.cfi_offset 3, -8
+ 209              		.cfi_offset 14, -4
+  80:.\main.c      ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 210              		.loc 1 80 0
+ 211              	@ 80 ".\main.c" 1
+ 212 0002 62B6     		CPSIE   i
+ 213              	@ 0 "" 2
+  81:.\main.c      **** 
+  82:.\main.c      ****     UART_1_Start();
+ 214              		.loc 1 82 0
+ 215              		.code	16
+ 216 0004 FFF7FEFF 		bl	UART_1_Start
+ 217              	.LVL26:
+  83:.\main.c      ****     UART_1_PutString("Established Communication. \n \r");
+ 218              		.loc 1 83 0
+ 219 0008 0348     		ldr	r0, .L17
+ 220 000a FFF7FEFF 		bl	UART_1_PutString
+ 221              	.LVL27:
+  84:.\main.c      ****     
+  85:.\main.c      ****     uint16 x = 0x55;
+  86:.\main.c      ****     uint16 y = 0xaa;
+  87:.\main.c      ****     uint32 z = interleaveBits(x, y);
+ 222              		.loc 1 87 0
+ 223 000e 5520     		mov	r0, #85
+ 224 0010 AA21     		mov	r1, #170
+ 225 0012 FFF7FEFF 		bl	interleaveBits
+ 226              	.LVL28:
+ 227              	.L16:
+  88:.\main.c      ****     //WriteHex(z);
+  89:.\main.c      ****     
+  90:.\main.c      ****     for(;;)
+  91:.\main.c      ****     {
+  92:.\main.c      ****         /* Place your application code here. */
+  93:.\main.c      ****     }
+ 228              		.loc 1 93 0 discriminator 1
+ 229 0016 FEE7     		b	.L16
+ 230              	.L18:
+ 231              		.align	2
+ 232              	.L17:
+ 233 0018 10000000 		.word	.LC6
+ 234              		.cfi_endproc
+ 235              	.LFE35:
+ 236              		.size	main, .-main
+ 237              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 238              		.align	2
+ 239              	.LC0:
+ 240 0000 25780A0D 		.ascii	"%x\012\015\000"
+ 240      00
+ 241 0005 000000   		.space	3
+ 242              	.LC2:
+ 243 0008 256400   		.ascii	"%d\000"
+ 244 000b 00       		.space	1
+ 245              	.LC4:
+ 246 000c 0A0D00   		.ascii	"\012\015\000"
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 7
+
+
+ 247 000f 00       		.space	1
+ 248              	.LC6:
+ 249 0010 45737461 		.ascii	"Established Communication. \012 \015\000"
+ 249      626C6973 
+ 249      68656420 
+ 249      436F6D6D 
+ 249      756E6963 
+ 250 002f 00       		.text
+ 251              	.Letext0:
+ 252              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 253              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 254              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 255              		.file 5 "Generated_Source\\PSoC4/UART_1.h"
+ 256              		.section	.debug_info,"",%progbits
+ 257              	.Ldebug_info0:
+ 258 0000 12040000 		.4byte	0x412
+ 259 0004 0400     		.2byte	0x4
+ 260 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 261 000a 04       		.byte	0x4
+ 262 000b 01       		.uleb128 0x1
+ 263 000c 3E010000 		.4byte	.LASF30
+ 264 0010 01       		.byte	0x1
+ 265 0011 BE000000 		.4byte	.LASF31
+ 266 0015 41000000 		.4byte	.LASF32
+ 267 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 268 001d 00000000 		.4byte	0
+ 269 0021 00000000 		.4byte	.Ldebug_line0
+ 270 0025 02       		.uleb128 0x2
+ 271 0026 01       		.byte	0x1
+ 272 0027 06       		.byte	0x6
+ 273 0028 DF010000 		.4byte	.LASF0
+ 274 002c 02       		.uleb128 0x2
+ 275 002d 01       		.byte	0x1
+ 276 002e 08       		.byte	0x8
+ 277 002f 33000000 		.4byte	.LASF1
+ 278 0033 02       		.uleb128 0x2
+ 279 0034 02       		.byte	0x2
+ 280 0035 05       		.byte	0x5
+ 281 0036 CC010000 		.4byte	.LASF2
+ 282 003a 02       		.uleb128 0x2
+ 283 003b 02       		.byte	0x2
+ 284 003c 07       		.byte	0x7
+ 285 003d 97000000 		.4byte	.LASF3
+ 286 0041 02       		.uleb128 0x2
+ 287 0042 04       		.byte	0x4
+ 288 0043 05       		.byte	0x5
+ 289 0044 D6010000 		.4byte	.LASF4
+ 290 0048 02       		.uleb128 0x2
+ 291 0049 04       		.byte	0x4
+ 292 004a 07       		.byte	0x7
+ 293 004b 85000000 		.4byte	.LASF5
+ 294 004f 02       		.uleb128 0x2
+ 295 0050 08       		.byte	0x8
+ 296 0051 05       		.byte	0x5
+ 297 0052 24010000 		.4byte	.LASF6
+ 298 0056 02       		.uleb128 0x2
+ 299 0057 08       		.byte	0x8
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 8
+
+
+ 300 0058 07       		.byte	0x7
+ 301 0059 F5000000 		.4byte	.LASF7
+ 302 005d 03       		.uleb128 0x3
+ 303 005e 04       		.byte	0x4
+ 304 005f 05       		.byte	0x5
+ 305 0060 696E7400 		.ascii	"int\000"
+ 306 0064 02       		.uleb128 0x2
+ 307 0065 04       		.byte	0x4
+ 308 0066 07       		.byte	0x7
+ 309 0067 E8000000 		.4byte	.LASF8
+ 310 006b 04       		.uleb128 0x4
+ 311 006c CE000000 		.4byte	.LASF9
+ 312 0070 02       		.byte	0x2
+ 313 0071 C3       		.byte	0xc3
+ 314 0072 3A000000 		.4byte	0x3a
+ 315 0076 04       		.uleb128 0x4
+ 316 0077 DC000000 		.4byte	.LASF10
+ 317 007b 02       		.byte	0x2
+ 318 007c C4       		.byte	0xc4
+ 319 007d 48000000 		.4byte	0x48
+ 320 0081 02       		.uleb128 0x2
+ 321 0082 04       		.byte	0x4
+ 322 0083 04       		.byte	0x4
+ 323 0084 2D000000 		.4byte	.LASF11
+ 324 0088 02       		.uleb128 0x2
+ 325 0089 08       		.byte	0x8
+ 326 008a 04       		.byte	0x4
+ 327 008b B7000000 		.4byte	.LASF12
+ 328 008f 04       		.uleb128 0x4
+ 329 0090 7F000000 		.4byte	.LASF13
+ 330 0094 02       		.byte	0x2
+ 331 0095 D3       		.byte	0xd3
+ 332 0096 9A000000 		.4byte	0x9a
+ 333 009a 02       		.uleb128 0x2
+ 334 009b 01       		.byte	0x1
+ 335 009c 08       		.byte	0x8
+ 336 009d 32010000 		.4byte	.LASF14
+ 337 00a1 02       		.uleb128 0x2
+ 338 00a2 04       		.byte	0x4
+ 339 00a3 07       		.byte	0x7
+ 340 00a4 1B010000 		.4byte	.LASF15
+ 341 00a8 05       		.uleb128 0x5
+ 342 00a9 04       		.byte	0x4
+ 343 00aa 9A000000 		.4byte	0x9a
+ 344 00ae 05       		.uleb128 0x5
+ 345 00af 04       		.byte	0x4
+ 346 00b0 B4000000 		.4byte	0xb4
+ 347 00b4 06       		.uleb128 0x6
+ 348 00b5 9A000000 		.4byte	0x9a
+ 349 00b9 07       		.uleb128 0x7
+ 350 00ba 24000000 		.4byte	.LASF25
+ 351 00be 01       		.byte	0x1
+ 352 00bf 0F       		.byte	0xf
+ 353 00c0 00000000 		.4byte	.LFB33
+ 354 00c4 1C000000 		.4byte	.LFE33-.LFB33
+ 355 00c8 01       		.uleb128 0x1
+ 356 00c9 9C       		.byte	0x9c
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 9
+
+
+ 357 00ca 1E010000 		.4byte	0x11e
+ 358 00ce 08       		.uleb128 0x8
+ 359 00cf 6100     		.ascii	"a\000"
+ 360 00d1 01       		.byte	0x1
+ 361 00d2 0F       		.byte	0xf
+ 362 00d3 5D000000 		.4byte	0x5d
+ 363 00d7 00000000 		.4byte	.LLST0
+ 364 00db 09       		.uleb128 0x9
+ 365 00dc 73747200 		.ascii	"str\000"
+ 366 00e0 01       		.byte	0x1
+ 367 00e1 11       		.byte	0x11
+ 368 00e2 1E010000 		.4byte	0x11e
+ 369 00e6 02       		.uleb128 0x2
+ 370 00e7 91       		.byte	0x91
+ 371 00e8 58       		.sleb128 -40
+ 372 00e9 0A       		.uleb128 0xa
+ 373 00ea 0E000000 		.4byte	.LVL2
+ 374 00ee A2030000 		.4byte	0x3a2
+ 375 00f2 0D010000 		.4byte	0x10d
+ 376 00f6 0B       		.uleb128 0xb
+ 377 00f7 01       		.uleb128 0x1
+ 378 00f8 52       		.byte	0x52
+ 379 00f9 03       		.uleb128 0x3
+ 380 00fa F3       		.byte	0xf3
+ 381 00fb 01       		.uleb128 0x1
+ 382 00fc 50       		.byte	0x50
+ 383 00fd 0B       		.uleb128 0xb
+ 384 00fe 01       		.uleb128 0x1
+ 385 00ff 51       		.byte	0x51
+ 386 0100 05       		.uleb128 0x5
+ 387 0101 03       		.byte	0x3
+ 388 0102 00000000 		.4byte	.LC0
+ 389 0106 0B       		.uleb128 0xb
+ 390 0107 01       		.uleb128 0x1
+ 391 0108 50       		.byte	0x50
+ 392 0109 02       		.uleb128 0x2
+ 393 010a 7D       		.byte	0x7d
+ 394 010b 00       		.sleb128 0
+ 395 010c 00       		.byte	0
+ 396 010d 0C       		.uleb128 0xc
+ 397 010e 14000000 		.4byte	.LVL3
+ 398 0112 BD030000 		.4byte	0x3bd
+ 399 0116 0B       		.uleb128 0xb
+ 400 0117 01       		.uleb128 0x1
+ 401 0118 50       		.byte	0x50
+ 402 0119 02       		.uleb128 0x2
+ 403 011a 7D       		.byte	0x7d
+ 404 011b 00       		.sleb128 0
+ 405 011c 00       		.byte	0
+ 406 011d 00       		.byte	0
+ 407 011e 0D       		.uleb128 0xd
+ 408 011f 9A000000 		.4byte	0x9a
+ 409 0123 2E010000 		.4byte	0x12e
+ 410 0127 0E       		.uleb128 0xe
+ 411 0128 A1000000 		.4byte	0xa1
+ 412 012c 1E       		.byte	0x1e
+ 413 012d 00       		.byte	0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 10
+
+
+ 414 012e 0F       		.uleb128 0xf
+ 415 012f 04020000 		.4byte	.LASF33
+ 416 0133 01       		.byte	0x1
+ 417 0134 16       		.byte	0x16
+ 418 0135 76000000 		.4byte	0x76
+ 419 0139 00000000 		.4byte	.LFB34
+ 420 013d 94000000 		.4byte	.LFE34-.LFB34
+ 421 0141 01       		.uleb128 0x1
+ 422 0142 9C       		.byte	0x9c
+ 423 0143 15030000 		.4byte	0x315
+ 424 0147 08       		.uleb128 0x8
+ 425 0148 7800     		.ascii	"x\000"
+ 426 014a 01       		.byte	0x1
+ 427 014b 16       		.byte	0x16
+ 428 014c 6B000000 		.4byte	0x6b
+ 429 0150 2C000000 		.4byte	.LLST1
+ 430 0154 08       		.uleb128 0x8
+ 431 0155 7900     		.ascii	"y\000"
+ 432 0157 01       		.byte	0x1
+ 433 0158 16       		.byte	0x16
+ 434 0159 6B000000 		.4byte	0x6b
+ 435 015d 4D000000 		.4byte	.LLST2
+ 436 0161 10       		.uleb128 0x10
+ 437 0162 19000000 		.4byte	.LASF16
+ 438 0166 01       		.byte	0x1
+ 439 0167 19       		.byte	0x19
+ 440 0168 5D000000 		.4byte	0x5d
+ 441 016c 6E000000 		.4byte	.LLST3
+ 442 0170 10       		.uleb128 0x10
+ 443 0171 D5000000 		.4byte	.LASF17
+ 444 0175 01       		.byte	0x1
+ 445 0176 1A       		.byte	0x1a
+ 446 0177 5D000000 		.4byte	0x5d
+ 447 017b 8D000000 		.4byte	.LLST4
+ 448 017f 10       		.uleb128 0x10
+ 449 0180 37010000 		.4byte	.LASF18
+ 450 0184 01       		.byte	0x1
+ 451 0185 1B       		.byte	0x1b
+ 452 0186 5D000000 		.4byte	0x5d
+ 453 018a AC000000 		.4byte	.LLST5
+ 454 018e 11       		.uleb128 0x11
+ 455 018f AA000000 		.4byte	.LASF19
+ 456 0193 01       		.byte	0x1
+ 457 0194 1C       		.byte	0x1c
+ 458 0195 15030000 		.4byte	0x315
+ 459 0199 02       		.uleb128 0x2
+ 460 019a 91       		.byte	0x91
+ 461 019b 64       		.sleb128 -28
+ 462 019c 11       		.uleb128 0x11
+ 463 019d 15010000 		.4byte	.LASF20
+ 464 01a1 01       		.byte	0x1
+ 465 01a2 1D       		.byte	0x1d
+ 466 01a3 15030000 		.4byte	0x315
+ 467 01a7 02       		.uleb128 0x2
+ 468 01a8 91       		.byte	0x91
+ 469 01a9 60       		.sleb128 -32
+ 470 01aa 11       		.uleb128 0x11
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 11
+
+
+ 471 01ab 0C010000 		.4byte	.LASF21
+ 472 01af 01       		.byte	0x1
+ 473 01b0 1E       		.byte	0x1e
+ 474 01b1 25030000 		.4byte	0x325
+ 475 01b5 02       		.uleb128 0x2
+ 476 01b6 91       		.byte	0x91
+ 477 01b7 40       		.sleb128 -64
+ 478 01b8 11       		.uleb128 0x11
+ 479 01b9 C7000000 		.4byte	.LASF22
+ 480 01bd 01       		.byte	0x1
+ 481 01be 1F       		.byte	0x1f
+ 482 01bf 5D000000 		.4byte	0x5d
+ 483 01c3 03       		.uleb128 0x3
+ 484 01c4 91       		.byte	0x91
+ 485 01c5 BC7F     		.sleb128 -68
+ 486 01c7 12       		.uleb128 0x12
+ 487 01c8 12000000 		.4byte	.LBB2
+ 488 01cc 2E000000 		.4byte	.LBE2-.LBB2
+ 489 01d0 52020000 		.4byte	0x252
+ 490 01d4 10       		.uleb128 0x10
+ 491 01d5 14000000 		.4byte	.LASF23
+ 492 01d9 01       		.byte	0x1
+ 493 01da 29       		.byte	0x29
+ 494 01db 6B000000 		.4byte	0x6b
+ 495 01df C0000000 		.4byte	.LLST6
+ 496 01e3 0A       		.uleb128 0xa
+ 497 01e4 24000000 		.4byte	.LVL8
+ 498 01e8 A2030000 		.4byte	0x3a2
+ 499 01ec 05020000 		.4byte	0x205
+ 500 01f0 0B       		.uleb128 0xb
+ 501 01f1 01       		.uleb128 0x1
+ 502 01f2 52       		.byte	0x52
+ 503 01f3 01       		.uleb128 0x1
+ 504 01f4 31       		.byte	0x31
+ 505 01f5 0B       		.uleb128 0xb
+ 506 01f6 01       		.uleb128 0x1
+ 507 01f7 51       		.byte	0x51
+ 508 01f8 05       		.uleb128 0x5
+ 509 01f9 03       		.byte	0x3
+ 510 01fa 08000000 		.4byte	.LC2
+ 511 01fe 0B       		.uleb128 0xb
+ 512 01ff 01       		.uleb128 0x1
+ 513 0200 50       		.byte	0x50
+ 514 0201 02       		.uleb128 0x2
+ 515 0202 91       		.byte	0x91
+ 516 0203 64       		.sleb128 -28
+ 517 0204 00       		.byte	0
+ 518 0205 0A       		.uleb128 0xa
+ 519 0206 30000000 		.4byte	.LVL10
+ 520 020a A2030000 		.4byte	0x3a2
+ 521 020e 27020000 		.4byte	0x227
+ 522 0212 0B       		.uleb128 0xb
+ 523 0213 01       		.uleb128 0x1
+ 524 0214 52       		.byte	0x52
+ 525 0215 01       		.uleb128 0x1
+ 526 0216 30       		.byte	0x30
+ 527 0217 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 12
+
+
+ 528 0218 01       		.uleb128 0x1
+ 529 0219 51       		.byte	0x51
+ 530 021a 05       		.uleb128 0x5
+ 531 021b 03       		.byte	0x3
+ 532 021c 08000000 		.4byte	.LC2
+ 533 0220 0B       		.uleb128 0xb
+ 534 0221 01       		.uleb128 0x1
+ 535 0222 50       		.byte	0x50
+ 536 0223 02       		.uleb128 0x2
+ 537 0224 91       		.byte	0x91
+ 538 0225 64       		.sleb128 -28
+ 539 0226 00       		.byte	0
+ 540 0227 0A       		.uleb128 0xa
+ 541 0228 38000000 		.4byte	.LVL11
+ 542 022c D9030000 		.4byte	0x3d9
+ 543 0230 41020000 		.4byte	0x241
+ 544 0234 0B       		.uleb128 0xb
+ 545 0235 01       		.uleb128 0x1
+ 546 0236 51       		.byte	0x51
+ 547 0237 02       		.uleb128 0x2
+ 548 0238 91       		.byte	0x91
+ 549 0239 64       		.sleb128 -28
+ 550 023a 0B       		.uleb128 0xb
+ 551 023b 01       		.uleb128 0x1
+ 552 023c 50       		.byte	0x50
+ 553 023d 02       		.uleb128 0x2
+ 554 023e 91       		.byte	0x91
+ 555 023f 40       		.sleb128 -64
+ 556 0240 00       		.byte	0
+ 557 0241 0C       		.uleb128 0xc
+ 558 0242 40000000 		.4byte	.LVL13
+ 559 0246 BD030000 		.4byte	0x3bd
+ 560 024a 0B       		.uleb128 0xb
+ 561 024b 01       		.uleb128 0x1
+ 562 024c 50       		.byte	0x50
+ 563 024d 02       		.uleb128 0x2
+ 564 024e 91       		.byte	0x91
+ 565 024f 60       		.sleb128 -32
+ 566 0250 00       		.byte	0
+ 567 0251 00       		.byte	0
+ 568 0252 12       		.uleb128 0x12
+ 569 0253 42000000 		.4byte	.LBB3
+ 570 0257 2C000000 		.4byte	.LBE3-.LBB3
+ 571 025b DD020000 		.4byte	0x2dd
+ 572 025f 10       		.uleb128 0x10
+ 573 0260 1F000000 		.4byte	.LASF24
+ 574 0264 01       		.byte	0x1
+ 575 0265 37       		.byte	0x37
+ 576 0266 6B000000 		.4byte	0x6b
+ 577 026a 1E010000 		.4byte	.LLST7
+ 578 026e 0A       		.uleb128 0xa
+ 579 026f 54000000 		.4byte	.LVL16
+ 580 0273 A2030000 		.4byte	0x3a2
+ 581 0277 90020000 		.4byte	0x290
+ 582 027b 0B       		.uleb128 0xb
+ 583 027c 01       		.uleb128 0x1
+ 584 027d 52       		.byte	0x52
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 13
+
+
+ 585 027e 01       		.uleb128 0x1
+ 586 027f 31       		.byte	0x31
+ 587 0280 0B       		.uleb128 0xb
+ 588 0281 01       		.uleb128 0x1
+ 589 0282 51       		.byte	0x51
+ 590 0283 05       		.uleb128 0x5
+ 591 0284 03       		.byte	0x3
+ 592 0285 08000000 		.4byte	.LC2
+ 593 0289 0B       		.uleb128 0xb
+ 594 028a 01       		.uleb128 0x1
+ 595 028b 50       		.byte	0x50
+ 596 028c 02       		.uleb128 0x2
+ 597 028d 91       		.byte	0x91
+ 598 028e 60       		.sleb128 -32
+ 599 028f 00       		.byte	0
+ 600 0290 0A       		.uleb128 0xa
+ 601 0291 60000000 		.4byte	.LVL18
+ 602 0295 A2030000 		.4byte	0x3a2
+ 603 0299 B2020000 		.4byte	0x2b2
+ 604 029d 0B       		.uleb128 0xb
+ 605 029e 01       		.uleb128 0x1
+ 606 029f 52       		.byte	0x52
+ 607 02a0 01       		.uleb128 0x1
+ 608 02a1 30       		.byte	0x30
+ 609 02a2 0B       		.uleb128 0xb
+ 610 02a3 01       		.uleb128 0x1
+ 611 02a4 51       		.byte	0x51
+ 612 02a5 05       		.uleb128 0x5
+ 613 02a6 03       		.byte	0x3
+ 614 02a7 08000000 		.4byte	.LC2
+ 615 02ab 0B       		.uleb128 0xb
+ 616 02ac 01       		.uleb128 0x1
+ 617 02ad 50       		.byte	0x50
+ 618 02ae 02       		.uleb128 0x2
+ 619 02af 91       		.byte	0x91
+ 620 02b0 60       		.sleb128 -32
+ 621 02b1 00       		.byte	0
+ 622 02b2 0A       		.uleb128 0xa
+ 623 02b3 68000000 		.4byte	.LVL19
+ 624 02b7 D9030000 		.4byte	0x3d9
+ 625 02bb CC020000 		.4byte	0x2cc
+ 626 02bf 0B       		.uleb128 0xb
+ 627 02c0 01       		.uleb128 0x1
+ 628 02c1 51       		.byte	0x51
+ 629 02c2 02       		.uleb128 0x2
+ 630 02c3 91       		.byte	0x91
+ 631 02c4 60       		.sleb128 -32
+ 632 02c5 0B       		.uleb128 0xb
+ 633 02c6 01       		.uleb128 0x1
+ 634 02c7 50       		.byte	0x50
+ 635 02c8 02       		.uleb128 0x2
+ 636 02c9 91       		.byte	0x91
+ 637 02ca 40       		.sleb128 -64
+ 638 02cb 00       		.byte	0
+ 639 02cc 0C       		.uleb128 0xc
+ 640 02cd 6E000000 		.4byte	.LVL20
+ 641 02d1 BD030000 		.4byte	0x3bd
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 14
+
+
+ 642 02d5 0B       		.uleb128 0xb
+ 643 02d6 01       		.uleb128 0x1
+ 644 02d7 50       		.byte	0x50
+ 645 02d8 02       		.uleb128 0x2
+ 646 02d9 91       		.byte	0x91
+ 647 02da 60       		.sleb128 -32
+ 648 02db 00       		.byte	0
+ 649 02dc 00       		.byte	0
+ 650 02dd 0A       		.uleb128 0xa
+ 651 02de 7A000000 		.4byte	.LVL22
+ 652 02e2 BD030000 		.4byte	0x3bd
+ 653 02e6 F4020000 		.4byte	0x2f4
+ 654 02ea 0B       		.uleb128 0xb
+ 655 02eb 01       		.uleb128 0x1
+ 656 02ec 50       		.byte	0x50
+ 657 02ed 05       		.uleb128 0x5
+ 658 02ee 03       		.byte	0x3
+ 659 02ef 0C000000 		.4byte	.LC4
+ 660 02f3 00       		.byte	0
+ 661 02f4 0C       		.uleb128 0xc
+ 662 02f5 84000000 		.4byte	.LVL23
+ 663 02f9 F3030000 		.4byte	0x3f3
+ 664 02fd 0B       		.uleb128 0xb
+ 665 02fe 01       		.uleb128 0x1
+ 666 02ff 52       		.byte	0x52
+ 667 0300 03       		.uleb128 0x3
+ 668 0301 91       		.byte	0x91
+ 669 0302 BC7F     		.sleb128 -68
+ 670 0304 0B       		.uleb128 0xb
+ 671 0305 01       		.uleb128 0x1
+ 672 0306 51       		.byte	0x51
+ 673 0307 05       		.uleb128 0x5
+ 674 0308 03       		.byte	0x3
+ 675 0309 08000000 		.4byte	.LC2
+ 676 030d 0B       		.uleb128 0xb
+ 677 030e 01       		.uleb128 0x1
+ 678 030f 50       		.byte	0x50
+ 679 0310 02       		.uleb128 0x2
+ 680 0311 91       		.byte	0x91
+ 681 0312 40       		.sleb128 -64
+ 682 0313 00       		.byte	0
+ 683 0314 00       		.byte	0
+ 684 0315 0D       		.uleb128 0xd
+ 685 0316 9A000000 		.4byte	0x9a
+ 686 031a 25030000 		.4byte	0x325
+ 687 031e 0E       		.uleb128 0xe
+ 688 031f A1000000 		.4byte	0xa1
+ 689 0323 00       		.byte	0
+ 690 0324 00       		.byte	0
+ 691 0325 0D       		.uleb128 0xd
+ 692 0326 9A000000 		.4byte	0x9a
+ 693 032a 35030000 		.4byte	0x335
+ 694 032e 0E       		.uleb128 0xe
+ 695 032f A1000000 		.4byte	0xa1
+ 696 0333 1F       		.byte	0x1f
+ 697 0334 00       		.byte	0
+ 698 0335 13       		.uleb128 0x13
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 15
+
+
+ 699 0336 E3000000 		.4byte	.LASF26
+ 700 033a 01       		.byte	0x1
+ 701 033b 4E       		.byte	0x4e
+ 702 033c 5D000000 		.4byte	0x5d
+ 703 0340 00000000 		.4byte	.LFB35
+ 704 0344 1C000000 		.4byte	.LFE35-.LFB35
+ 705 0348 01       		.uleb128 0x1
+ 706 0349 9C       		.byte	0x9c
+ 707 034a A2030000 		.4byte	0x3a2
+ 708 034e 14       		.uleb128 0x14
+ 709 034f 7800     		.ascii	"x\000"
+ 710 0351 01       		.byte	0x1
+ 711 0352 55       		.byte	0x55
+ 712 0353 6B000000 		.4byte	0x6b
+ 713 0357 55       		.byte	0x55
+ 714 0358 14       		.uleb128 0x14
+ 715 0359 7900     		.ascii	"y\000"
+ 716 035b 01       		.byte	0x1
+ 717 035c 56       		.byte	0x56
+ 718 035d 6B000000 		.4byte	0x6b
+ 719 0361 AA       		.byte	0xaa
+ 720 0362 15       		.uleb128 0x15
+ 721 0363 7A00     		.ascii	"z\000"
+ 722 0365 01       		.byte	0x1
+ 723 0366 57       		.byte	0x57
+ 724 0367 76000000 		.4byte	0x76
+ 725 036b 16       		.uleb128 0x16
+ 726 036c 08000000 		.4byte	.LVL26
+ 727 0370 0E040000 		.4byte	0x40e
+ 728 0374 0A       		.uleb128 0xa
+ 729 0375 0E000000 		.4byte	.LVL27
+ 730 0379 BD030000 		.4byte	0x3bd
+ 731 037d 8B030000 		.4byte	0x38b
+ 732 0381 0B       		.uleb128 0xb
+ 733 0382 01       		.uleb128 0x1
+ 734 0383 50       		.byte	0x50
+ 735 0384 05       		.uleb128 0x5
+ 736 0385 03       		.byte	0x3
+ 737 0386 10000000 		.4byte	.LC6
+ 738 038a 00       		.byte	0
+ 739 038b 0C       		.uleb128 0xc
+ 740 038c 16000000 		.4byte	.LVL28
+ 741 0390 2E010000 		.4byte	0x12e
+ 742 0394 0B       		.uleb128 0xb
+ 743 0395 01       		.uleb128 0x1
+ 744 0396 51       		.byte	0x51
+ 745 0397 02       		.uleb128 0x2
+ 746 0398 08       		.byte	0x8
+ 747 0399 AA       		.byte	0xaa
+ 748 039a 0B       		.uleb128 0xb
+ 749 039b 01       		.uleb128 0x1
+ 750 039c 50       		.byte	0x50
+ 751 039d 02       		.uleb128 0x2
+ 752 039e 08       		.byte	0x8
+ 753 039f 55       		.byte	0x55
+ 754 03a0 00       		.byte	0
+ 755 03a1 00       		.byte	0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 16
+
+
+ 756 03a2 17       		.uleb128 0x17
+ 757 03a3 FC010000 		.4byte	.LASF27
+ 758 03a7 03       		.byte	0x3
+ 759 03a8 DE       		.byte	0xde
+ 760 03a9 5D000000 		.4byte	0x5d
+ 761 03ad BD030000 		.4byte	0x3bd
+ 762 03b1 18       		.uleb128 0x18
+ 763 03b2 A8000000 		.4byte	0xa8
+ 764 03b6 18       		.uleb128 0x18
+ 765 03b7 AE000000 		.4byte	0xae
+ 766 03bb 19       		.uleb128 0x19
+ 767 03bc 00       		.byte	0
+ 768 03bd 1A       		.uleb128 0x1a
+ 769 03be EB010000 		.4byte	.LASF34
+ 770 03c2 05       		.byte	0x5
+ 771 03c3 8B       		.byte	0x8b
+ 772 03c4 CE030000 		.4byte	0x3ce
+ 773 03c8 18       		.uleb128 0x18
+ 774 03c9 CE030000 		.4byte	0x3ce
+ 775 03cd 00       		.byte	0
+ 776 03ce 05       		.uleb128 0x5
+ 777 03cf 04       		.byte	0x4
+ 778 03d0 D4030000 		.4byte	0x3d4
+ 779 03d4 06       		.uleb128 0x6
+ 780 03d5 8F000000 		.4byte	0x8f
+ 781 03d9 17       		.uleb128 0x17
+ 782 03da B0000000 		.4byte	.LASF28
+ 783 03de 04       		.byte	0x4
+ 784 03df 1A       		.byte	0x1a
+ 785 03e0 A8000000 		.4byte	0xa8
+ 786 03e4 F3030000 		.4byte	0x3f3
+ 787 03e8 18       		.uleb128 0x18
+ 788 03e9 A8000000 		.4byte	0xa8
+ 789 03ed 18       		.uleb128 0x18
+ 790 03ee AE000000 		.4byte	0xae
+ 791 03f2 00       		.byte	0
+ 792 03f3 17       		.uleb128 0x17
+ 793 03f4 00000000 		.4byte	.LASF29
+ 794 03f8 03       		.byte	0x3
+ 795 03f9 B6       		.byte	0xb6
+ 796 03fa 5D000000 		.4byte	0x5d
+ 797 03fe 0E040000 		.4byte	0x40e
+ 798 0402 18       		.uleb128 0x18
+ 799 0403 AE000000 		.4byte	0xae
+ 800 0407 18       		.uleb128 0x18
+ 801 0408 AE000000 		.4byte	0xae
+ 802 040c 19       		.uleb128 0x19
+ 803 040d 00       		.byte	0
+ 804 040e 1B       		.uleb128 0x1b
+ 805 040f 07000000 		.4byte	.LASF35
+ 806 0413 05       		.byte	0x5
+ 807 0414 54       		.byte	0x54
+ 808 0415 00       		.byte	0
+ 809              		.section	.debug_abbrev,"",%progbits
+ 810              	.Ldebug_abbrev0:
+ 811 0000 01       		.uleb128 0x1
+ 812 0001 11       		.uleb128 0x11
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 17
+
+
+ 813 0002 01       		.byte	0x1
+ 814 0003 25       		.uleb128 0x25
+ 815 0004 0E       		.uleb128 0xe
+ 816 0005 13       		.uleb128 0x13
+ 817 0006 0B       		.uleb128 0xb
+ 818 0007 03       		.uleb128 0x3
+ 819 0008 0E       		.uleb128 0xe
+ 820 0009 1B       		.uleb128 0x1b
+ 821 000a 0E       		.uleb128 0xe
+ 822 000b 55       		.uleb128 0x55
+ 823 000c 17       		.uleb128 0x17
+ 824 000d 11       		.uleb128 0x11
+ 825 000e 01       		.uleb128 0x1
+ 826 000f 10       		.uleb128 0x10
+ 827 0010 17       		.uleb128 0x17
+ 828 0011 00       		.byte	0
+ 829 0012 00       		.byte	0
+ 830 0013 02       		.uleb128 0x2
+ 831 0014 24       		.uleb128 0x24
+ 832 0015 00       		.byte	0
+ 833 0016 0B       		.uleb128 0xb
+ 834 0017 0B       		.uleb128 0xb
+ 835 0018 3E       		.uleb128 0x3e
+ 836 0019 0B       		.uleb128 0xb
+ 837 001a 03       		.uleb128 0x3
+ 838 001b 0E       		.uleb128 0xe
+ 839 001c 00       		.byte	0
+ 840 001d 00       		.byte	0
+ 841 001e 03       		.uleb128 0x3
+ 842 001f 24       		.uleb128 0x24
+ 843 0020 00       		.byte	0
+ 844 0021 0B       		.uleb128 0xb
+ 845 0022 0B       		.uleb128 0xb
+ 846 0023 3E       		.uleb128 0x3e
+ 847 0024 0B       		.uleb128 0xb
+ 848 0025 03       		.uleb128 0x3
+ 849 0026 08       		.uleb128 0x8
+ 850 0027 00       		.byte	0
+ 851 0028 00       		.byte	0
+ 852 0029 04       		.uleb128 0x4
+ 853 002a 16       		.uleb128 0x16
+ 854 002b 00       		.byte	0
+ 855 002c 03       		.uleb128 0x3
+ 856 002d 0E       		.uleb128 0xe
+ 857 002e 3A       		.uleb128 0x3a
+ 858 002f 0B       		.uleb128 0xb
+ 859 0030 3B       		.uleb128 0x3b
+ 860 0031 0B       		.uleb128 0xb
+ 861 0032 49       		.uleb128 0x49
+ 862 0033 13       		.uleb128 0x13
+ 863 0034 00       		.byte	0
+ 864 0035 00       		.byte	0
+ 865 0036 05       		.uleb128 0x5
+ 866 0037 0F       		.uleb128 0xf
+ 867 0038 00       		.byte	0
+ 868 0039 0B       		.uleb128 0xb
+ 869 003a 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 18
+
+
+ 870 003b 49       		.uleb128 0x49
+ 871 003c 13       		.uleb128 0x13
+ 872 003d 00       		.byte	0
+ 873 003e 00       		.byte	0
+ 874 003f 06       		.uleb128 0x6
+ 875 0040 26       		.uleb128 0x26
+ 876 0041 00       		.byte	0
+ 877 0042 49       		.uleb128 0x49
+ 878 0043 13       		.uleb128 0x13
+ 879 0044 00       		.byte	0
+ 880 0045 00       		.byte	0
+ 881 0046 07       		.uleb128 0x7
+ 882 0047 2E       		.uleb128 0x2e
+ 883 0048 01       		.byte	0x1
+ 884 0049 3F       		.uleb128 0x3f
+ 885 004a 19       		.uleb128 0x19
+ 886 004b 03       		.uleb128 0x3
+ 887 004c 0E       		.uleb128 0xe
+ 888 004d 3A       		.uleb128 0x3a
+ 889 004e 0B       		.uleb128 0xb
+ 890 004f 3B       		.uleb128 0x3b
+ 891 0050 0B       		.uleb128 0xb
+ 892 0051 27       		.uleb128 0x27
+ 893 0052 19       		.uleb128 0x19
+ 894 0053 11       		.uleb128 0x11
+ 895 0054 01       		.uleb128 0x1
+ 896 0055 12       		.uleb128 0x12
+ 897 0056 06       		.uleb128 0x6
+ 898 0057 40       		.uleb128 0x40
+ 899 0058 18       		.uleb128 0x18
+ 900 0059 9742     		.uleb128 0x2117
+ 901 005b 19       		.uleb128 0x19
+ 902 005c 01       		.uleb128 0x1
+ 903 005d 13       		.uleb128 0x13
+ 904 005e 00       		.byte	0
+ 905 005f 00       		.byte	0
+ 906 0060 08       		.uleb128 0x8
+ 907 0061 05       		.uleb128 0x5
+ 908 0062 00       		.byte	0
+ 909 0063 03       		.uleb128 0x3
+ 910 0064 08       		.uleb128 0x8
+ 911 0065 3A       		.uleb128 0x3a
+ 912 0066 0B       		.uleb128 0xb
+ 913 0067 3B       		.uleb128 0x3b
+ 914 0068 0B       		.uleb128 0xb
+ 915 0069 49       		.uleb128 0x49
+ 916 006a 13       		.uleb128 0x13
+ 917 006b 02       		.uleb128 0x2
+ 918 006c 17       		.uleb128 0x17
+ 919 006d 00       		.byte	0
+ 920 006e 00       		.byte	0
+ 921 006f 09       		.uleb128 0x9
+ 922 0070 34       		.uleb128 0x34
+ 923 0071 00       		.byte	0
+ 924 0072 03       		.uleb128 0x3
+ 925 0073 08       		.uleb128 0x8
+ 926 0074 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 19
+
+
+ 927 0075 0B       		.uleb128 0xb
+ 928 0076 3B       		.uleb128 0x3b
+ 929 0077 0B       		.uleb128 0xb
+ 930 0078 49       		.uleb128 0x49
+ 931 0079 13       		.uleb128 0x13
+ 932 007a 02       		.uleb128 0x2
+ 933 007b 18       		.uleb128 0x18
+ 934 007c 00       		.byte	0
+ 935 007d 00       		.byte	0
+ 936 007e 0A       		.uleb128 0xa
+ 937 007f 898201   		.uleb128 0x4109
+ 938 0082 01       		.byte	0x1
+ 939 0083 11       		.uleb128 0x11
+ 940 0084 01       		.uleb128 0x1
+ 941 0085 31       		.uleb128 0x31
+ 942 0086 13       		.uleb128 0x13
+ 943 0087 01       		.uleb128 0x1
+ 944 0088 13       		.uleb128 0x13
+ 945 0089 00       		.byte	0
+ 946 008a 00       		.byte	0
+ 947 008b 0B       		.uleb128 0xb
+ 948 008c 8A8201   		.uleb128 0x410a
+ 949 008f 00       		.byte	0
+ 950 0090 02       		.uleb128 0x2
+ 951 0091 18       		.uleb128 0x18
+ 952 0092 9142     		.uleb128 0x2111
+ 953 0094 18       		.uleb128 0x18
+ 954 0095 00       		.byte	0
+ 955 0096 00       		.byte	0
+ 956 0097 0C       		.uleb128 0xc
+ 957 0098 898201   		.uleb128 0x4109
+ 958 009b 01       		.byte	0x1
+ 959 009c 11       		.uleb128 0x11
+ 960 009d 01       		.uleb128 0x1
+ 961 009e 31       		.uleb128 0x31
+ 962 009f 13       		.uleb128 0x13
+ 963 00a0 00       		.byte	0
+ 964 00a1 00       		.byte	0
+ 965 00a2 0D       		.uleb128 0xd
+ 966 00a3 01       		.uleb128 0x1
+ 967 00a4 01       		.byte	0x1
+ 968 00a5 49       		.uleb128 0x49
+ 969 00a6 13       		.uleb128 0x13
+ 970 00a7 01       		.uleb128 0x1
+ 971 00a8 13       		.uleb128 0x13
+ 972 00a9 00       		.byte	0
+ 973 00aa 00       		.byte	0
+ 974 00ab 0E       		.uleb128 0xe
+ 975 00ac 21       		.uleb128 0x21
+ 976 00ad 00       		.byte	0
+ 977 00ae 49       		.uleb128 0x49
+ 978 00af 13       		.uleb128 0x13
+ 979 00b0 2F       		.uleb128 0x2f
+ 980 00b1 0B       		.uleb128 0xb
+ 981 00b2 00       		.byte	0
+ 982 00b3 00       		.byte	0
+ 983 00b4 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 20
+
+
+ 984 00b5 2E       		.uleb128 0x2e
+ 985 00b6 01       		.byte	0x1
+ 986 00b7 3F       		.uleb128 0x3f
+ 987 00b8 19       		.uleb128 0x19
+ 988 00b9 03       		.uleb128 0x3
+ 989 00ba 0E       		.uleb128 0xe
+ 990 00bb 3A       		.uleb128 0x3a
+ 991 00bc 0B       		.uleb128 0xb
+ 992 00bd 3B       		.uleb128 0x3b
+ 993 00be 0B       		.uleb128 0xb
+ 994 00bf 27       		.uleb128 0x27
+ 995 00c0 19       		.uleb128 0x19
+ 996 00c1 49       		.uleb128 0x49
+ 997 00c2 13       		.uleb128 0x13
+ 998 00c3 11       		.uleb128 0x11
+ 999 00c4 01       		.uleb128 0x1
+ 1000 00c5 12       		.uleb128 0x12
+ 1001 00c6 06       		.uleb128 0x6
+ 1002 00c7 40       		.uleb128 0x40
+ 1003 00c8 18       		.uleb128 0x18
+ 1004 00c9 9742     		.uleb128 0x2117
+ 1005 00cb 19       		.uleb128 0x19
+ 1006 00cc 01       		.uleb128 0x1
+ 1007 00cd 13       		.uleb128 0x13
+ 1008 00ce 00       		.byte	0
+ 1009 00cf 00       		.byte	0
+ 1010 00d0 10       		.uleb128 0x10
+ 1011 00d1 34       		.uleb128 0x34
+ 1012 00d2 00       		.byte	0
+ 1013 00d3 03       		.uleb128 0x3
+ 1014 00d4 0E       		.uleb128 0xe
+ 1015 00d5 3A       		.uleb128 0x3a
+ 1016 00d6 0B       		.uleb128 0xb
+ 1017 00d7 3B       		.uleb128 0x3b
+ 1018 00d8 0B       		.uleb128 0xb
+ 1019 00d9 49       		.uleb128 0x49
+ 1020 00da 13       		.uleb128 0x13
+ 1021 00db 02       		.uleb128 0x2
+ 1022 00dc 17       		.uleb128 0x17
+ 1023 00dd 00       		.byte	0
+ 1024 00de 00       		.byte	0
+ 1025 00df 11       		.uleb128 0x11
+ 1026 00e0 34       		.uleb128 0x34
+ 1027 00e1 00       		.byte	0
+ 1028 00e2 03       		.uleb128 0x3
+ 1029 00e3 0E       		.uleb128 0xe
+ 1030 00e4 3A       		.uleb128 0x3a
+ 1031 00e5 0B       		.uleb128 0xb
+ 1032 00e6 3B       		.uleb128 0x3b
+ 1033 00e7 0B       		.uleb128 0xb
+ 1034 00e8 49       		.uleb128 0x49
+ 1035 00e9 13       		.uleb128 0x13
+ 1036 00ea 02       		.uleb128 0x2
+ 1037 00eb 18       		.uleb128 0x18
+ 1038 00ec 00       		.byte	0
+ 1039 00ed 00       		.byte	0
+ 1040 00ee 12       		.uleb128 0x12
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 21
+
+
+ 1041 00ef 0B       		.uleb128 0xb
+ 1042 00f0 01       		.byte	0x1
+ 1043 00f1 11       		.uleb128 0x11
+ 1044 00f2 01       		.uleb128 0x1
+ 1045 00f3 12       		.uleb128 0x12
+ 1046 00f4 06       		.uleb128 0x6
+ 1047 00f5 01       		.uleb128 0x1
+ 1048 00f6 13       		.uleb128 0x13
+ 1049 00f7 00       		.byte	0
+ 1050 00f8 00       		.byte	0
+ 1051 00f9 13       		.uleb128 0x13
+ 1052 00fa 2E       		.uleb128 0x2e
+ 1053 00fb 01       		.byte	0x1
+ 1054 00fc 3F       		.uleb128 0x3f
+ 1055 00fd 19       		.uleb128 0x19
+ 1056 00fe 03       		.uleb128 0x3
+ 1057 00ff 0E       		.uleb128 0xe
+ 1058 0100 3A       		.uleb128 0x3a
+ 1059 0101 0B       		.uleb128 0xb
+ 1060 0102 3B       		.uleb128 0x3b
+ 1061 0103 0B       		.uleb128 0xb
+ 1062 0104 49       		.uleb128 0x49
+ 1063 0105 13       		.uleb128 0x13
+ 1064 0106 11       		.uleb128 0x11
+ 1065 0107 01       		.uleb128 0x1
+ 1066 0108 12       		.uleb128 0x12
+ 1067 0109 06       		.uleb128 0x6
+ 1068 010a 40       		.uleb128 0x40
+ 1069 010b 18       		.uleb128 0x18
+ 1070 010c 9742     		.uleb128 0x2117
+ 1071 010e 19       		.uleb128 0x19
+ 1072 010f 01       		.uleb128 0x1
+ 1073 0110 13       		.uleb128 0x13
+ 1074 0111 00       		.byte	0
+ 1075 0112 00       		.byte	0
+ 1076 0113 14       		.uleb128 0x14
+ 1077 0114 34       		.uleb128 0x34
+ 1078 0115 00       		.byte	0
+ 1079 0116 03       		.uleb128 0x3
+ 1080 0117 08       		.uleb128 0x8
+ 1081 0118 3A       		.uleb128 0x3a
+ 1082 0119 0B       		.uleb128 0xb
+ 1083 011a 3B       		.uleb128 0x3b
+ 1084 011b 0B       		.uleb128 0xb
+ 1085 011c 49       		.uleb128 0x49
+ 1086 011d 13       		.uleb128 0x13
+ 1087 011e 1C       		.uleb128 0x1c
+ 1088 011f 0B       		.uleb128 0xb
+ 1089 0120 00       		.byte	0
+ 1090 0121 00       		.byte	0
+ 1091 0122 15       		.uleb128 0x15
+ 1092 0123 34       		.uleb128 0x34
+ 1093 0124 00       		.byte	0
+ 1094 0125 03       		.uleb128 0x3
+ 1095 0126 08       		.uleb128 0x8
+ 1096 0127 3A       		.uleb128 0x3a
+ 1097 0128 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 22
+
+
+ 1098 0129 3B       		.uleb128 0x3b
+ 1099 012a 0B       		.uleb128 0xb
+ 1100 012b 49       		.uleb128 0x49
+ 1101 012c 13       		.uleb128 0x13
+ 1102 012d 00       		.byte	0
+ 1103 012e 00       		.byte	0
+ 1104 012f 16       		.uleb128 0x16
+ 1105 0130 898201   		.uleb128 0x4109
+ 1106 0133 00       		.byte	0
+ 1107 0134 11       		.uleb128 0x11
+ 1108 0135 01       		.uleb128 0x1
+ 1109 0136 31       		.uleb128 0x31
+ 1110 0137 13       		.uleb128 0x13
+ 1111 0138 00       		.byte	0
+ 1112 0139 00       		.byte	0
+ 1113 013a 17       		.uleb128 0x17
+ 1114 013b 2E       		.uleb128 0x2e
+ 1115 013c 01       		.byte	0x1
+ 1116 013d 3F       		.uleb128 0x3f
+ 1117 013e 19       		.uleb128 0x19
+ 1118 013f 03       		.uleb128 0x3
+ 1119 0140 0E       		.uleb128 0xe
+ 1120 0141 3A       		.uleb128 0x3a
+ 1121 0142 0B       		.uleb128 0xb
+ 1122 0143 3B       		.uleb128 0x3b
+ 1123 0144 0B       		.uleb128 0xb
+ 1124 0145 27       		.uleb128 0x27
+ 1125 0146 19       		.uleb128 0x19
+ 1126 0147 49       		.uleb128 0x49
+ 1127 0148 13       		.uleb128 0x13
+ 1128 0149 3C       		.uleb128 0x3c
+ 1129 014a 19       		.uleb128 0x19
+ 1130 014b 01       		.uleb128 0x1
+ 1131 014c 13       		.uleb128 0x13
+ 1132 014d 00       		.byte	0
+ 1133 014e 00       		.byte	0
+ 1134 014f 18       		.uleb128 0x18
+ 1135 0150 05       		.uleb128 0x5
+ 1136 0151 00       		.byte	0
+ 1137 0152 49       		.uleb128 0x49
+ 1138 0153 13       		.uleb128 0x13
+ 1139 0154 00       		.byte	0
+ 1140 0155 00       		.byte	0
+ 1141 0156 19       		.uleb128 0x19
+ 1142 0157 18       		.uleb128 0x18
+ 1143 0158 00       		.byte	0
+ 1144 0159 00       		.byte	0
+ 1145 015a 00       		.byte	0
+ 1146 015b 1A       		.uleb128 0x1a
+ 1147 015c 2E       		.uleb128 0x2e
+ 1148 015d 01       		.byte	0x1
+ 1149 015e 3F       		.uleb128 0x3f
+ 1150 015f 19       		.uleb128 0x19
+ 1151 0160 03       		.uleb128 0x3
+ 1152 0161 0E       		.uleb128 0xe
+ 1153 0162 3A       		.uleb128 0x3a
+ 1154 0163 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 23
+
+
+ 1155 0164 3B       		.uleb128 0x3b
+ 1156 0165 0B       		.uleb128 0xb
+ 1157 0166 27       		.uleb128 0x27
+ 1158 0167 19       		.uleb128 0x19
+ 1159 0168 3C       		.uleb128 0x3c
+ 1160 0169 19       		.uleb128 0x19
+ 1161 016a 01       		.uleb128 0x1
+ 1162 016b 13       		.uleb128 0x13
+ 1163 016c 00       		.byte	0
+ 1164 016d 00       		.byte	0
+ 1165 016e 1B       		.uleb128 0x1b
+ 1166 016f 2E       		.uleb128 0x2e
+ 1167 0170 00       		.byte	0
+ 1168 0171 3F       		.uleb128 0x3f
+ 1169 0172 19       		.uleb128 0x19
+ 1170 0173 03       		.uleb128 0x3
+ 1171 0174 0E       		.uleb128 0xe
+ 1172 0175 3A       		.uleb128 0x3a
+ 1173 0176 0B       		.uleb128 0xb
+ 1174 0177 3B       		.uleb128 0x3b
+ 1175 0178 0B       		.uleb128 0xb
+ 1176 0179 27       		.uleb128 0x27
+ 1177 017a 19       		.uleb128 0x19
+ 1178 017b 3C       		.uleb128 0x3c
+ 1179 017c 19       		.uleb128 0x19
+ 1180 017d 00       		.byte	0
+ 1181 017e 00       		.byte	0
+ 1182 017f 00       		.byte	0
+ 1183              		.section	.debug_loc,"",%progbits
+ 1184              	.Ldebug_loc0:
+ 1185              	.LLST0:
+ 1186 0000 00000000 		.4byte	.LVL0
+ 1187 0004 08000000 		.4byte	.LVL1
+ 1188 0008 0100     		.2byte	0x1
+ 1189 000a 50       		.byte	0x50
+ 1190 000b 08000000 		.4byte	.LVL1
+ 1191 000f 0D000000 		.4byte	.LVL2-1
+ 1192 0013 0100     		.2byte	0x1
+ 1193 0015 52       		.byte	0x52
+ 1194 0016 0D000000 		.4byte	.LVL2-1
+ 1195 001a 1C000000 		.4byte	.LFE33
+ 1196 001e 0400     		.2byte	0x4
+ 1197 0020 F3       		.byte	0xf3
+ 1198 0021 01       		.uleb128 0x1
+ 1199 0022 50       		.byte	0x50
+ 1200 0023 9F       		.byte	0x9f
+ 1201 0024 00000000 		.4byte	0
+ 1202 0028 00000000 		.4byte	0
+ 1203              	.LLST1:
+ 1204 002c 00000000 		.4byte	.LVL4
+ 1205 0030 0E000000 		.4byte	.LVL6
+ 1206 0034 0100     		.2byte	0x1
+ 1207 0036 50       		.byte	0x50
+ 1208 0037 0E000000 		.4byte	.LVL6
+ 1209 003b 94000000 		.4byte	.LFE34
+ 1210 003f 0400     		.2byte	0x4
+ 1211 0041 F3       		.byte	0xf3
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 24
+
+
+ 1212 0042 01       		.uleb128 0x1
+ 1213 0043 50       		.byte	0x50
+ 1214 0044 9F       		.byte	0x9f
+ 1215 0045 00000000 		.4byte	0
+ 1216 0049 00000000 		.4byte	0
+ 1217              	.LLST2:
+ 1218 004d 00000000 		.4byte	.LVL4
+ 1219 0051 0E000000 		.4byte	.LVL6
+ 1220 0055 0100     		.2byte	0x1
+ 1221 0057 51       		.byte	0x51
+ 1222 0058 0E000000 		.4byte	.LVL6
+ 1223 005c 94000000 		.4byte	.LFE34
+ 1224 0060 0400     		.2byte	0x4
+ 1225 0062 F3       		.byte	0xf3
+ 1226 0063 01       		.uleb128 0x1
+ 1227 0064 51       		.byte	0x51
+ 1228 0065 9F       		.byte	0x9f
+ 1229 0066 00000000 		.4byte	0
+ 1230 006a 00000000 		.4byte	0
+ 1231              	.LLST3:
+ 1232 006e 08000000 		.4byte	.LVL5
+ 1233 0072 0E000000 		.4byte	.LVL6
+ 1234 0076 0200     		.2byte	0x2
+ 1235 0078 30       		.byte	0x30
+ 1236 0079 9F       		.byte	0x9f
+ 1237 007a 0E000000 		.4byte	.LVL6
+ 1238 007e 88000000 		.4byte	.LVL24
+ 1239 0082 0100     		.2byte	0x1
+ 1240 0084 54       		.byte	0x54
+ 1241 0085 00000000 		.4byte	0
+ 1242 0089 00000000 		.4byte	0
+ 1243              	.LLST4:
+ 1244 008d 08000000 		.4byte	.LVL5
+ 1245 0091 0E000000 		.4byte	.LVL6
+ 1246 0095 0200     		.2byte	0x2
+ 1247 0097 30       		.byte	0x30
+ 1248 0098 9F       		.byte	0x9f
+ 1249 0099 0E000000 		.4byte	.LVL6
+ 1250 009d 88000000 		.4byte	.LVL25
+ 1251 00a1 0100     		.2byte	0x1
+ 1252 00a3 55       		.byte	0x55
+ 1253 00a4 00000000 		.4byte	0
+ 1254 00a8 00000000 		.4byte	0
+ 1255              	.LLST5:
+ 1256 00ac 08000000 		.4byte	.LVL5
+ 1257 00b0 0E000000 		.4byte	.LVL6
+ 1258 00b4 0200     		.2byte	0x2
+ 1259 00b6 30       		.byte	0x30
+ 1260 00b7 9F       		.byte	0x9f
+ 1261 00b8 00000000 		.4byte	0
+ 1262 00bc 00000000 		.4byte	0
+ 1263              	.LLST6:
+ 1264 00c0 16000000 		.4byte	.LVL7
+ 1265 00c4 23000000 		.4byte	.LVL8-1
+ 1266 00c8 0600     		.2byte	0x6
+ 1267 00ca 77       		.byte	0x77
+ 1268 00cb 00       		.sleb128 0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 25
+
+
+ 1269 00cc 73       		.byte	0x73
+ 1270 00cd 00       		.sleb128 0
+ 1271 00ce 1A       		.byte	0x1a
+ 1272 00cf 9F       		.byte	0x9f
+ 1273 00d0 23000000 		.4byte	.LVL8-1
+ 1274 00d4 26000000 		.4byte	.LVL9
+ 1275 00d8 0800     		.2byte	0x8
+ 1276 00da 31       		.byte	0x31
+ 1277 00db 75       		.byte	0x75
+ 1278 00dc 00       		.sleb128 0
+ 1279 00dd 24       		.byte	0x24
+ 1280 00de 77       		.byte	0x77
+ 1281 00df 00       		.sleb128 0
+ 1282 00e0 1A       		.byte	0x1a
+ 1283 00e1 9F       		.byte	0x9f
+ 1284 00e2 26000000 		.4byte	.LVL9
+ 1285 00e6 2F000000 		.4byte	.LVL10-1
+ 1286 00ea 0600     		.2byte	0x6
+ 1287 00ec 77       		.byte	0x77
+ 1288 00ed 00       		.sleb128 0
+ 1289 00ee 73       		.byte	0x73
+ 1290 00ef 00       		.sleb128 0
+ 1291 00f0 1A       		.byte	0x1a
+ 1292 00f1 9F       		.byte	0x9f
+ 1293 00f2 2F000000 		.4byte	.LVL10-1
+ 1294 00f6 3A000000 		.4byte	.LVL12
+ 1295 00fa 0800     		.2byte	0x8
+ 1296 00fc 31       		.byte	0x31
+ 1297 00fd 75       		.byte	0x75
+ 1298 00fe 00       		.sleb128 0
+ 1299 00ff 24       		.byte	0x24
+ 1300 0100 77       		.byte	0x77
+ 1301 0101 00       		.sleb128 0
+ 1302 0102 1A       		.byte	0x1a
+ 1303 0103 9F       		.byte	0x9f
+ 1304 0104 3A000000 		.4byte	.LVL12
+ 1305 0108 42000000 		.4byte	.LVL14
+ 1306 010c 0800     		.2byte	0x8
+ 1307 010e 31       		.byte	0x31
+ 1308 010f 75       		.byte	0x75
+ 1309 0110 7F       		.sleb128 -1
+ 1310 0111 24       		.byte	0x24
+ 1311 0112 77       		.byte	0x77
+ 1312 0113 00       		.sleb128 0
+ 1313 0114 1A       		.byte	0x1a
+ 1314 0115 9F       		.byte	0x9f
+ 1315 0116 00000000 		.4byte	0
+ 1316 011a 00000000 		.4byte	0
+ 1317              	.LLST7:
+ 1318 011e 46000000 		.4byte	.LVL15
+ 1319 0122 53000000 		.4byte	.LVL16-1
+ 1320 0126 0600     		.2byte	0x6
+ 1321 0128 76       		.byte	0x76
+ 1322 0129 00       		.sleb128 0
+ 1323 012a 73       		.byte	0x73
+ 1324 012b 00       		.sleb128 0
+ 1325 012c 1A       		.byte	0x1a
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 26
+
+
+ 1326 012d 9F       		.byte	0x9f
+ 1327 012e 53000000 		.4byte	.LVL16-1
+ 1328 0132 56000000 		.4byte	.LVL17
+ 1329 0136 0800     		.2byte	0x8
+ 1330 0138 31       		.byte	0x31
+ 1331 0139 75       		.byte	0x75
+ 1332 013a 00       		.sleb128 0
+ 1333 013b 24       		.byte	0x24
+ 1334 013c 76       		.byte	0x76
+ 1335 013d 00       		.sleb128 0
+ 1336 013e 1A       		.byte	0x1a
+ 1337 013f 9F       		.byte	0x9f
+ 1338 0140 56000000 		.4byte	.LVL17
+ 1339 0144 5F000000 		.4byte	.LVL18-1
+ 1340 0148 0600     		.2byte	0x6
+ 1341 014a 76       		.byte	0x76
+ 1342 014b 00       		.sleb128 0
+ 1343 014c 73       		.byte	0x73
+ 1344 014d 00       		.sleb128 0
+ 1345 014e 1A       		.byte	0x1a
+ 1346 014f 9F       		.byte	0x9f
+ 1347 0150 5F000000 		.4byte	.LVL18-1
+ 1348 0154 6E000000 		.4byte	.LVL20
+ 1349 0158 0800     		.2byte	0x8
+ 1350 015a 31       		.byte	0x31
+ 1351 015b 75       		.byte	0x75
+ 1352 015c 00       		.sleb128 0
+ 1353 015d 24       		.byte	0x24
+ 1354 015e 76       		.byte	0x76
+ 1355 015f 00       		.sleb128 0
+ 1356 0160 1A       		.byte	0x1a
+ 1357 0161 9F       		.byte	0x9f
+ 1358 0162 00000000 		.4byte	0
+ 1359 0166 00000000 		.4byte	0
+ 1360              		.section	.debug_aranges,"",%progbits
+ 1361 0000 2C000000 		.4byte	0x2c
+ 1362 0004 0200     		.2byte	0x2
+ 1363 0006 00000000 		.4byte	.Ldebug_info0
+ 1364 000a 04       		.byte	0x4
+ 1365 000b 00       		.byte	0
+ 1366 000c 0000     		.2byte	0
+ 1367 000e 0000     		.2byte	0
+ 1368 0010 00000000 		.4byte	.LFB33
+ 1369 0014 1C000000 		.4byte	.LFE33-.LFB33
+ 1370 0018 00000000 		.4byte	.LFB34
+ 1371 001c 94000000 		.4byte	.LFE34-.LFB34
+ 1372 0020 00000000 		.4byte	.LFB35
+ 1373 0024 1C000000 		.4byte	.LFE35-.LFB35
+ 1374 0028 00000000 		.4byte	0
+ 1375 002c 00000000 		.4byte	0
+ 1376              		.section	.debug_ranges,"",%progbits
+ 1377              	.Ldebug_ranges0:
+ 1378 0000 00000000 		.4byte	.LFB33
+ 1379 0004 1C000000 		.4byte	.LFE33
+ 1380 0008 00000000 		.4byte	.LFB34
+ 1381 000c 94000000 		.4byte	.LFE34
+ 1382 0010 00000000 		.4byte	.LFB35
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 27
+
+
+ 1383 0014 1C000000 		.4byte	.LFE35
+ 1384 0018 00000000 		.4byte	0
+ 1385 001c 00000000 		.4byte	0
+ 1386              		.section	.debug_line,"",%progbits
+ 1387              	.Ldebug_line0:
+ 1388 0000 33010000 		.section	.debug_str,"MS",%progbits,1
+ 1388      0200CE00 
+ 1388      00000201 
+ 1388      FB0E0D00 
+ 1388      01010101 
+ 1389              	.LASF29:
+ 1390 0000 73736361 		.ascii	"sscanf\000"
+ 1390      6E6600
+ 1391              	.LASF35:
+ 1392 0007 55415254 		.ascii	"UART_1_Start\000"
+ 1392      5F315F53 
+ 1392      74617274 
+ 1392      00
+ 1393              	.LASF23:
+ 1394 0014 78626974 		.ascii	"xbit\000"
+ 1394      00
+ 1395              	.LASF16:
+ 1396 0019 636F756E 		.ascii	"count\000"
+ 1396      7400
+ 1397              	.LASF24:
+ 1398 001f 79626974 		.ascii	"ybit\000"
+ 1398      00
+ 1399              	.LASF25:
+ 1400 0024 57726974 		.ascii	"WriteHex\000"
+ 1400      65486578 
+ 1400      00
+ 1401              	.LASF11:
+ 1402 002d 666C6F61 		.ascii	"float\000"
+ 1402      7400
+ 1403              	.LASF1:
+ 1404 0033 756E7369 		.ascii	"unsigned char\000"
+ 1404      676E6564 
+ 1404      20636861 
+ 1404      7200
+ 1405              	.LASF32:
+ 1406 0041 433A5C55 		.ascii	"C:\\Users\\Gary\\Documents\\PSoC Creator\\Workspace"
+ 1406      73657273 
+ 1406      5C476172 
+ 1406      795C446F 
+ 1406      63756D65 
+ 1407 006f 30315C4C 		.ascii	"01\\Lab 2e.cydsn\000"
+ 1407      61622032 
+ 1407      652E6379 
+ 1407      64736E00 
+ 1408              	.LASF13:
+ 1409 007f 63686172 		.ascii	"char8\000"
+ 1409      3800
+ 1410              	.LASF5:
+ 1411 0085 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1411      20756E73 
+ 1411      69676E65 
+ 1411      6420696E 
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 28
+
+
+ 1411      7400
+ 1412              	.LASF3:
+ 1413 0097 73686F72 		.ascii	"short unsigned int\000"
+ 1413      7420756E 
+ 1413      7369676E 
+ 1413      65642069 
+ 1413      6E7400
+ 1414              	.LASF19:
+ 1415 00aa 78436861 		.ascii	"xChar\000"
+ 1415      7200
+ 1416              	.LASF28:
+ 1417 00b0 73747263 		.ascii	"strcat\000"
+ 1417      617400
+ 1418              	.LASF12:
+ 1419 00b7 646F7562 		.ascii	"double\000"
+ 1419      6C6500
+ 1420              	.LASF31:
+ 1421 00be 2E5C6D61 		.ascii	".\\main.c\000"
+ 1421      696E2E63 
+ 1421      00
+ 1422              	.LASF22:
+ 1423 00c7 72657375 		.ascii	"result\000"
+ 1423      6C7400
+ 1424              	.LASF9:
+ 1425 00ce 75696E74 		.ascii	"uint16\000"
+ 1425      313600
+ 1426              	.LASF17:
+ 1427 00d5 78436F75 		.ascii	"xCount\000"
+ 1427      6E7400
+ 1428              	.LASF10:
+ 1429 00dc 75696E74 		.ascii	"uint32\000"
+ 1429      333200
+ 1430              	.LASF26:
+ 1431 00e3 6D61696E 		.ascii	"main\000"
+ 1431      00
+ 1432              	.LASF8:
+ 1433 00e8 756E7369 		.ascii	"unsigned int\000"
+ 1433      676E6564 
+ 1433      20696E74 
+ 1433      00
+ 1434              	.LASF7:
+ 1435 00f5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1435      206C6F6E 
+ 1435      6720756E 
+ 1435      7369676E 
+ 1435      65642069 
+ 1436              	.LASF21:
+ 1437 010c 73747249 		.ascii	"strInter\000"
+ 1437      6E746572 
+ 1437      00
+ 1438              	.LASF20:
+ 1439 0115 79436861 		.ascii	"yChar\000"
+ 1439      7200
+ 1440              	.LASF15:
+ 1441 011b 73697A65 		.ascii	"sizetype\000"
+ 1441      74797065 
+ 1441      00
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\cceRNt5C.s 			page 29
+
+
+ 1442              	.LASF6:
+ 1443 0124 6C6F6E67 		.ascii	"long long int\000"
+ 1443      206C6F6E 
+ 1443      6720696E 
+ 1443      7400
+ 1444              	.LASF14:
+ 1445 0132 63686172 		.ascii	"char\000"
+ 1445      00
+ 1446              	.LASF18:
+ 1447 0137 79436F75 		.ascii	"yCount\000"
+ 1447      6E7400
+ 1448              	.LASF30:
+ 1449 013e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1449      4320342E 
+ 1449      392E3320 
+ 1449      32303135 
+ 1449      30333033 
+ 1450 0171 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1450      20726576 
+ 1450      6973696F 
+ 1450      6E203232 
+ 1450      31323230 
+ 1451 01a4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1451      66756E63 
+ 1451      74696F6E 
+ 1451      2D736563 
+ 1451      74696F6E 
+ 1452              	.LASF2:
+ 1453 01cc 73686F72 		.ascii	"short int\000"
+ 1453      7420696E 
+ 1453      7400
+ 1454              	.LASF4:
+ 1455 01d6 6C6F6E67 		.ascii	"long int\000"
+ 1455      20696E74 
+ 1455      00
+ 1456              	.LASF0:
+ 1457 01df 7369676E 		.ascii	"signed char\000"
+ 1457      65642063 
+ 1457      68617200 
+ 1458              	.LASF34:
+ 1459 01eb 55415254 		.ascii	"UART_1_PutString\000"
+ 1459      5F315F50 
+ 1459      75745374 
+ 1459      72696E67 
+ 1459      00
+ 1460              	.LASF27:
+ 1461 01fc 73707269 		.ascii	"sprintf\000"
+ 1461      6E746600 
+ 1462              	.LASF33:
+ 1463 0204 696E7465 		.ascii	"interleaveBits\000"
+ 1463      726C6561 
+ 1463      76654269 
+ 1463      747300
+ 1464              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
