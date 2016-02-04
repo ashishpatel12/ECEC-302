@@ -3,7 +3,7 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspc" version="5" xml_contents_version="3" name="Workspace01" persistent="" platform="NOT_USED">
-<current_project name=".\Lab 3a.cydsn\Lab 3a.cyprj" />
+<current_project name=".\Lab 3d.cydsn\Lab 3d.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
@@ -13,6 +13,7 @@
 <v>.\Lab 2c.cydsn\Lab 2c.cyprj</v>
 <v>.\Lab 2e.cydsn\Lab 2e.cyprj</v>
 <v>.\Lab 3a.cydsn\Lab 3a.cyprj</v>
+<v>.\Lab 3d.cydsn\Lab 3d.cyprj</v>
 </projects>
 <workspace_id v="a34b3786-bcc7-4d3e-ae89-c1e18daf456a" />
 <WriteAppVersionLastSavedWith v="3.3.0.410" />

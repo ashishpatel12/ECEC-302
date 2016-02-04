@@ -1,0 +1,11 @@
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 1 Blink.cydsn\Lab 1 Blink.cyprj|2dd579e4-bac0-40fc-b99b-b1abf446a0eb
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8201595a-9953-4d7b-aff7-8c27412191d5
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d84a1cfb-175b-4f84-a6c3-59a4671338fc
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|ec73a20f-d628-4778-b201-5c578da9493e
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|e16e3a65-10bc-43fa-a615-597d52b9f9e2
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 1c.cydsn\Lab 1c.cyprj|2d46e0b9-e95c-478d-92d3-e4066ba96fd0
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 2a.cydsn\Lab 2a.cyprj|1f61fda3-c043-41a1-9367-568351b2cd07
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 2c.cydsn\Lab 2c.cyprj|c091144a-f69a-48dc-ab59-7b18ddf9f4b9
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 2e.cydsn\Lab 2e.cyprj|d9e06f8d-cab1-4993-bba0-f2d463e5887d
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 3a.cydsn\Lab 3a.cyprj|7680c5aa-9b10-42cc-b514-a2a4ae0ff986
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 3d.cydsn\Lab 3d.cyprj|3548bdd7-9382-4b6d-83cb-99ea20330192
