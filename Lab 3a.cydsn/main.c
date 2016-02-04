@@ -45,22 +45,43 @@ int compareStrings(char *str1, char *str2)
     readString(str2);
     UART_1_PutString("\n\r");
     
-    int out = 0;
-    int i;
+    char out = '0';
+    int i = 0;
+    int length1;
+    int length2;
     int length;
-    if(strlen(str1) > strlen(str2)){
-        length = strlen(str1);
+    
+    // Get length of first string
+    while(str1[i]!='\0'){
+        i++;
+    }
+    length1 = i;
+    i = 0;
+
+    // Get length of second string
+    while(str2[i]!='\0'){
+        i++;
+    }
+    length2 = i;
+    
+    // Limit length of for loop to the length of the shortest string
+    if(length1 < length2){
+        length = length1;
     }else{
-        length = strlen(str2);
+        length = length2;
     }
     
-    for (i = 0; i < 5; i++){
-        if( str1[i] != str2[i]){
-            out = (int)str1[i]-'0' - (int)str2[i]-'0';
+    // If there is a difference in the strings compare the results and return it
+    for (i = 0; i < length; i++){
+        if (str1[i] > str2[i]){
+            out = str1[i] - str2[i] + 'a' - 1 - '0';
+            return out;
+        }else if (str1[i] < str2[i]){
+            out = str2[i] - str1[i] + 'a' - 1 - '0';
             return out;
         }
     }
-    UART_1_PutChar(out);
+    
     return out;
 }
 
@@ -73,13 +94,20 @@ int searchForChar(char *str, char *ch)
     readString(ch);
     UART_1_PutString("\n\r");
     
+    int length;
     int out = -1;
-    int i;
+    int i = 0;
     
-    for (i = 0; i < MAX_BUFFER_SIZE; i++){
+        // Get length of first string
+    while(str[i]!='\0'){
+        i++;
+    }
+    length = i;
+    
+    for (i = 0; i < length; i++){
         if(str[i] == ch[0]){
-            out = i;
-            break;
+            out = i + 'a' - 1 - '0';
+            return out;
         }
     }
     return out;
@@ -87,28 +115,46 @@ int searchForChar(char *str, char *ch)
 
 int searchSubString(char *str, char *subStr)
 {
-    int tempOut;
+    UART_1_PutString("Enter the string: ");
+    readString(str);
+    UART_1_PutString("\n\r");
+    UART_1_PutString("Enter the sub string: ");
+    readString(subStr);
+    UART_1_PutString("\n\r");
+    
     int out = -1;
-    int subLength = strlen(subStr);
-    int subCount = 0;
-    int i;
-    int j;
-    // More code here
-    for (i = 0; i < MAX_BUFFER_SIZE; i++){
-        for(j = 0; j < subLength; j++){
-                if (str[i] == subStr[j]){
-                    tempOut = i;
-                    subCount++;
-                    if(subCount == subLength){
-                        out = tempOut;
-                        break;
-                    }
-                }else{
-                    subCount = 0;
-                }
+    int start = 0;
+    int length;
+    int subLen;
+    int i = 0;;
+    int j = 0;;
+    
+    // Get length of first string
+    while(str[i]!='\0'){
+        i++;
+    }
+    length = i;
+    i = 0;
+
+    // Get length of second string
+    while(subStr[i]!='\0'){
+        i++;
+    }
+    subLen = i;
+    
+    for (i = 0; i < length; i++){
+        for(j = 0; j < subLen; j++){
+            if(str[i] != subStr[j]){
+                break;
+            }
+            if(str[i] == subStr[0]){
+                start = i;
+            }
+            if(subStr[j] == '\0'){
+                return start + 'a' - 1 - '0';
+            }
         }
     }
-    
     return out;
 }
 
@@ -120,7 +166,7 @@ int main()
     //int choice1;
     int status;
     char ch[1];
-    char str[MAX_BUFFER_SIZE], str1[MAX_BUFFER_SIZE], str2[MAX_BUFFER_SIZE];
+    char str[MAX_BUFFER_SIZE], str1[MAX_BUFFER_SIZE], str2[MAX_BUFFER_SIZE], subStr[MAX_BUFFER_SIZE];
     
     while(1){
         UART_1_PutString("Function to execute (1 for string compare, 2 of character search, 3 for sub-string search, or -1 to exit): ");
@@ -144,17 +190,27 @@ int main()
             character in ch. */
             status = searchForChar(str, ch);
             UART_1_PutString("The character is at position ");
-            UART_1_PutChar(status);
+            if(status >= 0){
+                UART_1_PutChar(status);
+            }else{
+                UART_1_PutString("-1");
+            }
             UART_1_PutString("\n\r");
             break;
             case '3':
             /* Read in the string, store it in str1; the
             substring in str2. */
-            status = searchSubString(str1, str2);
+            status = searchSubString(str, subStr);
+            UART_1_PutString("The string comparions returned ");
+            //if(status >= 0){
             UART_1_PutChar(status);
+            //}else{
+            //    UART_1_PutString("-1");
+            //}
+            UART_1_PutString("\n\r");
             break;
             default:
-            UART_1_PutString("\n \r Erroneous entry. Try again. ");
+            UART_1_PutString("Erroneous entry ");
             UART_1_PutChar(choice);
             UART_1_PutString("\n\r");
         };  
