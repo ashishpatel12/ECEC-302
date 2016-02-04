@@ -1,4 +1,4 @@
---------------- Build Started: 02/04/2016 14:04:52 Project: Lab 3a, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 02/04/2016 15:24:58 Project: Lab 3a, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Debug\main.o
 arm-none-eabi-ar.exe -rs ".\CortexM0\ARM_GCC_493\Debug\Lab 3a.a" .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\UART_1.o .\CortexM0\ARM_GCC_493\Debug\UART_1_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_1_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_1_BOOT.o .\CortexM0\ARM_GCC_493\Debug\UART_1_IntClock.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o
@@ -8,4 +8,4 @@ cyelftool.exe -C "C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 3a.cydsn\
 cyelftool.exe -S "C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 3a.cydsn\CortexM0\ARM_GCC_493\Debug\Lab 3a.elf"
 Flash used: 3712 of 32768 bytes (11.3 %).
 SRAM used: 1444 of 4096 bytes (35.3 %). Stack: 1024 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 02/04/2016 14:04:53 ---------------
+--------------- Build Succeeded: 02/04/2016 15:24:58 ---------------

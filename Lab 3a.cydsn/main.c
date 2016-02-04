@@ -124,6 +124,7 @@ int searchSubString(char *str, char *subStr)
     
     int out = -1;
     int start = 0;
+    int offset = 0;
     int length;
     int subLen;
     int i = 0;;
@@ -144,16 +145,19 @@ int searchSubString(char *str, char *subStr)
     
     for (i = 0; i < length; i++){
         for(j = 0; j < subLen; j++){
-            if(str[i] != subStr[j]){
+            if(str[i+offset] != subStr[j]){
                 break;
             }
-            if(str[i] == subStr[0]){
+            if(j == 0){ //str[i] == subStr[0]
                 start = i;
             }
-            if(subStr[j] == '\0'){
-                return start + 'a' - 1 - '0';
+            if(j == (subLen - 1)){ //subStr[j] == '\0'
+                out = start + 'a' - 1 - '0';
+                return out;
             }
+            offset++;
         }
+        offset = 0;
     }
     return out;
 }
@@ -202,11 +206,11 @@ int main()
             substring in str2. */
             status = searchSubString(str, subStr);
             UART_1_PutString("The string comparions returned ");
-            //if(status >= 0){
-            UART_1_PutChar(status);
-            //}else{
-            //    UART_1_PutString("-1");
-            //}
+            if(status >= 0){
+                UART_1_PutChar(status);
+            }else{
+                UART_1_PutString("-1");
+            }
             UART_1_PutString("\n\r");
             break;
             default:
