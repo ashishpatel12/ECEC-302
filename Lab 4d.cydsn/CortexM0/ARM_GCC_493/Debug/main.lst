@@ -1,0 +1,2329 @@
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.uartISR,"ax",%progbits
+  18              		.align	2
+  19              		.global	uartISR
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	uartISR, %function
+  23              	uartISR:
+  24              	.LFB33:
+  25              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** #include <stdlib.h>
+  14:.\main.c      **** #include <stdio.h>
+  15:.\main.c      **** 
+  16:.\main.c      **** #define MATRIX_SIZE 5
+  17:.\main.c      **** 
+  18:.\main.c      **** int tc;
+  19:.\main.c      **** uint8 preTime;
+  20:.\main.c      **** float clockTime = (float)1/(float)24000000;
+  21:.\main.c      **** float elapsedTime;
+  22:.\main.c      **** 
+  23:.\main.c      **** CY_ISR(uartISR) /* ISR to handle UART interrupts. */
+  24:.\main.c      **** {
+  26              		.loc 1 24 0
+  27              		.cfi_startproc
+  28 0000 08B5     		push	{r3, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 3, -8
+  31              		.cfi_offset 14, -4
+  25:.\main.c      ****     /* Your ISR code. */
+  26:.\main.c      ****     
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 2
+
+
+  27:.\main.c      ****     /* Clear the interrupt. */
+  28:.\main.c      ****     UART_1_PutString("Hi there! \n\r");
+  32              		.loc 1 28 0
+  33 0002 0348     		ldr	r0, .L2
+  34 0004 FFF7FEFF 		bl	UART_1_PutString
+  35              	.LVL0:
+  29:.\main.c      ****     //UART_1_ClearRxBuffer();
+  30:.\main.c      ****     UART_1_ClearRxBuffer();
+  36              		.loc 1 30 0
+  37 0008 FFF7FEFF 		bl	UART_1_ClearRxBuffer
+  38              	.LVL1:
+  31:.\main.c      **** }
+  39              		.loc 1 31 0
+  40              		@ sp needed
+  41 000c 08BD     		pop	{r3, pc}
+  42              	.L3:
+  43 000e C046     		.align	2
+  44              	.L2:
+  45 0010 00000000 		.word	.LC0
+  46              		.cfi_endproc
+  47              	.LFE33:
+  48              		.size	uartISR, .-uartISR
+  49              		.section	.text.myTimerISR,"ax",%progbits
+  50              		.align	2
+  51              		.global	myTimerISR
+  52              		.code	16
+  53              		.thumb_func
+  54              		.type	myTimerISR, %function
+  55              	myTimerISR:
+  56              	.LFB34:
+  32:.\main.c      **** 
+  33:.\main.c      **** CY_ISR(myTimerISR) /* ISR to handle tc interrupts from timer. */
+  34:.\main.c      **** {
+  57              		.loc 1 34 0
+  58              		.cfi_startproc
+  59 0000 08B5     		push	{r3, lr}
+  60              		.cfi_def_cfa_offset 8
+  61              		.cfi_offset 3, -8
+  62              		.cfi_offset 14, -4
+  35:.\main.c      ****     //UART_1_PutString("Timer! \n\r");
+  36:.\main.c      ****     tc++;
+  63              		.loc 1 36 0
+  64 0002 034A     		ldr	r2, .L5
+  65 0004 1368     		ldr	r3, [r2]
+  66 0006 0133     		add	r3, r3, #1
+  67 0008 1360     		str	r3, [r2]
+  37:.\main.c      ****     /* Your ISR code. */
+  38:.\main.c      ****     
+  39:.\main.c      ****     /* Reset the interrupt. */
+  40:.\main.c      ****     //TIMER_1_ReadStatusRegister();
+  41:.\main.c      ****     TIMER_1_ReadStatusRegister();
+  68              		.loc 1 41 0
+  69 000a FFF7FEFF 		bl	TIMER_1_ReadStatusRegister
+  70              	.LVL2:
+  42:.\main.c      **** }
+  71              		.loc 1 42 0
+  72              		@ sp needed
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 3
+
+
+  73 000e 08BD     		pop	{r3, pc}
+  74              	.L6:
+  75              		.align	2
+  76              	.L5:
+  77 0010 00000000 		.word	tc
+  78              		.cfi_endproc
+  79              	.LFE34:
+  80              		.size	myTimerISR, .-myTimerISR
+  81              		.global	__aeabi_i2f
+  82              		.section	.text.tic,"ax",%progbits
+  83              		.align	2
+  84              		.global	tic
+  85              		.code	16
+  86              		.thumb_func
+  87              		.type	tic, %function
+  88              	tic:
+  89              	.LFB35:
+  43:.\main.c      **** 
+  44:.\main.c      **** void tic(void)
+  45:.\main.c      **** {
+  90              		.loc 1 45 0
+  91              		.cfi_startproc
+  92 0000 08B5     		push	{r3, lr}
+  93              		.cfi_def_cfa_offset 8
+  94              		.cfi_offset 3, -8
+  95              		.cfi_offset 14, -4
+  46:.\main.c      ****     preTime = TIMER_1_ReadCounter();
+  96              		.loc 1 46 0
+  97 0002 FFF7FEFF 		bl	TIMER_1_ReadCounter
+  98              	.LVL3:
+  99 0006 044B     		ldr	r3, .L8
+ 100 0008 1870     		strb	r0, [r3]
+  47:.\main.c      ****     elapsedTime = tc;
+ 101              		.loc 1 47 0
+ 102 000a 044B     		ldr	r3, .L8+4
+ 103 000c 1868     		ldr	r0, [r3]
+ 104 000e FFF7FEFF 		bl	__aeabi_i2f
+ 105              	.LVL4:
+ 106 0012 034B     		ldr	r3, .L8+8
+ 107 0014 1860     		str	r0, [r3]
+  48:.\main.c      ****     //UART_1_PutChar(TIMER_1_ReadCounter());
+  49:.\main.c      **** }
+ 108              		.loc 1 49 0
+ 109              		@ sp needed
+ 110 0016 08BD     		pop	{r3, pc}
+ 111              	.L9:
+ 112              		.align	2
+ 113              	.L8:
+ 114 0018 00000000 		.word	preTime
+ 115 001c 00000000 		.word	tc
+ 116 0020 00000000 		.word	elapsedTime
+ 117              		.cfi_endproc
+ 118              	.LFE35:
+ 119              		.size	tic, .-tic
+ 120              		.global	__aeabi_fsub
+ 121              		.global	__aeabi_f2d
+ 122              		.global	__aeabi_dmul
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 4
+
+
+ 123              		.global	__aeabi_d2f
+ 124              		.global	__aeabi_fmul
+ 125              		.global	__aeabi_fadd
+ 126              		.section	.text.toc,"ax",%progbits
+ 127              		.align	2
+ 128              		.global	toc
+ 129              		.code	16
+ 130              		.thumb_func
+ 131              		.type	toc, %function
+ 132              	toc:
+ 133              	.LFB36:
+  50:.\main.c      **** 
+  51:.\main.c      **** void toc(void)
+  52:.\main.c      **** {
+ 134              		.loc 1 52 0
+ 135              		.cfi_startproc
+ 136 0000 30B5     		push	{r4, r5, lr}
+ 137              		.cfi_def_cfa_offset 12
+ 138              		.cfi_offset 4, -12
+ 139              		.cfi_offset 5, -8
+ 140              		.cfi_offset 14, -4
+ 141 0002 83B0     		sub	sp, sp, #12
+ 142              		.cfi_def_cfa_offset 24
+  53:.\main.c      ****     float temp0 = (tc - elapsedTime) * 0.00001;
+ 143              		.loc 1 53 0
+ 144 0004 184B     		ldr	r3, .L11
+ 145 0006 1868     		ldr	r0, [r3]
+ 146 0008 FFF7FEFF 		bl	__aeabi_i2f
+ 147              	.LVL5:
+ 148 000c 174B     		ldr	r3, .L11+4
+ 149 000e 1968     		ldr	r1, [r3]
+ 150 0010 FFF7FEFF 		bl	__aeabi_fsub
+ 151              	.LVL6:
+ 152 0014 FFF7FEFF 		bl	__aeabi_f2d
+ 153              	.LVL7:
+ 154 0018 154A     		ldr	r2, .L11+8
+ 155 001a 164B     		ldr	r3, .L11+12
+ 156 001c FFF7FEFF 		bl	__aeabi_dmul
+ 157              	.LVL8:
+ 158 0020 FFF7FEFF 		bl	__aeabi_d2f
+ 159              	.LVL9:
+ 160 0024 051C     		add	r5, r0, #0
+ 161              	.LVL10:
+  54:.\main.c      ****     float temp1 = ((float)(preTime + 239 - TIMER_1_ReadCounter())) * clockTime;
+ 162              		.loc 1 54 0
+ 163 0026 144B     		ldr	r3, .L11+16
+ 164 0028 1C78     		ldrb	r4, [r3]
+ 165 002a EF34     		add	r4, r4, #239
+ 166 002c FFF7FEFF 		bl	TIMER_1_ReadCounter
+ 167              	.LVL11:
+ 168 0030 201A     		sub	r0, r4, r0
+ 169 0032 FFF7FEFF 		bl	__aeabi_i2f
+ 170              	.LVL12:
+ 171 0036 114B     		ldr	r3, .L11+20
+ 172 0038 1968     		ldr	r1, [r3]
+ 173 003a FFF7FEFF 		bl	__aeabi_fmul
+ 174              	.LVL13:
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 5
+
+
+ 175 003e 011C     		add	r1, r0, #0
+ 176              	.LVL14:
+  55:.\main.c      ****     
+  56:.\main.c      ****     temp0 = temp0 + temp1;
+ 177              		.loc 1 56 0
+ 178 0040 281C     		add	r0, r5, #0
+ 179              	.LVL15:
+ 180 0042 FFF7FEFF 		bl	__aeabi_fadd
+ 181              	.LVL16:
+  57:.\main.c      ****     char str0[8];
+  58:.\main.c      ****     //char str1[8];
+  59:.\main.c      ****    
+  60:.\main.c      ****     //UART_1_PutString("");
+  61:.\main.c      ****     sprintf(str0,"%f",temp0);
+ 182              		.loc 1 61 0
+ 183 0046 FFF7FEFF 		bl	__aeabi_f2d
+ 184              	.LVL17:
+ 185 004a 021C     		mov	r2, r0
+ 186 004c 0B1C     		mov	r3, r1
+ 187 004e 6846     		mov	r0, sp
+ 188 0050 0B49     		ldr	r1, .L11+24
+ 189 0052 FFF7FEFF 		bl	sprintf
+ 190              	.LVL18:
+  62:.\main.c      ****     UART_1_PutString(str0);
+ 191              		.loc 1 62 0
+ 192 0056 6846     		mov	r0, sp
+ 193 0058 FFF7FEFF 		bl	UART_1_PutString
+ 194              	.LVL19:
+  63:.\main.c      ****     
+  64:.\main.c      ****     /*
+  65:.\main.c      ****     uint8 temp = 239 - TIMER_1_ReadCounter();
+  66:.\main.c      ****     sprintf(str1,"%d",temp);
+  67:.\main.c      ****     UART_1_PutString(str1);
+  68:.\main.c      **** 
+  69:.\main.c      ****     */
+  70:.\main.c      ****     UART_1_PutString(" s \n\r");
+ 195              		.loc 1 70 0
+ 196 005c 0948     		ldr	r0, .L11+28
+ 197 005e FFF7FEFF 		bl	UART_1_PutString
+ 198              	.LVL20:
+  71:.\main.c      **** }
+ 199              		.loc 1 71 0
+ 200 0062 03B0     		add	sp, sp, #12
+ 201              		@ sp needed
+ 202 0064 30BD     		pop	{r4, r5, pc}
+ 203              	.L12:
+ 204 0066 C046     		.align	2
+ 205              	.L11:
+ 206 0068 00000000 		.word	tc
+ 207 006c 00000000 		.word	elapsedTime
+ 208 0070 F168E388 		.word	-1998362383
+ 209 0074 B5F8E43E 		.word	1055193269
+ 210 0078 00000000 		.word	preTime
+ 211 007c 00000000 		.word	.LANCHOR0
+ 212 0080 10000000 		.word	.LC10
+ 213 0084 14000000 		.word	.LC12
+ 214              		.cfi_endproc
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 6
+
+
+ 215              	.LFE36:
+ 216              		.size	toc, .-toc
+ 217              		.section	.text.matrixMult,"ax",%progbits
+ 218              		.align	2
+ 219              		.global	matrixMult
+ 220              		.code	16
+ 221              		.thumb_func
+ 222              		.type	matrixMult, %function
+ 223              	matrixMult:
+ 224              	.LFB37:
+  72:.\main.c      **** 
+  73:.\main.c      **** void matrixMult(float A[MATRIX_SIZE][MATRIX_SIZE], float B[MATRIX_SIZE][MATRIX_SIZE], float C[MATRI
+  74:.\main.c      **** {
+ 225              		.loc 1 74 0
+ 226              		.cfi_startproc
+ 227              	.LVL21:
+ 228 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 229              		.cfi_def_cfa_offset 20
+ 230              		.cfi_offset 4, -20
+ 231              		.cfi_offset 5, -16
+ 232              		.cfi_offset 6, -12
+ 233              		.cfi_offset 7, -8
+ 234              		.cfi_offset 14, -4
+ 235 0002 5746     		mov	r7, r10
+ 236 0004 4E46     		mov	r6, r9
+ 237 0006 C0B4     		push	{r6, r7}
+ 238              		.cfi_def_cfa_offset 28
+ 239              		.cfi_offset 9, -28
+ 240              		.cfi_offset 10, -24
+ 241 0008 83B0     		sub	sp, sp, #12
+ 242              		.cfi_def_cfa_offset 40
+ 243 000a 8146     		mov	r9, r0
+ 244 000c 0E1C     		mov	r6, r1
+ 245 000e 9246     		mov	r10, r2
+ 246              	.LVL22:
+  75:.\main.c      ****     int8 i, j, k;
+  76:.\main.c      ****     float temp;
+  77:.\main.c      ****     for(i = 0; i < MATRIX_SIZE; i++){
+ 247              		.loc 1 77 0
+ 248 0010 0023     		mov	r3, #0
+ 249 0012 0193     		str	r3, [sp, #4]
+ 250 0014 34E0     		b	.L14
+ 251              	.LVL23:
+ 252              	.L15:
+  78:.\main.c      ****         for(j = 0; j < MATRIX_SIZE; j++){
+  79:.\main.c      ****             temp = 0.0;
+  80:.\main.c      ****             for(k = 0; k < MATRIX_SIZE; k++){
+  81:.\main.c      ****                 temp += A[i][k] * B[k][j];
+ 253              		.loc 1 81 0 discriminator 3
+ 254 0016 6B46     		mov	r3, sp
+ 255 0018 1B79     		ldrb	r3, [r3, #4]
+ 256 001a 5BB2     		sxtb	r3, r3
+ 257 001c 9A00     		lsl	r2, r3, #2
+ 258 001e D318     		add	r3, r2, r3
+ 259 0020 9B00     		lsl	r3, r3, #2
+ 260 0022 4B44     		add	r3, r3, r9
+ 261 0024 1A1C     		mov	r2, r3
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 7
+
+
+ 262 0026 7BB2     		sxtb	r3, r7
+ 263 0028 9900     		lsl	r1, r3, #2
+ 264 002a 8858     		ldr	r0, [r1, r2]
+ 265 002c CB18     		add	r3, r1, r3
+ 266 002e 9B00     		lsl	r3, r3, #2
+ 267 0030 F318     		add	r3, r6, r3
+ 268 0032 6AB2     		sxtb	r2, r5
+ 269 0034 9200     		lsl	r2, r2, #2
+ 270 0036 D158     		ldr	r1, [r2, r3]
+ 271 0038 FFF7FEFF 		bl	__aeabi_fmul
+ 272              	.LVL24:
+ 273 003c 011C     		add	r1, r0, #0
+ 274 003e 201C     		add	r0, r4, #0
+ 275 0040 FFF7FEFF 		bl	__aeabi_fadd
+ 276              	.LVL25:
+ 277 0044 041C     		add	r4, r0, #0
+ 278              	.LVL26:
+  80:.\main.c      ****                 temp += A[i][k] * B[k][j];
+ 279              		.loc 1 80 0 discriminator 3
+ 280 0046 0137     		add	r7, r7, #1
+ 281              	.LVL27:
+ 282 0048 FFB2     		uxtb	r7, r7
+ 283              	.LVL28:
+ 284 004a 01E0     		b	.L16
+ 285              	.LVL29:
+ 286              	.L18:
+ 287 004c 0024     		mov	r4, #0
+ 288 004e 0027     		mov	r7, #0
+ 289              	.L16:
+ 290              	.LVL30:
+  80:.\main.c      ****                 temp += A[i][k] * B[k][j];
+ 291              		.loc 1 80 0 is_stmt 0 discriminator 1
+ 292 0050 7BB2     		sxtb	r3, r7
+ 293 0052 042B     		cmp	r3, #4
+ 294 0054 DFDD     		ble	.L15
+  82:.\main.c      ****             }
+  83:.\main.c      ****             C[i][j] = temp;
+ 295              		.loc 1 83 0 is_stmt 1 discriminator 2
+ 296 0056 6B46     		mov	r3, sp
+ 297 0058 1B79     		ldrb	r3, [r3, #4]
+ 298 005a 5BB2     		sxtb	r3, r3
+ 299 005c 9A00     		lsl	r2, r3, #2
+ 300 005e D318     		add	r3, r2, r3
+ 301 0060 9B00     		lsl	r3, r3, #2
+ 302 0062 5344     		add	r3, r3, r10
+ 303 0064 6AB2     		sxtb	r2, r5
+ 304 0066 9200     		lsl	r2, r2, #2
+ 305 0068 D450     		str	r4, [r2, r3]
+  78:.\main.c      ****             temp = 0.0;
+ 306              		.loc 1 78 0 discriminator 2
+ 307 006a 0135     		add	r5, r5, #1
+ 308              	.LVL31:
+ 309 006c EDB2     		uxtb	r5, r5
+ 310              	.LVL32:
+ 311 006e 00E0     		b	.L17
+ 312              	.LVL33:
+ 313              	.L19:
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 8
+
+
+ 314 0070 0025     		mov	r5, #0
+ 315              	.L17:
+ 316              	.LVL34:
+  78:.\main.c      ****             temp = 0.0;
+ 317              		.loc 1 78 0 is_stmt 0 discriminator 1
+ 318 0072 6BB2     		sxtb	r3, r5
+ 319 0074 042B     		cmp	r3, #4
+ 320 0076 E9DD     		ble	.L18
+  77:.\main.c      ****         for(j = 0; j < MATRIX_SIZE; j++){
+ 321              		.loc 1 77 0 is_stmt 1 discriminator 2
+ 322 0078 019B     		ldr	r3, [sp, #4]
+ 323 007a 0133     		add	r3, r3, #1
+ 324 007c DBB2     		uxtb	r3, r3
+ 325 007e 0193     		str	r3, [sp, #4]
+ 326              	.LVL35:
+ 327              	.L14:
+  77:.\main.c      ****         for(j = 0; j < MATRIX_SIZE; j++){
+ 328              		.loc 1 77 0 is_stmt 0 discriminator 1
+ 329 0080 6B46     		mov	r3, sp
+ 330 0082 1B79     		ldrb	r3, [r3, #4]
+ 331 0084 5BB2     		sxtb	r3, r3
+ 332 0086 042B     		cmp	r3, #4
+ 333 0088 F2DD     		ble	.L19
+  84:.\main.c      ****         }
+  85:.\main.c      ****     }
+  86:.\main.c      **** }
+ 334              		.loc 1 86 0 is_stmt 1
+ 335 008a 03B0     		add	sp, sp, #12
+ 336              		@ sp needed
+ 337              	.LVL36:
+ 338              	.LVL37:
+ 339              	.LVL38:
+ 340 008c 0CBC     		pop	{r2, r3}
+ 341 008e 9146     		mov	r9, r2
+ 342 0090 9A46     		mov	r10, r3
+ 343 0092 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 344              		.cfi_endproc
+ 345              	.LFE37:
+ 346              		.size	matrixMult, .-matrixMult
+ 347              		.section	.text.populateMatrix,"ax",%progbits
+ 348              		.align	2
+ 349              		.global	populateMatrix
+ 350              		.code	16
+ 351              		.thumb_func
+ 352              		.type	populateMatrix, %function
+ 353              	populateMatrix:
+ 354              	.LFB38:
+  87:.\main.c      **** 
+  88:.\main.c      **** void populateMatrix(float M[MATRIX_SIZE][MATRIX_SIZE])
+  89:.\main.c      **** {
+ 355              		.loc 1 89 0
+ 356              		.cfi_startproc
+ 357              	.LVL39:
+ 358 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 359              		.cfi_def_cfa_offset 20
+ 360              		.cfi_offset 4, -20
+ 361              		.cfi_offset 5, -16
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 9
+
+
+ 362              		.cfi_offset 6, -12
+ 363              		.cfi_offset 7, -8
+ 364              		.cfi_offset 14, -4
+ 365 0002 4746     		mov	r7, r8
+ 366 0004 80B4     		push	{r7}
+ 367              		.cfi_def_cfa_offset 24
+ 368              		.cfi_offset 8, -24
+ 369 0006 8046     		mov	r8, r0
+ 370              	.LVL40:
+  90:.\main.c      ****     int8 i, j;
+  91:.\main.c      ****     for(i = 0; i < MATRIX_SIZE; i++){
+ 371              		.loc 1 91 0
+ 372 0008 0025     		mov	r5, #0
+ 373 000a 19E0     		b	.L21
+ 374              	.LVL41:
+ 375              	.L22:
+  92:.\main.c      ****         for(j = 0; j < MATRIX_SIZE; j++){
+  93:.\main.c      ****             M[i][j] = (float)rand()/(float)RAND_MAX;
+ 376              		.loc 1 93 0 discriminator 3
+ 377 000c 6BB2     		sxtb	r3, r5
+ 378 000e 9A00     		lsl	r2, r3, #2
+ 379 0010 D318     		add	r3, r2, r3
+ 380 0012 9B00     		lsl	r3, r3, #2
+ 381 0014 4344     		add	r3, r3, r8
+ 382 0016 1C1C     		mov	r4, r3
+ 383 0018 77B2     		sxtb	r7, r6
+ 384 001a FFF7FEFF 		bl	rand
+ 385              	.LVL42:
+ 386 001e FFF7FEFF 		bl	__aeabi_i2f
+ 387              	.LVL43:
+ 388 0022 C021     		mov	r1, #192
+ 389 0024 8905     		lsl	r1, r1, #22
+ 390 0026 FFF7FEFF 		bl	__aeabi_fmul
+ 391              	.LVL44:
+ 392 002a BF00     		lsl	r7, r7, #2
+ 393 002c 3851     		str	r0, [r7, r4]
+  92:.\main.c      ****         for(j = 0; j < MATRIX_SIZE; j++){
+ 394              		.loc 1 92 0 discriminator 3
+ 395 002e 0136     		add	r6, r6, #1
+ 396              	.LVL45:
+ 397 0030 F6B2     		uxtb	r6, r6
+ 398              	.LVL46:
+ 399 0032 00E0     		b	.L23
+ 400              	.LVL47:
+ 401              	.L24:
+ 402 0034 0026     		mov	r6, #0
+ 403              	.L23:
+ 404              	.LVL48:
+  92:.\main.c      ****         for(j = 0; j < MATRIX_SIZE; j++){
+ 405              		.loc 1 92 0 is_stmt 0 discriminator 1
+ 406 0036 73B2     		sxtb	r3, r6
+ 407 0038 042B     		cmp	r3, #4
+ 408 003a E7DD     		ble	.L22
+  91:.\main.c      ****         for(j = 0; j < MATRIX_SIZE; j++){
+ 409              		.loc 1 91 0 is_stmt 1 discriminator 2
+ 410 003c 0135     		add	r5, r5, #1
+ 411              	.LVL49:
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 10
+
+
+ 412 003e EDB2     		uxtb	r5, r5
+ 413              	.LVL50:
+ 414              	.L21:
+  91:.\main.c      ****         for(j = 0; j < MATRIX_SIZE; j++){
+ 415              		.loc 1 91 0 is_stmt 0 discriminator 1
+ 416 0040 6BB2     		sxtb	r3, r5
+ 417 0042 042B     		cmp	r3, #4
+ 418 0044 F6DD     		ble	.L24
+  94:.\main.c      ****         }
+  95:.\main.c      ****     }
+  96:.\main.c      **** }
+ 419              		.loc 1 96 0 is_stmt 1
+ 420              		@ sp needed
+ 421              	.LVL51:
+ 422              	.LVL52:
+ 423 0046 04BC     		pop	{r2}
+ 424 0048 9046     		mov	r8, r2
+ 425 004a F0BD     		pop	{r4, r5, r6, r7, pc}
+ 426              		.cfi_endproc
+ 427              	.LFE38:
+ 428              		.size	populateMatrix, .-populateMatrix
+ 429              		.section	.text.main,"ax",%progbits
+ 430              		.align	2
+ 431              		.global	main
+ 432              		.code	16
+ 433              		.thumb_func
+ 434              		.type	main, %function
+ 435              	main:
+ 436              	.LFB39:
+  97:.\main.c      **** 
+  98:.\main.c      **** int main()
+  99:.\main.c      **** {
+ 437              		.loc 1 99 0
+ 438              		.cfi_startproc
+ 439 0000 00B5     		push	{lr}
+ 440              		.cfi_def_cfa_offset 4
+ 441              		.cfi_offset 14, -4
+ 442 0002 CDB0     		sub	sp, sp, #308
+ 443              		.cfi_def_cfa_offset 312
+ 100:.\main.c      ****     CyGlobalIntDisable;
+ 444              		.loc 1 100 0
+ 445              	@ 100 ".\main.c" 1
+ 446 0004 72B6     		CPSID   i
+ 447              	@ 0 "" 2
+ 101:.\main.c      ****     UART_Int_Start(); /* Start the ISR associated with UART. */
+ 448              		.loc 1 101 0
+ 449              		.code	16
+ 450 0006 FFF7FEFF 		bl	UART_Int_Start
+ 451              	.LVL53:
+ 102:.\main.c      ****     UART_Int_SetVector(uartISR); /* Update vector table. */
+ 452              		.loc 1 102 0
+ 453 000a 1248     		ldr	r0, .L27
+ 454 000c FFF7FEFF 		bl	UART_Int_SetVector
+ 455              	.LVL54:
+ 103:.\main.c      **** 
+ 104:.\main.c      ****     myTimer_Int_Start(); /* Start the ISR associated with timer. */
+ 456              		.loc 1 104 0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 11
+
+
+ 457 0010 FFF7FEFF 		bl	myTimer_Int_Start
+ 458              	.LVL55:
+ 105:.\main.c      ****     myTimer_Int_SetVector(myTimerISR); /* Update vector table. */
+ 459              		.loc 1 105 0
+ 460 0014 1048     		ldr	r0, .L27+4
+ 461 0016 FFF7FEFF 		bl	myTimer_Int_SetVector
+ 462              	.LVL56:
+ 106:.\main.c      ****     CyGlobalIntEnable;
+ 463              		.loc 1 106 0
+ 464              	@ 106 ".\main.c" 1
+ 465 001a 62B6     		CPSIE   i
+ 466              	@ 0 "" 2
+ 107:.\main.c      ****     
+ 108:.\main.c      ****     UART_1_Start(); /* Start the UART. */
+ 467              		.loc 1 108 0
+ 468              		.code	16
+ 469 001c FFF7FEFF 		bl	UART_1_Start
+ 470              	.LVL57:
+ 109:.\main.c      ****     TIMER_1_Start(); /* Start timer. */
+ 471              		.loc 1 109 0
+ 472 0020 FFF7FEFF 		bl	TIMER_1_Start
+ 473              	.LVL58:
+ 110:.\main.c      ****     
+ 111:.\main.c      ****     srand(rand()); /* Initialize random number generator. */
+ 474              		.loc 1 111 0
+ 475 0024 FFF7FEFF 		bl	rand
+ 476              	.LVL59:
+ 477 0028 FFF7FEFF 		bl	srand
+ 478              	.LVL60:
+ 479              	.L26:
+ 112:.\main.c      ****     
+ 113:.\main.c      ****     float A[MATRIX_SIZE][MATRIX_SIZE];
+ 114:.\main.c      ****     float B[MATRIX_SIZE][MATRIX_SIZE];
+ 115:.\main.c      ****     float C[MATRIX_SIZE][MATRIX_SIZE];
+ 116:.\main.c      **** 
+ 117:.\main.c      ****     for(;;)
+ 118:.\main.c      ****     {
+ 119:.\main.c      ****         populateMatrix(A); /* Populate matrices with random numbers. */
+ 480              		.loc 1 119 0 discriminator 1
+ 481 002c 33A8     		add	r0, sp, #204
+ 482 002e FFF7FEFF 		bl	populateMatrix
+ 483              	.LVL61:
+ 120:.\main.c      ****         populateMatrix(B);
+ 484              		.loc 1 120 0 discriminator 1
+ 485 0032 1AA8     		add	r0, sp, #104
+ 486 0034 FFF7FEFF 		bl	populateMatrix
+ 487              	.LVL62:
+ 121:.\main.c      ****         
+ 122:.\main.c      ****         tic(); /* Time the multiplication operation. */
+ 488              		.loc 1 122 0 discriminator 1
+ 489 0038 FFF7FEFF 		bl	tic
+ 490              	.LVL63:
+ 123:.\main.c      ****         
+ 124:.\main.c      ****         matrixMult(A, B, C);
+ 491              		.loc 1 124 0 discriminator 1
+ 492 003c 33A8     		add	r0, sp, #204
+ 493 003e 1AA9     		add	r1, sp, #104
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 12
+
+
+ 494 0040 01AA     		add	r2, sp, #4
+ 495 0042 FFF7FEFF 		bl	matrixMult
+ 496              	.LVL64:
+ 125:.\main.c      ****         
+ 126:.\main.c      ****         toc();
+ 497              		.loc 1 126 0 discriminator 1
+ 498 0046 FFF7FEFF 		bl	toc
+ 499              	.LVL65:
+ 127:.\main.c      ****         
+ 128:.\main.c      ****         //UART_1_PutString("Hellooo \n\r");
+ 129:.\main.c      ****         //UART_1_PutChar(elapsedTime);
+ 130:.\main.c      ****         
+ 131:.\main.c      ****         /* Display elapsed time on the terminal. */
+ 132:.\main.c      ****         CyDelay(1000);
+ 500              		.loc 1 132 0 discriminator 1
+ 501 004a FA20     		mov	r0, #250
+ 502 004c 8000     		lsl	r0, r0, #2
+ 503 004e FFF7FEFF 		bl	CyDelay
+ 504              	.LVL66:
+ 133:.\main.c      ****     }
+ 505              		.loc 1 133 0 discriminator 1
+ 506 0052 EBE7     		b	.L26
+ 507              	.L28:
+ 508              		.align	2
+ 509              	.L27:
+ 510 0054 00000000 		.word	uartISR
+ 511 0058 00000000 		.word	myTimerISR
+ 512              		.cfi_endproc
+ 513              	.LFE39:
+ 514              		.size	main, .-main
+ 515              		.comm	elapsedTime,4,4
+ 516              		.global	clockTime
+ 517              		.comm	preTime,1,1
+ 518              		.comm	tc,4,4
+ 519              		.data
+ 520              		.align	2
+ 521              		.set	.LANCHOR0,. + 0
+ 522              		.type	clockTime, %object
+ 523              		.size	clockTime, 4
+ 524              	clockTime:
+ 525 0000 FCF43233 		.word	858977532
+ 526              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 527              		.align	2
+ 528              	.LC0:
+ 529 0000 48692074 		.ascii	"Hi there! \012\015\000"
+ 529      68657265 
+ 529      21200A0D 
+ 529      00
+ 530 000d 000000   		.space	3
+ 531              	.LC10:
+ 532 0010 256600   		.ascii	"%f\000"
+ 533 0013 00       		.space	1
+ 534              	.LC12:
+ 535 0014 2073200A 		.ascii	" s \012\015\000"
+ 535      0D00
+ 536 001a 0000     		.text
+ 537              	.Letext0:
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 13
+
+
+ 538              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 539              		.file 3 "Generated_Source\\PSoC4/TIMER_1.h"
+ 540              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 541              		.file 5 "Generated_Source\\PSoC4/UART_1.h"
+ 542              		.file 6 "Generated_Source\\PSoC4/UART_Int.h"
+ 543              		.file 7 "Generated_Source\\PSoC4/myTimer_Int.h"
+ 544              		.file 8 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 545              		.file 9 "Generated_Source\\PSoC4/CyLib.h"
+ 546              		.section	.debug_info,"",%progbits
+ 547              	.Ldebug_info0:
+ 548 0000 DF040000 		.4byte	0x4df
+ 549 0004 0400     		.2byte	0x4
+ 550 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 551 000a 04       		.byte	0x4
+ 552 000b 01       		.uleb128 0x1
+ 553 000c D7010000 		.4byte	.LASF42
+ 554 0010 01       		.byte	0x1
+ 555 0011 52010000 		.4byte	.LASF43
+ 556 0015 72000000 		.4byte	.LASF44
+ 557 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 558 001d 00000000 		.4byte	0
+ 559 0021 00000000 		.4byte	.Ldebug_line0
+ 560 0025 02       		.uleb128 0x2
+ 561 0026 01       		.byte	0x1
+ 562 0027 06       		.byte	0x6
+ 563 0028 82020000 		.4byte	.LASF0
+ 564 002c 02       		.uleb128 0x2
+ 565 002d 01       		.byte	0x1
+ 566 002e 08       		.byte	0x8
+ 567 002f E4000000 		.4byte	.LASF1
+ 568 0033 02       		.uleb128 0x2
+ 569 0034 02       		.byte	0x2
+ 570 0035 05       		.byte	0x5
+ 571 0036 78020000 		.4byte	.LASF2
+ 572 003a 02       		.uleb128 0x2
+ 573 003b 02       		.byte	0x2
+ 574 003c 07       		.byte	0x7
+ 575 003d 8E020000 		.4byte	.LASF3
+ 576 0041 02       		.uleb128 0x2
+ 577 0042 04       		.byte	0x4
+ 578 0043 05       		.byte	0x5
+ 579 0044 34000000 		.4byte	.LASF4
+ 580 0048 02       		.uleb128 0x2
+ 581 0049 04       		.byte	0x4
+ 582 004a 07       		.byte	0x7
+ 583 004b 06010000 		.4byte	.LASF5
+ 584 004f 02       		.uleb128 0x2
+ 585 0050 08       		.byte	0x8
+ 586 0051 05       		.byte	0x5
+ 587 0052 C4010000 		.4byte	.LASF6
+ 588 0056 02       		.uleb128 0x2
+ 589 0057 08       		.byte	0x8
+ 590 0058 07       		.byte	0x7
+ 591 0059 8B010000 		.4byte	.LASF7
+ 592 005d 03       		.uleb128 0x3
+ 593 005e 04       		.byte	0x4
+ 594 005f 05       		.byte	0x5
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 14
+
+
+ 595 0060 696E7400 		.ascii	"int\000"
+ 596 0064 02       		.uleb128 0x2
+ 597 0065 04       		.byte	0x4
+ 598 0066 07       		.byte	0x7
+ 599 0067 72010000 		.4byte	.LASF8
+ 600 006b 04       		.uleb128 0x4
+ 601 006c 1D010000 		.4byte	.LASF9
+ 602 0070 02       		.byte	0x2
+ 603 0071 C2       		.byte	0xc2
+ 604 0072 2C000000 		.4byte	0x2c
+ 605 0076 04       		.uleb128 0x4
+ 606 0077 66010000 		.4byte	.LASF10
+ 607 007b 02       		.byte	0x2
+ 608 007c C4       		.byte	0xc4
+ 609 007d 48000000 		.4byte	0x48
+ 610 0081 04       		.uleb128 0x4
+ 611 0082 23010000 		.4byte	.LASF11
+ 612 0086 02       		.byte	0x2
+ 613 0087 C5       		.byte	0xc5
+ 614 0088 25000000 		.4byte	0x25
+ 615 008c 02       		.uleb128 0x2
+ 616 008d 04       		.byte	0x4
+ 617 008e 04       		.byte	0x4
+ 618 008f D6000000 		.4byte	.LASF12
+ 619 0093 02       		.uleb128 0x2
+ 620 0094 08       		.byte	0x8
+ 621 0095 04       		.byte	0x4
+ 622 0096 3C010000 		.4byte	.LASF13
+ 623 009a 04       		.uleb128 0x4
+ 624 009b F2000000 		.4byte	.LASF14
+ 625 009f 02       		.byte	0x2
+ 626 00a0 D3       		.byte	0xd3
+ 627 00a1 A5000000 		.4byte	0xa5
+ 628 00a5 02       		.uleb128 0x2
+ 629 00a6 01       		.byte	0x1
+ 630 00a7 08       		.byte	0x8
+ 631 00a8 D2010000 		.4byte	.LASF15
+ 632 00ac 05       		.uleb128 0x5
+ 633 00ad A2010000 		.4byte	.LASF16
+ 634 00b1 02       		.byte	0x2
+ 635 00b2 7E01     		.2byte	0x17e
+ 636 00b4 B8000000 		.4byte	0xb8
+ 637 00b8 06       		.uleb128 0x6
+ 638 00b9 04       		.byte	0x4
+ 639 00ba BE000000 		.4byte	0xbe
+ 640 00be 07       		.uleb128 0x7
+ 641 00bf 02       		.uleb128 0x2
+ 642 00c0 04       		.byte	0x4
+ 643 00c1 07       		.byte	0x7
+ 644 00c2 B5010000 		.4byte	.LASF17
+ 645 00c6 06       		.uleb128 0x6
+ 646 00c7 04       		.byte	0x4
+ 647 00c8 A5000000 		.4byte	0xa5
+ 648 00cc 06       		.uleb128 0x6
+ 649 00cd 04       		.byte	0x4
+ 650 00ce D2000000 		.4byte	0xd2
+ 651 00d2 08       		.uleb128 0x8
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 15
+
+
+ 652 00d3 A5000000 		.4byte	0xa5
+ 653 00d7 09       		.uleb128 0x9
+ 654 00d8 A5000000 		.4byte	0xa5
+ 655 00dc E7000000 		.4byte	0xe7
+ 656 00e0 0A       		.uleb128 0xa
+ 657 00e1 BF000000 		.4byte	0xbf
+ 658 00e5 07       		.byte	0x7
+ 659 00e6 00       		.byte	0
+ 660 00e7 0B       		.uleb128 0xb
+ 661 00e8 DC000000 		.4byte	.LASF18
+ 662 00ec 01       		.byte	0x1
+ 663 00ed 17       		.byte	0x17
+ 664 00ee 00000000 		.4byte	.LFB33
+ 665 00f2 14000000 		.4byte	.LFE33-.LFB33
+ 666 00f6 01       		.uleb128 0x1
+ 667 00f7 9C       		.byte	0x9c
+ 668 00f8 1D010000 		.4byte	0x11d
+ 669 00fc 0C       		.uleb128 0xc
+ 670 00fd 08000000 		.4byte	.LVL0
+ 671 0101 27040000 		.4byte	0x427
+ 672 0105 13010000 		.4byte	0x113
+ 673 0109 0D       		.uleb128 0xd
+ 674 010a 01       		.uleb128 0x1
+ 675 010b 50       		.byte	0x50
+ 676 010c 05       		.uleb128 0x5
+ 677 010d 03       		.byte	0x3
+ 678 010e 00000000 		.4byte	.LC0
+ 679 0112 00       		.byte	0
+ 680 0113 0E       		.uleb128 0xe
+ 681 0114 0C000000 		.4byte	.LVL1
+ 682 0118 43040000 		.4byte	0x443
+ 683 011c 00       		.byte	0
+ 684 011d 0B       		.uleb128 0xb
+ 685 011e 5B010000 		.4byte	.LASF19
+ 686 0122 01       		.byte	0x1
+ 687 0123 21       		.byte	0x21
+ 688 0124 00000000 		.4byte	.LFB34
+ 689 0128 14000000 		.4byte	.LFE34-.LFB34
+ 690 012c 01       		.uleb128 0x1
+ 691 012d 9C       		.byte	0x9c
+ 692 012e 3C010000 		.4byte	0x13c
+ 693 0132 0E       		.uleb128 0xe
+ 694 0133 0E000000 		.4byte	.LVL2
+ 695 0137 4A040000 		.4byte	0x44a
+ 696 013b 00       		.byte	0
+ 697 013c 0F       		.uleb128 0xf
+ 698 013d 74696300 		.ascii	"tic\000"
+ 699 0141 01       		.byte	0x1
+ 700 0142 2C       		.byte	0x2c
+ 701 0143 00000000 		.4byte	.LFB35
+ 702 0147 24000000 		.4byte	.LFE35-.LFB35
+ 703 014b 01       		.uleb128 0x1
+ 704 014c 9C       		.byte	0x9c
+ 705 014d 5B010000 		.4byte	0x15b
+ 706 0151 0E       		.uleb128 0xe
+ 707 0152 06000000 		.4byte	.LVL3
+ 708 0156 55040000 		.4byte	0x455
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 16
+
+
+ 709 015a 00       		.byte	0
+ 710 015b 0F       		.uleb128 0xf
+ 711 015c 746F6300 		.ascii	"toc\000"
+ 712 0160 01       		.byte	0x1
+ 713 0161 33       		.byte	0x33
+ 714 0162 00000000 		.4byte	.LFB36
+ 715 0166 88000000 		.4byte	.LFE36-.LFB36
+ 716 016a 01       		.uleb128 0x1
+ 717 016b 9C       		.byte	0x9c
+ 718 016c EA010000 		.4byte	0x1ea
+ 719 0170 10       		.uleb128 0x10
+ 720 0171 BE010000 		.4byte	.LASF20
+ 721 0175 01       		.byte	0x1
+ 722 0176 35       		.byte	0x35
+ 723 0177 8C000000 		.4byte	0x8c
+ 724 017b 00000000 		.4byte	.LLST0
+ 725 017f 10       		.uleb128 0x10
+ 726 0180 AF010000 		.4byte	.LASF21
+ 727 0184 01       		.byte	0x1
+ 728 0185 36       		.byte	0x36
+ 729 0186 8C000000 		.4byte	0x8c
+ 730 018a 29000000 		.4byte	.LLST1
+ 731 018e 11       		.uleb128 0x11
+ 732 018f 4D010000 		.4byte	.LASF22
+ 733 0193 01       		.byte	0x1
+ 734 0194 39       		.byte	0x39
+ 735 0195 D7000000 		.4byte	0xd7
+ 736 0199 02       		.uleb128 0x2
+ 737 019a 91       		.byte	0x91
+ 738 019b 68       		.sleb128 -24
+ 739 019c 0E       		.uleb128 0xe
+ 740 019d 30000000 		.4byte	.LVL11
+ 741 01a1 55040000 		.4byte	0x455
+ 742 01a5 0C       		.uleb128 0xc
+ 743 01a6 56000000 		.4byte	.LVL18
+ 744 01aa 60040000 		.4byte	0x460
+ 745 01ae C2010000 		.4byte	0x1c2
+ 746 01b2 0D       		.uleb128 0xd
+ 747 01b3 01       		.uleb128 0x1
+ 748 01b4 51       		.byte	0x51
+ 749 01b5 05       		.uleb128 0x5
+ 750 01b6 03       		.byte	0x3
+ 751 01b7 10000000 		.4byte	.LC10
+ 752 01bb 0D       		.uleb128 0xd
+ 753 01bc 01       		.uleb128 0x1
+ 754 01bd 50       		.byte	0x50
+ 755 01be 02       		.uleb128 0x2
+ 756 01bf 7D       		.byte	0x7d
+ 757 01c0 00       		.sleb128 0
+ 758 01c1 00       		.byte	0
+ 759 01c2 0C       		.uleb128 0xc
+ 760 01c3 5C000000 		.4byte	.LVL19
+ 761 01c7 27040000 		.4byte	0x427
+ 762 01cb D6010000 		.4byte	0x1d6
+ 763 01cf 0D       		.uleb128 0xd
+ 764 01d0 01       		.uleb128 0x1
+ 765 01d1 50       		.byte	0x50
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 17
+
+
+ 766 01d2 02       		.uleb128 0x2
+ 767 01d3 7D       		.byte	0x7d
+ 768 01d4 00       		.sleb128 0
+ 769 01d5 00       		.byte	0
+ 770 01d6 12       		.uleb128 0x12
+ 771 01d7 62000000 		.4byte	.LVL20
+ 772 01db 27040000 		.4byte	0x427
+ 773 01df 0D       		.uleb128 0xd
+ 774 01e0 01       		.uleb128 0x1
+ 775 01e1 50       		.byte	0x50
+ 776 01e2 05       		.uleb128 0x5
+ 777 01e3 03       		.byte	0x3
+ 778 01e4 14000000 		.4byte	.LC12
+ 779 01e8 00       		.byte	0
+ 780 01e9 00       		.byte	0
+ 781 01ea 13       		.uleb128 0x13
+ 782 01eb B0000000 		.4byte	.LASF23
+ 783 01ef 01       		.byte	0x1
+ 784 01f0 49       		.byte	0x49
+ 785 01f1 00000000 		.4byte	.LFB37
+ 786 01f5 94000000 		.4byte	.LFE37-.LFB37
+ 787 01f9 01       		.uleb128 0x1
+ 788 01fa 9C       		.byte	0x9c
+ 789 01fb 5D020000 		.4byte	0x25d
+ 790 01ff 14       		.uleb128 0x14
+ 791 0200 4100     		.ascii	"A\000"
+ 792 0202 01       		.byte	0x1
+ 793 0203 49       		.byte	0x49
+ 794 0204 6D020000 		.4byte	0x26d
+ 795 0208 47000000 		.4byte	.LLST2
+ 796 020c 14       		.uleb128 0x14
+ 797 020d 4200     		.ascii	"B\000"
+ 798 020f 01       		.byte	0x1
+ 799 0210 49       		.byte	0x49
+ 800 0211 6D020000 		.4byte	0x26d
+ 801 0215 73000000 		.4byte	.LLST3
+ 802 0219 14       		.uleb128 0x14
+ 803 021a 4300     		.ascii	"C\000"
+ 804 021c 01       		.byte	0x1
+ 805 021d 49       		.byte	0x49
+ 806 021e 6D020000 		.4byte	0x26d
+ 807 0222 9F000000 		.4byte	.LLST4
+ 808 0226 15       		.uleb128 0x15
+ 809 0227 6900     		.ascii	"i\000"
+ 810 0229 01       		.byte	0x1
+ 811 022a 4B       		.byte	0x4b
+ 812 022b 81000000 		.4byte	0x81
+ 813 022f CB000000 		.4byte	.LLST5
+ 814 0233 15       		.uleb128 0x15
+ 815 0234 6A00     		.ascii	"j\000"
+ 816 0236 01       		.byte	0x1
+ 817 0237 4B       		.byte	0x4b
+ 818 0238 81000000 		.4byte	0x81
+ 819 023c EB000000 		.4byte	.LLST6
+ 820 0240 15       		.uleb128 0x15
+ 821 0241 6B00     		.ascii	"k\000"
+ 822 0243 01       		.byte	0x1
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 18
+
+
+ 823 0244 4B       		.byte	0x4b
+ 824 0245 81000000 		.4byte	0x81
+ 825 0249 14010000 		.4byte	.LLST7
+ 826 024d 10       		.uleb128 0x10
+ 827 024e 18010000 		.4byte	.LASF24
+ 828 0252 01       		.byte	0x1
+ 829 0253 4C       		.byte	0x4c
+ 830 0254 8C000000 		.4byte	0x8c
+ 831 0258 3D010000 		.4byte	.LLST8
+ 832 025c 00       		.byte	0
+ 833 025d 09       		.uleb128 0x9
+ 834 025e 8C000000 		.4byte	0x8c
+ 835 0262 6D020000 		.4byte	0x26d
+ 836 0266 0A       		.uleb128 0xa
+ 837 0267 BF000000 		.4byte	0xbf
+ 838 026b 04       		.byte	0x4
+ 839 026c 00       		.byte	0
+ 840 026d 06       		.uleb128 0x6
+ 841 026e 04       		.byte	0x4
+ 842 026f 5D020000 		.4byte	0x25d
+ 843 0273 13       		.uleb128 0x13
+ 844 0274 00000000 		.4byte	.LASF25
+ 845 0278 01       		.byte	0x1
+ 846 0279 58       		.byte	0x58
+ 847 027a 00000000 		.4byte	.LFB38
+ 848 027e 4C000000 		.4byte	.LFE38-.LFB38
+ 849 0282 01       		.uleb128 0x1
+ 850 0283 9C       		.byte	0x9c
+ 851 0284 B9020000 		.4byte	0x2b9
+ 852 0288 14       		.uleb128 0x14
+ 853 0289 4D00     		.ascii	"M\000"
+ 854 028b 01       		.byte	0x1
+ 855 028c 58       		.byte	0x58
+ 856 028d 6D020000 		.4byte	0x26d
+ 857 0291 66010000 		.4byte	.LLST9
+ 858 0295 15       		.uleb128 0x15
+ 859 0296 6900     		.ascii	"i\000"
+ 860 0298 01       		.byte	0x1
+ 861 0299 5A       		.byte	0x5a
+ 862 029a 81000000 		.4byte	0x81
+ 863 029e 92010000 		.4byte	.LLST10
+ 864 02a2 15       		.uleb128 0x15
+ 865 02a3 6A00     		.ascii	"j\000"
+ 866 02a5 01       		.byte	0x1
+ 867 02a6 5A       		.byte	0x5a
+ 868 02a7 81000000 		.4byte	0x81
+ 869 02ab C7010000 		.4byte	.LLST11
+ 870 02af 0E       		.uleb128 0xe
+ 871 02b0 1E000000 		.4byte	.LVL42
+ 872 02b4 7B040000 		.4byte	0x47b
+ 873 02b8 00       		.byte	0
+ 874 02b9 16       		.uleb128 0x16
+ 875 02ba 6D010000 		.4byte	.LASF26
+ 876 02be 01       		.byte	0x1
+ 877 02bf 62       		.byte	0x62
+ 878 02c0 5D000000 		.4byte	0x5d
+ 879 02c4 00000000 		.4byte	.LFB39
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 19
+
+
+ 880 02c8 5C000000 		.4byte	.LFE39-.LFB39
+ 881 02cc 01       		.uleb128 0x1
+ 882 02cd 9C       		.byte	0x9c
+ 883 02ce CE030000 		.4byte	0x3ce
+ 884 02d2 17       		.uleb128 0x17
+ 885 02d3 4100     		.ascii	"A\000"
+ 886 02d5 01       		.byte	0x1
+ 887 02d6 71       		.byte	0x71
+ 888 02d7 CE030000 		.4byte	0x3ce
+ 889 02db 03       		.uleb128 0x3
+ 890 02dc 91       		.byte	0x91
+ 891 02dd 947F     		.sleb128 -108
+ 892 02df 17       		.uleb128 0x17
+ 893 02e0 4200     		.ascii	"B\000"
+ 894 02e2 01       		.byte	0x1
+ 895 02e3 72       		.byte	0x72
+ 896 02e4 CE030000 		.4byte	0x3ce
+ 897 02e8 03       		.uleb128 0x3
+ 898 02e9 91       		.byte	0x91
+ 899 02ea B07E     		.sleb128 -208
+ 900 02ec 17       		.uleb128 0x17
+ 901 02ed 4300     		.ascii	"C\000"
+ 902 02ef 01       		.byte	0x1
+ 903 02f0 73       		.byte	0x73
+ 904 02f1 CE030000 		.4byte	0x3ce
+ 905 02f5 03       		.uleb128 0x3
+ 906 02f6 91       		.byte	0x91
+ 907 02f7 CC7D     		.sleb128 -308
+ 908 02f9 0E       		.uleb128 0xe
+ 909 02fa 0A000000 		.4byte	.LVL53
+ 910 02fe 86040000 		.4byte	0x486
+ 911 0302 0C       		.uleb128 0xc
+ 912 0303 10000000 		.4byte	.LVL54
+ 913 0307 8D040000 		.4byte	0x48d
+ 914 030b 19030000 		.4byte	0x319
+ 915 030f 0D       		.uleb128 0xd
+ 916 0310 01       		.uleb128 0x1
+ 917 0311 50       		.byte	0x50
+ 918 0312 05       		.uleb128 0x5
+ 919 0313 03       		.byte	0x3
+ 920 0314 00000000 		.4byte	uartISR
+ 921 0318 00       		.byte	0
+ 922 0319 0E       		.uleb128 0xe
+ 923 031a 14000000 		.4byte	.LVL55
+ 924 031e 9E040000 		.4byte	0x49e
+ 925 0322 0C       		.uleb128 0xc
+ 926 0323 1A000000 		.4byte	.LVL56
+ 927 0327 A5040000 		.4byte	0x4a5
+ 928 032b 39030000 		.4byte	0x339
+ 929 032f 0D       		.uleb128 0xd
+ 930 0330 01       		.uleb128 0x1
+ 931 0331 50       		.byte	0x50
+ 932 0332 05       		.uleb128 0x5
+ 933 0333 03       		.byte	0x3
+ 934 0334 00000000 		.4byte	myTimerISR
+ 935 0338 00       		.byte	0
+ 936 0339 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 20
+
+
+ 937 033a 20000000 		.4byte	.LVL57
+ 938 033e B6040000 		.4byte	0x4b6
+ 939 0342 0E       		.uleb128 0xe
+ 940 0343 24000000 		.4byte	.LVL58
+ 941 0347 BD040000 		.4byte	0x4bd
+ 942 034b 0E       		.uleb128 0xe
+ 943 034c 28000000 		.4byte	.LVL59
+ 944 0350 7B040000 		.4byte	0x47b
+ 945 0354 0E       		.uleb128 0xe
+ 946 0355 2C000000 		.4byte	.LVL60
+ 947 0359 C4040000 		.4byte	0x4c4
+ 948 035d 0C       		.uleb128 0xc
+ 949 035e 32000000 		.4byte	.LVL61
+ 950 0362 73020000 		.4byte	0x273
+ 951 0366 72030000 		.4byte	0x372
+ 952 036a 0D       		.uleb128 0xd
+ 953 036b 01       		.uleb128 0x1
+ 954 036c 50       		.byte	0x50
+ 955 036d 03       		.uleb128 0x3
+ 956 036e 91       		.byte	0x91
+ 957 036f 947F     		.sleb128 -108
+ 958 0371 00       		.byte	0
+ 959 0372 0C       		.uleb128 0xc
+ 960 0373 38000000 		.4byte	.LVL62
+ 961 0377 73020000 		.4byte	0x273
+ 962 037b 87030000 		.4byte	0x387
+ 963 037f 0D       		.uleb128 0xd
+ 964 0380 01       		.uleb128 0x1
+ 965 0381 50       		.byte	0x50
+ 966 0382 03       		.uleb128 0x3
+ 967 0383 91       		.byte	0x91
+ 968 0384 B07E     		.sleb128 -208
+ 969 0386 00       		.byte	0
+ 970 0387 0E       		.uleb128 0xe
+ 971 0388 3C000000 		.4byte	.LVL63
+ 972 038c 3C010000 		.4byte	0x13c
+ 973 0390 0C       		.uleb128 0xc
+ 974 0391 46000000 		.4byte	.LVL64
+ 975 0395 EA010000 		.4byte	0x1ea
+ 976 0399 B3030000 		.4byte	0x3b3
+ 977 039d 0D       		.uleb128 0xd
+ 978 039e 01       		.uleb128 0x1
+ 979 039f 52       		.byte	0x52
+ 980 03a0 03       		.uleb128 0x3
+ 981 03a1 91       		.byte	0x91
+ 982 03a2 CC7D     		.sleb128 -308
+ 983 03a4 0D       		.uleb128 0xd
+ 984 03a5 01       		.uleb128 0x1
+ 985 03a6 51       		.byte	0x51
+ 986 03a7 03       		.uleb128 0x3
+ 987 03a8 91       		.byte	0x91
+ 988 03a9 B07E     		.sleb128 -208
+ 989 03ab 0D       		.uleb128 0xd
+ 990 03ac 01       		.uleb128 0x1
+ 991 03ad 50       		.byte	0x50
+ 992 03ae 03       		.uleb128 0x3
+ 993 03af 91       		.byte	0x91
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 21
+
+
+ 994 03b0 947F     		.sleb128 -108
+ 995 03b2 00       		.byte	0
+ 996 03b3 0E       		.uleb128 0xe
+ 997 03b4 4A000000 		.4byte	.LVL65
+ 998 03b8 5B010000 		.4byte	0x15b
+ 999 03bc 12       		.uleb128 0x12
+ 1000 03bd 52000000 		.4byte	.LVL66
+ 1001 03c1 D5040000 		.4byte	0x4d5
+ 1002 03c5 0D       		.uleb128 0xd
+ 1003 03c6 01       		.uleb128 0x1
+ 1004 03c7 50       		.byte	0x50
+ 1005 03c8 03       		.uleb128 0x3
+ 1006 03c9 0A       		.byte	0xa
+ 1007 03ca E803     		.2byte	0x3e8
+ 1008 03cc 00       		.byte	0
+ 1009 03cd 00       		.byte	0
+ 1010 03ce 09       		.uleb128 0x9
+ 1011 03cf 8C000000 		.4byte	0x8c
+ 1012 03d3 E4030000 		.4byte	0x3e4
+ 1013 03d7 0A       		.uleb128 0xa
+ 1014 03d8 BF000000 		.4byte	0xbf
+ 1015 03dc 04       		.byte	0x4
+ 1016 03dd 0A       		.uleb128 0xa
+ 1017 03de BF000000 		.4byte	0xbf
+ 1018 03e2 04       		.byte	0x4
+ 1019 03e3 00       		.byte	0
+ 1020 03e4 18       		.uleb128 0x18
+ 1021 03e5 746300   		.ascii	"tc\000"
+ 1022 03e8 01       		.byte	0x1
+ 1023 03e9 12       		.byte	0x12
+ 1024 03ea 5D000000 		.4byte	0x5d
+ 1025 03ee 05       		.uleb128 0x5
+ 1026 03ef 03       		.byte	0x3
+ 1027 03f0 00000000 		.4byte	tc
+ 1028 03f4 19       		.uleb128 0x19
+ 1029 03f5 64000000 		.4byte	.LASF27
+ 1030 03f9 01       		.byte	0x1
+ 1031 03fa 13       		.byte	0x13
+ 1032 03fb 6B000000 		.4byte	0x6b
+ 1033 03ff 05       		.uleb128 0x5
+ 1034 0400 03       		.byte	0x3
+ 1035 0401 00000000 		.4byte	preTime
+ 1036 0405 19       		.uleb128 0x19
+ 1037 0406 43010000 		.4byte	.LASF28
+ 1038 040a 01       		.byte	0x1
+ 1039 040b 14       		.byte	0x14
+ 1040 040c 8C000000 		.4byte	0x8c
+ 1041 0410 05       		.uleb128 0x5
+ 1042 0411 03       		.byte	0x3
+ 1043 0412 00000000 		.4byte	clockTime
+ 1044 0416 19       		.uleb128 0x19
+ 1045 0417 7F010000 		.4byte	.LASF29
+ 1046 041b 01       		.byte	0x1
+ 1047 041c 15       		.byte	0x15
+ 1048 041d 8C000000 		.4byte	0x8c
+ 1049 0421 05       		.uleb128 0x5
+ 1050 0422 03       		.byte	0x3
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 22
+
+
+ 1051 0423 00000000 		.4byte	elapsedTime
+ 1052 0427 1A       		.uleb128 0x1a
+ 1053 0428 A1020000 		.4byte	.LASF35
+ 1054 042c 05       		.byte	0x5
+ 1055 042d 8B       		.byte	0x8b
+ 1056 042e 38040000 		.4byte	0x438
+ 1057 0432 1B       		.uleb128 0x1b
+ 1058 0433 38040000 		.4byte	0x438
+ 1059 0437 00       		.byte	0
+ 1060 0438 06       		.uleb128 0x6
+ 1061 0439 04       		.byte	0x4
+ 1062 043a 3E040000 		.4byte	0x43e
+ 1063 043e 08       		.uleb128 0x8
+ 1064 043f 9A000000 		.4byte	0x9a
+ 1065 0443 1C       		.uleb128 0x1c
+ 1066 0444 4F000000 		.4byte	.LASF33
+ 1067 0448 05       		.byte	0x5
+ 1068 0449 75       		.byte	0x75
+ 1069 044a 1D       		.uleb128 0x1d
+ 1070 044b BB000000 		.4byte	.LASF30
+ 1071 044f 03       		.byte	0x3
+ 1072 0450 5E       		.byte	0x5e
+ 1073 0451 6B000000 		.4byte	0x6b
+ 1074 0455 1D       		.uleb128 0x1d
+ 1075 0456 28010000 		.4byte	.LASF31
+ 1076 045a 03       		.byte	0x3
+ 1077 045b 69       		.byte	0x69
+ 1078 045c 6B000000 		.4byte	0x6b
+ 1079 0460 1E       		.uleb128 0x1e
+ 1080 0461 B2020000 		.4byte	.LASF45
+ 1081 0465 08       		.byte	0x8
+ 1082 0466 DE       		.byte	0xde
+ 1083 0467 5D000000 		.4byte	0x5d
+ 1084 046b 7B040000 		.4byte	0x47b
+ 1085 046f 1B       		.uleb128 0x1b
+ 1086 0470 C6000000 		.4byte	0xc6
+ 1087 0474 1B       		.uleb128 0x1b
+ 1088 0475 CC000000 		.4byte	0xcc
+ 1089 0479 1F       		.uleb128 0x1f
+ 1090 047a 00       		.byte	0
+ 1091 047b 1D       		.uleb128 0x1d
+ 1092 047c C2020000 		.4byte	.LASF32
+ 1093 0480 04       		.byte	0x4
+ 1094 0481 7D       		.byte	0x7d
+ 1095 0482 5D000000 		.4byte	0x5d
+ 1096 0486 1C       		.uleb128 0x1c
+ 1097 0487 25000000 		.4byte	.LASF34
+ 1098 048b 06       		.byte	0x6
+ 1099 048c 17       		.byte	0x17
+ 1100 048d 1A       		.uleb128 0x1a
+ 1101 048e 65020000 		.4byte	.LASF36
+ 1102 0492 06       		.byte	0x6
+ 1103 0493 1D       		.byte	0x1d
+ 1104 0494 9E040000 		.4byte	0x49e
+ 1105 0498 1B       		.uleb128 0x1b
+ 1106 0499 AC000000 		.4byte	0xac
+ 1107 049d 00       		.byte	0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 23
+
+
+ 1108 049e 1C       		.uleb128 0x1c
+ 1109 049f 3D000000 		.4byte	.LASF37
+ 1110 04a3 07       		.byte	0x7
+ 1111 04a4 17       		.byte	0x17
+ 1112 04a5 1A       		.uleb128 0x1a
+ 1113 04a6 0F000000 		.4byte	.LASF38
+ 1114 04aa 07       		.byte	0x7
+ 1115 04ab 1D       		.byte	0x1d
+ 1116 04ac B6040000 		.4byte	0x4b6
+ 1117 04b0 1B       		.uleb128 0x1b
+ 1118 04b1 AC000000 		.4byte	0xac
+ 1119 04b5 00       		.byte	0
+ 1120 04b6 1C       		.uleb128 0x1c
+ 1121 04b7 C7020000 		.4byte	.LASF39
+ 1122 04bb 05       		.byte	0x5
+ 1123 04bc 54       		.byte	0x54
+ 1124 04bd 1C       		.uleb128 0x1c
+ 1125 04be F8000000 		.4byte	.LASF40
+ 1126 04c2 03       		.byte	0x3
+ 1127 04c3 5A       		.byte	0x5a
+ 1128 04c4 1A       		.uleb128 0x1a
+ 1129 04c5 6C000000 		.4byte	.LASF41
+ 1130 04c9 04       		.byte	0x4
+ 1131 04ca 83       		.byte	0x83
+ 1132 04cb D5040000 		.4byte	0x4d5
+ 1133 04cf 1B       		.uleb128 0x1b
+ 1134 04d0 64000000 		.4byte	0x64
+ 1135 04d4 00       		.byte	0
+ 1136 04d5 20       		.uleb128 0x20
+ 1137 04d6 BA020000 		.4byte	.LASF46
+ 1138 04da 09       		.byte	0x9
+ 1139 04db 57       		.byte	0x57
+ 1140 04dc 1B       		.uleb128 0x1b
+ 1141 04dd 76000000 		.4byte	0x76
+ 1142 04e1 00       		.byte	0
+ 1143 04e2 00       		.byte	0
+ 1144              		.section	.debug_abbrev,"",%progbits
+ 1145              	.Ldebug_abbrev0:
+ 1146 0000 01       		.uleb128 0x1
+ 1147 0001 11       		.uleb128 0x11
+ 1148 0002 01       		.byte	0x1
+ 1149 0003 25       		.uleb128 0x25
+ 1150 0004 0E       		.uleb128 0xe
+ 1151 0005 13       		.uleb128 0x13
+ 1152 0006 0B       		.uleb128 0xb
+ 1153 0007 03       		.uleb128 0x3
+ 1154 0008 0E       		.uleb128 0xe
+ 1155 0009 1B       		.uleb128 0x1b
+ 1156 000a 0E       		.uleb128 0xe
+ 1157 000b 55       		.uleb128 0x55
+ 1158 000c 17       		.uleb128 0x17
+ 1159 000d 11       		.uleb128 0x11
+ 1160 000e 01       		.uleb128 0x1
+ 1161 000f 10       		.uleb128 0x10
+ 1162 0010 17       		.uleb128 0x17
+ 1163 0011 00       		.byte	0
+ 1164 0012 00       		.byte	0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 24
+
+
+ 1165 0013 02       		.uleb128 0x2
+ 1166 0014 24       		.uleb128 0x24
+ 1167 0015 00       		.byte	0
+ 1168 0016 0B       		.uleb128 0xb
+ 1169 0017 0B       		.uleb128 0xb
+ 1170 0018 3E       		.uleb128 0x3e
+ 1171 0019 0B       		.uleb128 0xb
+ 1172 001a 03       		.uleb128 0x3
+ 1173 001b 0E       		.uleb128 0xe
+ 1174 001c 00       		.byte	0
+ 1175 001d 00       		.byte	0
+ 1176 001e 03       		.uleb128 0x3
+ 1177 001f 24       		.uleb128 0x24
+ 1178 0020 00       		.byte	0
+ 1179 0021 0B       		.uleb128 0xb
+ 1180 0022 0B       		.uleb128 0xb
+ 1181 0023 3E       		.uleb128 0x3e
+ 1182 0024 0B       		.uleb128 0xb
+ 1183 0025 03       		.uleb128 0x3
+ 1184 0026 08       		.uleb128 0x8
+ 1185 0027 00       		.byte	0
+ 1186 0028 00       		.byte	0
+ 1187 0029 04       		.uleb128 0x4
+ 1188 002a 16       		.uleb128 0x16
+ 1189 002b 00       		.byte	0
+ 1190 002c 03       		.uleb128 0x3
+ 1191 002d 0E       		.uleb128 0xe
+ 1192 002e 3A       		.uleb128 0x3a
+ 1193 002f 0B       		.uleb128 0xb
+ 1194 0030 3B       		.uleb128 0x3b
+ 1195 0031 0B       		.uleb128 0xb
+ 1196 0032 49       		.uleb128 0x49
+ 1197 0033 13       		.uleb128 0x13
+ 1198 0034 00       		.byte	0
+ 1199 0035 00       		.byte	0
+ 1200 0036 05       		.uleb128 0x5
+ 1201 0037 16       		.uleb128 0x16
+ 1202 0038 00       		.byte	0
+ 1203 0039 03       		.uleb128 0x3
+ 1204 003a 0E       		.uleb128 0xe
+ 1205 003b 3A       		.uleb128 0x3a
+ 1206 003c 0B       		.uleb128 0xb
+ 1207 003d 3B       		.uleb128 0x3b
+ 1208 003e 05       		.uleb128 0x5
+ 1209 003f 49       		.uleb128 0x49
+ 1210 0040 13       		.uleb128 0x13
+ 1211 0041 00       		.byte	0
+ 1212 0042 00       		.byte	0
+ 1213 0043 06       		.uleb128 0x6
+ 1214 0044 0F       		.uleb128 0xf
+ 1215 0045 00       		.byte	0
+ 1216 0046 0B       		.uleb128 0xb
+ 1217 0047 0B       		.uleb128 0xb
+ 1218 0048 49       		.uleb128 0x49
+ 1219 0049 13       		.uleb128 0x13
+ 1220 004a 00       		.byte	0
+ 1221 004b 00       		.byte	0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 25
+
+
+ 1222 004c 07       		.uleb128 0x7
+ 1223 004d 15       		.uleb128 0x15
+ 1224 004e 00       		.byte	0
+ 1225 004f 27       		.uleb128 0x27
+ 1226 0050 19       		.uleb128 0x19
+ 1227 0051 00       		.byte	0
+ 1228 0052 00       		.byte	0
+ 1229 0053 08       		.uleb128 0x8
+ 1230 0054 26       		.uleb128 0x26
+ 1231 0055 00       		.byte	0
+ 1232 0056 49       		.uleb128 0x49
+ 1233 0057 13       		.uleb128 0x13
+ 1234 0058 00       		.byte	0
+ 1235 0059 00       		.byte	0
+ 1236 005a 09       		.uleb128 0x9
+ 1237 005b 01       		.uleb128 0x1
+ 1238 005c 01       		.byte	0x1
+ 1239 005d 49       		.uleb128 0x49
+ 1240 005e 13       		.uleb128 0x13
+ 1241 005f 01       		.uleb128 0x1
+ 1242 0060 13       		.uleb128 0x13
+ 1243 0061 00       		.byte	0
+ 1244 0062 00       		.byte	0
+ 1245 0063 0A       		.uleb128 0xa
+ 1246 0064 21       		.uleb128 0x21
+ 1247 0065 00       		.byte	0
+ 1248 0066 49       		.uleb128 0x49
+ 1249 0067 13       		.uleb128 0x13
+ 1250 0068 2F       		.uleb128 0x2f
+ 1251 0069 0B       		.uleb128 0xb
+ 1252 006a 00       		.byte	0
+ 1253 006b 00       		.byte	0
+ 1254 006c 0B       		.uleb128 0xb
+ 1255 006d 2E       		.uleb128 0x2e
+ 1256 006e 01       		.byte	0x1
+ 1257 006f 3F       		.uleb128 0x3f
+ 1258 0070 19       		.uleb128 0x19
+ 1259 0071 03       		.uleb128 0x3
+ 1260 0072 0E       		.uleb128 0xe
+ 1261 0073 3A       		.uleb128 0x3a
+ 1262 0074 0B       		.uleb128 0xb
+ 1263 0075 3B       		.uleb128 0x3b
+ 1264 0076 0B       		.uleb128 0xb
+ 1265 0077 27       		.uleb128 0x27
+ 1266 0078 19       		.uleb128 0x19
+ 1267 0079 11       		.uleb128 0x11
+ 1268 007a 01       		.uleb128 0x1
+ 1269 007b 12       		.uleb128 0x12
+ 1270 007c 06       		.uleb128 0x6
+ 1271 007d 40       		.uleb128 0x40
+ 1272 007e 18       		.uleb128 0x18
+ 1273 007f 9742     		.uleb128 0x2117
+ 1274 0081 19       		.uleb128 0x19
+ 1275 0082 01       		.uleb128 0x1
+ 1276 0083 13       		.uleb128 0x13
+ 1277 0084 00       		.byte	0
+ 1278 0085 00       		.byte	0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 26
+
+
+ 1279 0086 0C       		.uleb128 0xc
+ 1280 0087 898201   		.uleb128 0x4109
+ 1281 008a 01       		.byte	0x1
+ 1282 008b 11       		.uleb128 0x11
+ 1283 008c 01       		.uleb128 0x1
+ 1284 008d 31       		.uleb128 0x31
+ 1285 008e 13       		.uleb128 0x13
+ 1286 008f 01       		.uleb128 0x1
+ 1287 0090 13       		.uleb128 0x13
+ 1288 0091 00       		.byte	0
+ 1289 0092 00       		.byte	0
+ 1290 0093 0D       		.uleb128 0xd
+ 1291 0094 8A8201   		.uleb128 0x410a
+ 1292 0097 00       		.byte	0
+ 1293 0098 02       		.uleb128 0x2
+ 1294 0099 18       		.uleb128 0x18
+ 1295 009a 9142     		.uleb128 0x2111
+ 1296 009c 18       		.uleb128 0x18
+ 1297 009d 00       		.byte	0
+ 1298 009e 00       		.byte	0
+ 1299 009f 0E       		.uleb128 0xe
+ 1300 00a0 898201   		.uleb128 0x4109
+ 1301 00a3 00       		.byte	0
+ 1302 00a4 11       		.uleb128 0x11
+ 1303 00a5 01       		.uleb128 0x1
+ 1304 00a6 31       		.uleb128 0x31
+ 1305 00a7 13       		.uleb128 0x13
+ 1306 00a8 00       		.byte	0
+ 1307 00a9 00       		.byte	0
+ 1308 00aa 0F       		.uleb128 0xf
+ 1309 00ab 2E       		.uleb128 0x2e
+ 1310 00ac 01       		.byte	0x1
+ 1311 00ad 3F       		.uleb128 0x3f
+ 1312 00ae 19       		.uleb128 0x19
+ 1313 00af 03       		.uleb128 0x3
+ 1314 00b0 08       		.uleb128 0x8
+ 1315 00b1 3A       		.uleb128 0x3a
+ 1316 00b2 0B       		.uleb128 0xb
+ 1317 00b3 3B       		.uleb128 0x3b
+ 1318 00b4 0B       		.uleb128 0xb
+ 1319 00b5 27       		.uleb128 0x27
+ 1320 00b6 19       		.uleb128 0x19
+ 1321 00b7 11       		.uleb128 0x11
+ 1322 00b8 01       		.uleb128 0x1
+ 1323 00b9 12       		.uleb128 0x12
+ 1324 00ba 06       		.uleb128 0x6
+ 1325 00bb 40       		.uleb128 0x40
+ 1326 00bc 18       		.uleb128 0x18
+ 1327 00bd 9642     		.uleb128 0x2116
+ 1328 00bf 19       		.uleb128 0x19
+ 1329 00c0 01       		.uleb128 0x1
+ 1330 00c1 13       		.uleb128 0x13
+ 1331 00c2 00       		.byte	0
+ 1332 00c3 00       		.byte	0
+ 1333 00c4 10       		.uleb128 0x10
+ 1334 00c5 34       		.uleb128 0x34
+ 1335 00c6 00       		.byte	0
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 27
+
+
+ 1336 00c7 03       		.uleb128 0x3
+ 1337 00c8 0E       		.uleb128 0xe
+ 1338 00c9 3A       		.uleb128 0x3a
+ 1339 00ca 0B       		.uleb128 0xb
+ 1340 00cb 3B       		.uleb128 0x3b
+ 1341 00cc 0B       		.uleb128 0xb
+ 1342 00cd 49       		.uleb128 0x49
+ 1343 00ce 13       		.uleb128 0x13
+ 1344 00cf 02       		.uleb128 0x2
+ 1345 00d0 17       		.uleb128 0x17
+ 1346 00d1 00       		.byte	0
+ 1347 00d2 00       		.byte	0
+ 1348 00d3 11       		.uleb128 0x11
+ 1349 00d4 34       		.uleb128 0x34
+ 1350 00d5 00       		.byte	0
+ 1351 00d6 03       		.uleb128 0x3
+ 1352 00d7 0E       		.uleb128 0xe
+ 1353 00d8 3A       		.uleb128 0x3a
+ 1354 00d9 0B       		.uleb128 0xb
+ 1355 00da 3B       		.uleb128 0x3b
+ 1356 00db 0B       		.uleb128 0xb
+ 1357 00dc 49       		.uleb128 0x49
+ 1358 00dd 13       		.uleb128 0x13
+ 1359 00de 02       		.uleb128 0x2
+ 1360 00df 18       		.uleb128 0x18
+ 1361 00e0 00       		.byte	0
+ 1362 00e1 00       		.byte	0
+ 1363 00e2 12       		.uleb128 0x12
+ 1364 00e3 898201   		.uleb128 0x4109
+ 1365 00e6 01       		.byte	0x1
+ 1366 00e7 11       		.uleb128 0x11
+ 1367 00e8 01       		.uleb128 0x1
+ 1368 00e9 31       		.uleb128 0x31
+ 1369 00ea 13       		.uleb128 0x13
+ 1370 00eb 00       		.byte	0
+ 1371 00ec 00       		.byte	0
+ 1372 00ed 13       		.uleb128 0x13
+ 1373 00ee 2E       		.uleb128 0x2e
+ 1374 00ef 01       		.byte	0x1
+ 1375 00f0 3F       		.uleb128 0x3f
+ 1376 00f1 19       		.uleb128 0x19
+ 1377 00f2 03       		.uleb128 0x3
+ 1378 00f3 0E       		.uleb128 0xe
+ 1379 00f4 3A       		.uleb128 0x3a
+ 1380 00f5 0B       		.uleb128 0xb
+ 1381 00f6 3B       		.uleb128 0x3b
+ 1382 00f7 0B       		.uleb128 0xb
+ 1383 00f8 27       		.uleb128 0x27
+ 1384 00f9 19       		.uleb128 0x19
+ 1385 00fa 11       		.uleb128 0x11
+ 1386 00fb 01       		.uleb128 0x1
+ 1387 00fc 12       		.uleb128 0x12
+ 1388 00fd 06       		.uleb128 0x6
+ 1389 00fe 40       		.uleb128 0x40
+ 1390 00ff 18       		.uleb128 0x18
+ 1391 0100 9642     		.uleb128 0x2116
+ 1392 0102 19       		.uleb128 0x19
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 28
+
+
+ 1393 0103 01       		.uleb128 0x1
+ 1394 0104 13       		.uleb128 0x13
+ 1395 0105 00       		.byte	0
+ 1396 0106 00       		.byte	0
+ 1397 0107 14       		.uleb128 0x14
+ 1398 0108 05       		.uleb128 0x5
+ 1399 0109 00       		.byte	0
+ 1400 010a 03       		.uleb128 0x3
+ 1401 010b 08       		.uleb128 0x8
+ 1402 010c 3A       		.uleb128 0x3a
+ 1403 010d 0B       		.uleb128 0xb
+ 1404 010e 3B       		.uleb128 0x3b
+ 1405 010f 0B       		.uleb128 0xb
+ 1406 0110 49       		.uleb128 0x49
+ 1407 0111 13       		.uleb128 0x13
+ 1408 0112 02       		.uleb128 0x2
+ 1409 0113 17       		.uleb128 0x17
+ 1410 0114 00       		.byte	0
+ 1411 0115 00       		.byte	0
+ 1412 0116 15       		.uleb128 0x15
+ 1413 0117 34       		.uleb128 0x34
+ 1414 0118 00       		.byte	0
+ 1415 0119 03       		.uleb128 0x3
+ 1416 011a 08       		.uleb128 0x8
+ 1417 011b 3A       		.uleb128 0x3a
+ 1418 011c 0B       		.uleb128 0xb
+ 1419 011d 3B       		.uleb128 0x3b
+ 1420 011e 0B       		.uleb128 0xb
+ 1421 011f 49       		.uleb128 0x49
+ 1422 0120 13       		.uleb128 0x13
+ 1423 0121 02       		.uleb128 0x2
+ 1424 0122 17       		.uleb128 0x17
+ 1425 0123 00       		.byte	0
+ 1426 0124 00       		.byte	0
+ 1427 0125 16       		.uleb128 0x16
+ 1428 0126 2E       		.uleb128 0x2e
+ 1429 0127 01       		.byte	0x1
+ 1430 0128 3F       		.uleb128 0x3f
+ 1431 0129 19       		.uleb128 0x19
+ 1432 012a 03       		.uleb128 0x3
+ 1433 012b 0E       		.uleb128 0xe
+ 1434 012c 3A       		.uleb128 0x3a
+ 1435 012d 0B       		.uleb128 0xb
+ 1436 012e 3B       		.uleb128 0x3b
+ 1437 012f 0B       		.uleb128 0xb
+ 1438 0130 49       		.uleb128 0x49
+ 1439 0131 13       		.uleb128 0x13
+ 1440 0132 11       		.uleb128 0x11
+ 1441 0133 01       		.uleb128 0x1
+ 1442 0134 12       		.uleb128 0x12
+ 1443 0135 06       		.uleb128 0x6
+ 1444 0136 40       		.uleb128 0x40
+ 1445 0137 18       		.uleb128 0x18
+ 1446 0138 9742     		.uleb128 0x2117
+ 1447 013a 19       		.uleb128 0x19
+ 1448 013b 01       		.uleb128 0x1
+ 1449 013c 13       		.uleb128 0x13
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 29
+
+
+ 1450 013d 00       		.byte	0
+ 1451 013e 00       		.byte	0
+ 1452 013f 17       		.uleb128 0x17
+ 1453 0140 34       		.uleb128 0x34
+ 1454 0141 00       		.byte	0
+ 1455 0142 03       		.uleb128 0x3
+ 1456 0143 08       		.uleb128 0x8
+ 1457 0144 3A       		.uleb128 0x3a
+ 1458 0145 0B       		.uleb128 0xb
+ 1459 0146 3B       		.uleb128 0x3b
+ 1460 0147 0B       		.uleb128 0xb
+ 1461 0148 49       		.uleb128 0x49
+ 1462 0149 13       		.uleb128 0x13
+ 1463 014a 02       		.uleb128 0x2
+ 1464 014b 18       		.uleb128 0x18
+ 1465 014c 00       		.byte	0
+ 1466 014d 00       		.byte	0
+ 1467 014e 18       		.uleb128 0x18
+ 1468 014f 34       		.uleb128 0x34
+ 1469 0150 00       		.byte	0
+ 1470 0151 03       		.uleb128 0x3
+ 1471 0152 08       		.uleb128 0x8
+ 1472 0153 3A       		.uleb128 0x3a
+ 1473 0154 0B       		.uleb128 0xb
+ 1474 0155 3B       		.uleb128 0x3b
+ 1475 0156 0B       		.uleb128 0xb
+ 1476 0157 49       		.uleb128 0x49
+ 1477 0158 13       		.uleb128 0x13
+ 1478 0159 3F       		.uleb128 0x3f
+ 1479 015a 19       		.uleb128 0x19
+ 1480 015b 02       		.uleb128 0x2
+ 1481 015c 18       		.uleb128 0x18
+ 1482 015d 00       		.byte	0
+ 1483 015e 00       		.byte	0
+ 1484 015f 19       		.uleb128 0x19
+ 1485 0160 34       		.uleb128 0x34
+ 1486 0161 00       		.byte	0
+ 1487 0162 03       		.uleb128 0x3
+ 1488 0163 0E       		.uleb128 0xe
+ 1489 0164 3A       		.uleb128 0x3a
+ 1490 0165 0B       		.uleb128 0xb
+ 1491 0166 3B       		.uleb128 0x3b
+ 1492 0167 0B       		.uleb128 0xb
+ 1493 0168 49       		.uleb128 0x49
+ 1494 0169 13       		.uleb128 0x13
+ 1495 016a 3F       		.uleb128 0x3f
+ 1496 016b 19       		.uleb128 0x19
+ 1497 016c 02       		.uleb128 0x2
+ 1498 016d 18       		.uleb128 0x18
+ 1499 016e 00       		.byte	0
+ 1500 016f 00       		.byte	0
+ 1501 0170 1A       		.uleb128 0x1a
+ 1502 0171 2E       		.uleb128 0x2e
+ 1503 0172 01       		.byte	0x1
+ 1504 0173 3F       		.uleb128 0x3f
+ 1505 0174 19       		.uleb128 0x19
+ 1506 0175 03       		.uleb128 0x3
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 30
+
+
+ 1507 0176 0E       		.uleb128 0xe
+ 1508 0177 3A       		.uleb128 0x3a
+ 1509 0178 0B       		.uleb128 0xb
+ 1510 0179 3B       		.uleb128 0x3b
+ 1511 017a 0B       		.uleb128 0xb
+ 1512 017b 27       		.uleb128 0x27
+ 1513 017c 19       		.uleb128 0x19
+ 1514 017d 3C       		.uleb128 0x3c
+ 1515 017e 19       		.uleb128 0x19
+ 1516 017f 01       		.uleb128 0x1
+ 1517 0180 13       		.uleb128 0x13
+ 1518 0181 00       		.byte	0
+ 1519 0182 00       		.byte	0
+ 1520 0183 1B       		.uleb128 0x1b
+ 1521 0184 05       		.uleb128 0x5
+ 1522 0185 00       		.byte	0
+ 1523 0186 49       		.uleb128 0x49
+ 1524 0187 13       		.uleb128 0x13
+ 1525 0188 00       		.byte	0
+ 1526 0189 00       		.byte	0
+ 1527 018a 1C       		.uleb128 0x1c
+ 1528 018b 2E       		.uleb128 0x2e
+ 1529 018c 00       		.byte	0
+ 1530 018d 3F       		.uleb128 0x3f
+ 1531 018e 19       		.uleb128 0x19
+ 1532 018f 03       		.uleb128 0x3
+ 1533 0190 0E       		.uleb128 0xe
+ 1534 0191 3A       		.uleb128 0x3a
+ 1535 0192 0B       		.uleb128 0xb
+ 1536 0193 3B       		.uleb128 0x3b
+ 1537 0194 0B       		.uleb128 0xb
+ 1538 0195 27       		.uleb128 0x27
+ 1539 0196 19       		.uleb128 0x19
+ 1540 0197 3C       		.uleb128 0x3c
+ 1541 0198 19       		.uleb128 0x19
+ 1542 0199 00       		.byte	0
+ 1543 019a 00       		.byte	0
+ 1544 019b 1D       		.uleb128 0x1d
+ 1545 019c 2E       		.uleb128 0x2e
+ 1546 019d 00       		.byte	0
+ 1547 019e 3F       		.uleb128 0x3f
+ 1548 019f 19       		.uleb128 0x19
+ 1549 01a0 03       		.uleb128 0x3
+ 1550 01a1 0E       		.uleb128 0xe
+ 1551 01a2 3A       		.uleb128 0x3a
+ 1552 01a3 0B       		.uleb128 0xb
+ 1553 01a4 3B       		.uleb128 0x3b
+ 1554 01a5 0B       		.uleb128 0xb
+ 1555 01a6 27       		.uleb128 0x27
+ 1556 01a7 19       		.uleb128 0x19
+ 1557 01a8 49       		.uleb128 0x49
+ 1558 01a9 13       		.uleb128 0x13
+ 1559 01aa 3C       		.uleb128 0x3c
+ 1560 01ab 19       		.uleb128 0x19
+ 1561 01ac 00       		.byte	0
+ 1562 01ad 00       		.byte	0
+ 1563 01ae 1E       		.uleb128 0x1e
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 31
+
+
+ 1564 01af 2E       		.uleb128 0x2e
+ 1565 01b0 01       		.byte	0x1
+ 1566 01b1 3F       		.uleb128 0x3f
+ 1567 01b2 19       		.uleb128 0x19
+ 1568 01b3 03       		.uleb128 0x3
+ 1569 01b4 0E       		.uleb128 0xe
+ 1570 01b5 3A       		.uleb128 0x3a
+ 1571 01b6 0B       		.uleb128 0xb
+ 1572 01b7 3B       		.uleb128 0x3b
+ 1573 01b8 0B       		.uleb128 0xb
+ 1574 01b9 27       		.uleb128 0x27
+ 1575 01ba 19       		.uleb128 0x19
+ 1576 01bb 49       		.uleb128 0x49
+ 1577 01bc 13       		.uleb128 0x13
+ 1578 01bd 3C       		.uleb128 0x3c
+ 1579 01be 19       		.uleb128 0x19
+ 1580 01bf 01       		.uleb128 0x1
+ 1581 01c0 13       		.uleb128 0x13
+ 1582 01c1 00       		.byte	0
+ 1583 01c2 00       		.byte	0
+ 1584 01c3 1F       		.uleb128 0x1f
+ 1585 01c4 18       		.uleb128 0x18
+ 1586 01c5 00       		.byte	0
+ 1587 01c6 00       		.byte	0
+ 1588 01c7 00       		.byte	0
+ 1589 01c8 20       		.uleb128 0x20
+ 1590 01c9 2E       		.uleb128 0x2e
+ 1591 01ca 01       		.byte	0x1
+ 1592 01cb 3F       		.uleb128 0x3f
+ 1593 01cc 19       		.uleb128 0x19
+ 1594 01cd 03       		.uleb128 0x3
+ 1595 01ce 0E       		.uleb128 0xe
+ 1596 01cf 3A       		.uleb128 0x3a
+ 1597 01d0 0B       		.uleb128 0xb
+ 1598 01d1 3B       		.uleb128 0x3b
+ 1599 01d2 0B       		.uleb128 0xb
+ 1600 01d3 27       		.uleb128 0x27
+ 1601 01d4 19       		.uleb128 0x19
+ 1602 01d5 3C       		.uleb128 0x3c
+ 1603 01d6 19       		.uleb128 0x19
+ 1604 01d7 00       		.byte	0
+ 1605 01d8 00       		.byte	0
+ 1606 01d9 00       		.byte	0
+ 1607              		.section	.debug_loc,"",%progbits
+ 1608              	.Ldebug_loc0:
+ 1609              	.LLST0:
+ 1610 0000 26000000 		.4byte	.LVL10
+ 1611 0004 2F000000 		.4byte	.LVL11-1
+ 1612 0008 0100     		.2byte	0x1
+ 1613 000a 50       		.byte	0x50
+ 1614 000b 2F000000 		.4byte	.LVL11-1
+ 1615 000f 46000000 		.4byte	.LVL16
+ 1616 0013 0100     		.2byte	0x1
+ 1617 0015 55       		.byte	0x55
+ 1618 0016 46000000 		.4byte	.LVL16
+ 1619 001a 49000000 		.4byte	.LVL17-1
+ 1620 001e 0100     		.2byte	0x1
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 32
+
+
+ 1621 0020 50       		.byte	0x50
+ 1622 0021 00000000 		.4byte	0
+ 1623 0025 00000000 		.4byte	0
+ 1624              	.LLST1:
+ 1625 0029 40000000 		.4byte	.LVL14
+ 1626 002d 42000000 		.4byte	.LVL15
+ 1627 0031 0100     		.2byte	0x1
+ 1628 0033 50       		.byte	0x50
+ 1629 0034 42000000 		.4byte	.LVL15
+ 1630 0038 45000000 		.4byte	.LVL16-1
+ 1631 003c 0100     		.2byte	0x1
+ 1632 003e 51       		.byte	0x51
+ 1633 003f 00000000 		.4byte	0
+ 1634 0043 00000000 		.4byte	0
+ 1635              	.LLST2:
+ 1636 0047 00000000 		.4byte	.LVL21
+ 1637 004b 16000000 		.4byte	.LVL23
+ 1638 004f 0100     		.2byte	0x1
+ 1639 0051 50       		.byte	0x50
+ 1640 0052 16000000 		.4byte	.LVL23
+ 1641 0056 8C000000 		.4byte	.LVL37
+ 1642 005a 0100     		.2byte	0x1
+ 1643 005c 59       		.byte	0x59
+ 1644 005d 8C000000 		.4byte	.LVL37
+ 1645 0061 94000000 		.4byte	.LFE37
+ 1646 0065 0400     		.2byte	0x4
+ 1647 0067 F3       		.byte	0xf3
+ 1648 0068 01       		.uleb128 0x1
+ 1649 0069 50       		.byte	0x50
+ 1650 006a 9F       		.byte	0x9f
+ 1651 006b 00000000 		.4byte	0
+ 1652 006f 00000000 		.4byte	0
+ 1653              	.LLST3:
+ 1654 0073 00000000 		.4byte	.LVL21
+ 1655 0077 16000000 		.4byte	.LVL23
+ 1656 007b 0100     		.2byte	0x1
+ 1657 007d 51       		.byte	0x51
+ 1658 007e 16000000 		.4byte	.LVL23
+ 1659 0082 8C000000 		.4byte	.LVL36
+ 1660 0086 0100     		.2byte	0x1
+ 1661 0088 56       		.byte	0x56
+ 1662 0089 8C000000 		.4byte	.LVL36
+ 1663 008d 94000000 		.4byte	.LFE37
+ 1664 0091 0400     		.2byte	0x4
+ 1665 0093 F3       		.byte	0xf3
+ 1666 0094 01       		.uleb128 0x1
+ 1667 0095 51       		.byte	0x51
+ 1668 0096 9F       		.byte	0x9f
+ 1669 0097 00000000 		.4byte	0
+ 1670 009b 00000000 		.4byte	0
+ 1671              	.LLST4:
+ 1672 009f 00000000 		.4byte	.LVL21
+ 1673 00a3 16000000 		.4byte	.LVL23
+ 1674 00a7 0100     		.2byte	0x1
+ 1675 00a9 52       		.byte	0x52
+ 1676 00aa 16000000 		.4byte	.LVL23
+ 1677 00ae 8C000000 		.4byte	.LVL38
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 33
+
+
+ 1678 00b2 0100     		.2byte	0x1
+ 1679 00b4 5A       		.byte	0x5a
+ 1680 00b5 8C000000 		.4byte	.LVL38
+ 1681 00b9 94000000 		.4byte	.LFE37
+ 1682 00bd 0400     		.2byte	0x4
+ 1683 00bf F3       		.byte	0xf3
+ 1684 00c0 01       		.uleb128 0x1
+ 1685 00c1 52       		.byte	0x52
+ 1686 00c2 9F       		.byte	0x9f
+ 1687 00c3 00000000 		.4byte	0
+ 1688 00c7 00000000 		.4byte	0
+ 1689              	.LLST5:
+ 1690 00cb 10000000 		.4byte	.LVL22
+ 1691 00cf 16000000 		.4byte	.LVL23
+ 1692 00d3 0200     		.2byte	0x2
+ 1693 00d5 30       		.byte	0x30
+ 1694 00d6 9F       		.byte	0x9f
+ 1695 00d7 16000000 		.4byte	.LVL23
+ 1696 00db 94000000 		.4byte	.LFE37
+ 1697 00df 0200     		.2byte	0x2
+ 1698 00e1 91       		.byte	0x91
+ 1699 00e2 5C       		.sleb128 -36
+ 1700 00e3 00000000 		.4byte	0
+ 1701 00e7 00000000 		.4byte	0
+ 1702              	.LLST6:
+ 1703 00eb 16000000 		.4byte	.LVL23
+ 1704 00ef 6C000000 		.4byte	.LVL31
+ 1705 00f3 0100     		.2byte	0x1
+ 1706 00f5 55       		.byte	0x55
+ 1707 00f6 6E000000 		.4byte	.LVL32
+ 1708 00fa 70000000 		.4byte	.LVL33
+ 1709 00fe 0100     		.2byte	0x1
+ 1710 0100 55       		.byte	0x55
+ 1711 0101 72000000 		.4byte	.LVL34
+ 1712 0105 80000000 		.4byte	.LVL35
+ 1713 0109 0100     		.2byte	0x1
+ 1714 010b 55       		.byte	0x55
+ 1715 010c 00000000 		.4byte	0
+ 1716 0110 00000000 		.4byte	0
+ 1717              	.LLST7:
+ 1718 0114 16000000 		.4byte	.LVL23
+ 1719 0118 48000000 		.4byte	.LVL27
+ 1720 011c 0100     		.2byte	0x1
+ 1721 011e 57       		.byte	0x57
+ 1722 011f 4A000000 		.4byte	.LVL28
+ 1723 0123 4C000000 		.4byte	.LVL29
+ 1724 0127 0100     		.2byte	0x1
+ 1725 0129 57       		.byte	0x57
+ 1726 012a 50000000 		.4byte	.LVL30
+ 1727 012e 70000000 		.4byte	.LVL33
+ 1728 0132 0100     		.2byte	0x1
+ 1729 0134 57       		.byte	0x57
+ 1730 0135 00000000 		.4byte	0
+ 1731 0139 00000000 		.4byte	0
+ 1732              	.LLST8:
+ 1733 013d 16000000 		.4byte	.LVL23
+ 1734 0141 46000000 		.4byte	.LVL26
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 34
+
+
+ 1735 0145 0100     		.2byte	0x1
+ 1736 0147 54       		.byte	0x54
+ 1737 0148 46000000 		.4byte	.LVL26
+ 1738 014c 4C000000 		.4byte	.LVL29
+ 1739 0150 0100     		.2byte	0x1
+ 1740 0152 50       		.byte	0x50
+ 1741 0153 50000000 		.4byte	.LVL30
+ 1742 0157 70000000 		.4byte	.LVL33
+ 1743 015b 0100     		.2byte	0x1
+ 1744 015d 54       		.byte	0x54
+ 1745 015e 00000000 		.4byte	0
+ 1746 0162 00000000 		.4byte	0
+ 1747              	.LLST9:
+ 1748 0166 00000000 		.4byte	.LVL39
+ 1749 016a 0C000000 		.4byte	.LVL41
+ 1750 016e 0100     		.2byte	0x1
+ 1751 0170 50       		.byte	0x50
+ 1752 0171 0C000000 		.4byte	.LVL41
+ 1753 0175 46000000 		.4byte	.LVL52
+ 1754 0179 0100     		.2byte	0x1
+ 1755 017b 58       		.byte	0x58
+ 1756 017c 46000000 		.4byte	.LVL52
+ 1757 0180 4C000000 		.4byte	.LFE38
+ 1758 0184 0400     		.2byte	0x4
+ 1759 0186 F3       		.byte	0xf3
+ 1760 0187 01       		.uleb128 0x1
+ 1761 0188 50       		.byte	0x50
+ 1762 0189 9F       		.byte	0x9f
+ 1763 018a 00000000 		.4byte	0
+ 1764 018e 00000000 		.4byte	0
+ 1765              	.LLST10:
+ 1766 0192 08000000 		.4byte	.LVL40
+ 1767 0196 0C000000 		.4byte	.LVL41
+ 1768 019a 0200     		.2byte	0x2
+ 1769 019c 30       		.byte	0x30
+ 1770 019d 9F       		.byte	0x9f
+ 1771 019e 0C000000 		.4byte	.LVL41
+ 1772 01a2 3E000000 		.4byte	.LVL49
+ 1773 01a6 0100     		.2byte	0x1
+ 1774 01a8 55       		.byte	0x55
+ 1775 01a9 40000000 		.4byte	.LVL50
+ 1776 01ad 46000000 		.4byte	.LVL51
+ 1777 01b1 0100     		.2byte	0x1
+ 1778 01b3 55       		.byte	0x55
+ 1779 01b4 46000000 		.4byte	.LVL51
+ 1780 01b8 4C000000 		.4byte	.LFE38
+ 1781 01bc 0100     		.2byte	0x1
+ 1782 01be 53       		.byte	0x53
+ 1783 01bf 00000000 		.4byte	0
+ 1784 01c3 00000000 		.4byte	0
+ 1785              	.LLST11:
+ 1786 01c7 0C000000 		.4byte	.LVL41
+ 1787 01cb 30000000 		.4byte	.LVL45
+ 1788 01cf 0100     		.2byte	0x1
+ 1789 01d1 56       		.byte	0x56
+ 1790 01d2 32000000 		.4byte	.LVL46
+ 1791 01d6 34000000 		.4byte	.LVL47
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 35
+
+
+ 1792 01da 0100     		.2byte	0x1
+ 1793 01dc 56       		.byte	0x56
+ 1794 01dd 36000000 		.4byte	.LVL48
+ 1795 01e1 40000000 		.4byte	.LVL50
+ 1796 01e5 0100     		.2byte	0x1
+ 1797 01e7 56       		.byte	0x56
+ 1798 01e8 00000000 		.4byte	0
+ 1799 01ec 00000000 		.4byte	0
+ 1800              		.section	.debug_aranges,"",%progbits
+ 1801 0000 4C000000 		.4byte	0x4c
+ 1802 0004 0200     		.2byte	0x2
+ 1803 0006 00000000 		.4byte	.Ldebug_info0
+ 1804 000a 04       		.byte	0x4
+ 1805 000b 00       		.byte	0
+ 1806 000c 0000     		.2byte	0
+ 1807 000e 0000     		.2byte	0
+ 1808 0010 00000000 		.4byte	.LFB33
+ 1809 0014 14000000 		.4byte	.LFE33-.LFB33
+ 1810 0018 00000000 		.4byte	.LFB34
+ 1811 001c 14000000 		.4byte	.LFE34-.LFB34
+ 1812 0020 00000000 		.4byte	.LFB35
+ 1813 0024 24000000 		.4byte	.LFE35-.LFB35
+ 1814 0028 00000000 		.4byte	.LFB36
+ 1815 002c 88000000 		.4byte	.LFE36-.LFB36
+ 1816 0030 00000000 		.4byte	.LFB37
+ 1817 0034 94000000 		.4byte	.LFE37-.LFB37
+ 1818 0038 00000000 		.4byte	.LFB38
+ 1819 003c 4C000000 		.4byte	.LFE38-.LFB38
+ 1820 0040 00000000 		.4byte	.LFB39
+ 1821 0044 5C000000 		.4byte	.LFE39-.LFB39
+ 1822 0048 00000000 		.4byte	0
+ 1823 004c 00000000 		.4byte	0
+ 1824              		.section	.debug_ranges,"",%progbits
+ 1825              	.Ldebug_ranges0:
+ 1826 0000 00000000 		.4byte	.LFB33
+ 1827 0004 14000000 		.4byte	.LFE33
+ 1828 0008 00000000 		.4byte	.LFB34
+ 1829 000c 14000000 		.4byte	.LFE34
+ 1830 0010 00000000 		.4byte	.LFB35
+ 1831 0014 24000000 		.4byte	.LFE35
+ 1832 0018 00000000 		.4byte	.LFB36
+ 1833 001c 88000000 		.4byte	.LFE36
+ 1834 0020 00000000 		.4byte	.LFB37
+ 1835 0024 94000000 		.4byte	.LFE37
+ 1836 0028 00000000 		.4byte	.LFB38
+ 1837 002c 4C000000 		.4byte	.LFE38
+ 1838 0030 00000000 		.4byte	.LFB39
+ 1839 0034 5C000000 		.4byte	.LFE39
+ 1840 0038 00000000 		.4byte	0
+ 1841 003c 00000000 		.4byte	0
+ 1842              		.section	.debug_line,"",%progbits
+ 1843              	.Ldebug_line0:
+ 1844 0000 06020000 		.section	.debug_str,"MS",%progbits,1
+ 1844      02000501 
+ 1844      00000201 
+ 1844      FB0E0D00 
+ 1844      01010101 
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 36
+
+
+ 1845              	.LASF25:
+ 1846 0000 706F7075 		.ascii	"populateMatrix\000"
+ 1846      6C617465 
+ 1846      4D617472 
+ 1846      697800
+ 1847              	.LASF38:
+ 1848 000f 6D795469 		.ascii	"myTimer_Int_SetVector\000"
+ 1848      6D65725F 
+ 1848      496E745F 
+ 1848      53657456 
+ 1848      6563746F 
+ 1849              	.LASF34:
+ 1850 0025 55415254 		.ascii	"UART_Int_Start\000"
+ 1850      5F496E74 
+ 1850      5F537461 
+ 1850      727400
+ 1851              	.LASF4:
+ 1852 0034 6C6F6E67 		.ascii	"long int\000"
+ 1852      20696E74 
+ 1852      00
+ 1853              	.LASF37:
+ 1854 003d 6D795469 		.ascii	"myTimer_Int_Start\000"
+ 1854      6D65725F 
+ 1854      496E745F 
+ 1854      53746172 
+ 1854      7400
+ 1855              	.LASF33:
+ 1856 004f 55415254 		.ascii	"UART_1_ClearRxBuffer\000"
+ 1856      5F315F43 
+ 1856      6C656172 
+ 1856      52784275 
+ 1856      66666572 
+ 1857              	.LASF27:
+ 1858 0064 70726554 		.ascii	"preTime\000"
+ 1858      696D6500 
+ 1859              	.LASF41:
+ 1860 006c 7372616E 		.ascii	"srand\000"
+ 1860      6400
+ 1861              	.LASF44:
+ 1862 0072 433A5C55 		.ascii	"C:\\Users\\Gary\\Documents\\PSoC Creator\\Workspace"
+ 1862      73657273 
+ 1862      5C476172 
+ 1862      795C446F 
+ 1862      63756D65 
+ 1863 00a0 30315C4C 		.ascii	"01\\Lab 4d.cydsn\000"
+ 1863      61622034 
+ 1863      642E6379 
+ 1863      64736E00 
+ 1864              	.LASF23:
+ 1865 00b0 6D617472 		.ascii	"matrixMult\000"
+ 1865      69784D75 
+ 1865      6C7400
+ 1866              	.LASF30:
+ 1867 00bb 54494D45 		.ascii	"TIMER_1_ReadStatusRegister\000"
+ 1867      525F315F 
+ 1867      52656164 
+ 1867      53746174 
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 37
+
+
+ 1867      75735265 
+ 1868              	.LASF12:
+ 1869 00d6 666C6F61 		.ascii	"float\000"
+ 1869      7400
+ 1870              	.LASF18:
+ 1871 00dc 75617274 		.ascii	"uartISR\000"
+ 1871      49535200 
+ 1872              	.LASF1:
+ 1873 00e4 756E7369 		.ascii	"unsigned char\000"
+ 1873      676E6564 
+ 1873      20636861 
+ 1873      7200
+ 1874              	.LASF14:
+ 1875 00f2 63686172 		.ascii	"char8\000"
+ 1875      3800
+ 1876              	.LASF40:
+ 1877 00f8 54494D45 		.ascii	"TIMER_1_Start\000"
+ 1877      525F315F 
+ 1877      53746172 
+ 1877      7400
+ 1878              	.LASF5:
+ 1879 0106 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1879      20756E73 
+ 1879      69676E65 
+ 1879      6420696E 
+ 1879      7400
+ 1880              	.LASF24:
+ 1881 0118 74656D70 		.ascii	"temp\000"
+ 1881      00
+ 1882              	.LASF9:
+ 1883 011d 75696E74 		.ascii	"uint8\000"
+ 1883      3800
+ 1884              	.LASF11:
+ 1885 0123 696E7438 		.ascii	"int8\000"
+ 1885      00
+ 1886              	.LASF31:
+ 1887 0128 54494D45 		.ascii	"TIMER_1_ReadCounter\000"
+ 1887      525F315F 
+ 1887      52656164 
+ 1887      436F756E 
+ 1887      74657200 
+ 1888              	.LASF13:
+ 1889 013c 646F7562 		.ascii	"double\000"
+ 1889      6C6500
+ 1890              	.LASF28:
+ 1891 0143 636C6F63 		.ascii	"clockTime\000"
+ 1891      6B54696D 
+ 1891      6500
+ 1892              	.LASF22:
+ 1893 014d 73747230 		.ascii	"str0\000"
+ 1893      00
+ 1894              	.LASF43:
+ 1895 0152 2E5C6D61 		.ascii	".\\main.c\000"
+ 1895      696E2E63 
+ 1895      00
+ 1896              	.LASF19:
+ 1897 015b 6D795469 		.ascii	"myTimerISR\000"
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 38
+
+
+ 1897      6D657249 
+ 1897      535200
+ 1898              	.LASF10:
+ 1899 0166 75696E74 		.ascii	"uint32\000"
+ 1899      333200
+ 1900              	.LASF26:
+ 1901 016d 6D61696E 		.ascii	"main\000"
+ 1901      00
+ 1902              	.LASF8:
+ 1903 0172 756E7369 		.ascii	"unsigned int\000"
+ 1903      676E6564 
+ 1903      20696E74 
+ 1903      00
+ 1904              	.LASF29:
+ 1905 017f 656C6170 		.ascii	"elapsedTime\000"
+ 1905      73656454 
+ 1905      696D6500 
+ 1906              	.LASF7:
+ 1907 018b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1907      206C6F6E 
+ 1907      6720756E 
+ 1907      7369676E 
+ 1907      65642069 
+ 1908              	.LASF16:
+ 1909 01a2 63796973 		.ascii	"cyisraddress\000"
+ 1909      72616464 
+ 1909      72657373 
+ 1909      00
+ 1910              	.LASF21:
+ 1911 01af 74656D70 		.ascii	"temp1\000"
+ 1911      3100
+ 1912              	.LASF17:
+ 1913 01b5 73697A65 		.ascii	"sizetype\000"
+ 1913      74797065 
+ 1913      00
+ 1914              	.LASF20:
+ 1915 01be 74656D70 		.ascii	"temp0\000"
+ 1915      3000
+ 1916              	.LASF6:
+ 1917 01c4 6C6F6E67 		.ascii	"long long int\000"
+ 1917      206C6F6E 
+ 1917      6720696E 
+ 1917      7400
+ 1918              	.LASF15:
+ 1919 01d2 63686172 		.ascii	"char\000"
+ 1919      00
+ 1920              	.LASF42:
+ 1921 01d7 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1921      4320342E 
+ 1921      392E3320 
+ 1921      32303135 
+ 1921      30333033 
+ 1922 020a 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1922      20726576 
+ 1922      6973696F 
+ 1922      6E203232 
+ 1922      31323230 
+ARM GAS  C:\Users\Gary\AppData\Local\Temp\ccyeRBSs.s 			page 39
+
+
+ 1923 023d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1923      66756E63 
+ 1923      74696F6E 
+ 1923      2D736563 
+ 1923      74696F6E 
+ 1924              	.LASF36:
+ 1925 0265 55415254 		.ascii	"UART_Int_SetVector\000"
+ 1925      5F496E74 
+ 1925      5F536574 
+ 1925      56656374 
+ 1925      6F7200
+ 1926              	.LASF2:
+ 1927 0278 73686F72 		.ascii	"short int\000"
+ 1927      7420696E 
+ 1927      7400
+ 1928              	.LASF0:
+ 1929 0282 7369676E 		.ascii	"signed char\000"
+ 1929      65642063 
+ 1929      68617200 
+ 1930              	.LASF3:
+ 1931 028e 73686F72 		.ascii	"short unsigned int\000"
+ 1931      7420756E 
+ 1931      7369676E 
+ 1931      65642069 
+ 1931      6E7400
+ 1932              	.LASF35:
+ 1933 02a1 55415254 		.ascii	"UART_1_PutString\000"
+ 1933      5F315F50 
+ 1933      75745374 
+ 1933      72696E67 
+ 1933      00
+ 1934              	.LASF45:
+ 1935 02b2 73707269 		.ascii	"sprintf\000"
+ 1935      6E746600 
+ 1936              	.LASF46:
+ 1937 02ba 43794465 		.ascii	"CyDelay\000"
+ 1937      6C617900 
+ 1938              	.LASF32:
+ 1939 02c2 72616E64 		.ascii	"rand\000"
+ 1939      00
+ 1940              	.LASF39:
+ 1941 02c7 55415254 		.ascii	"UART_1_Start\000"
+ 1941      5F315F53 
+ 1941      74617274 
+ 1941      00
+ 1942              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

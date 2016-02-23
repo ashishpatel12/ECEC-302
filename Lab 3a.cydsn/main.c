@@ -64,11 +64,8 @@ int compareStrings(char *str1, char *str2)
     }
     length2 = i;
     
-    // Limit length of for loop to the length of the shortest string
-    if(length1 < length2){
-        length = length1;
-    }else{
-        length = length2;
+    if(length1 != length2){
+        return -1;
     }
     
     // If there is a difference in the strings compare the results and return it

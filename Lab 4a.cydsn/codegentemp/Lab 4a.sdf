@@ -1,0 +1,23 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2016-02-09T20:59:57Z")
+ (DESIGN "Lab 4a")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 3.3 CP1")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "Lab 4a")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT ClockBlock.hfclk SW\(0\).in_clock (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.hfclk SW_int.clock (0.000:0.000:0.000))
+    (INTERCONNECT SW.interrupt SW_int.interrupt (1.000:1.000:1.000))
+    (INTERCONNECT SW\(0\)_PAD SW\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT LED\(0\)_PAD LED\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

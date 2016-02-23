@@ -1,0 +1,16 @@
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 1 Blink.cydsn\Lab 1 Blink.cyprj|759e57c5-62ab-434a-8e49-75fb07035bcc
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e7f610de-2fdf-482b-96a1-ef22d6113e31
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|13881686-6bbc-4fbf-9cf3-f83bea084cb8
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a5f5a47a-3f30-4aff-809d-b9d0bc9e0fc9
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|dd88515a-c8d4-469f-8671-a463f8cdf546
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 1c.cydsn\Lab 1c.cyprj|4061fd6a-ecce-46e4-b913-dec85cb8749a
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 2a.cydsn\Lab 2a.cyprj|c3847126-821c-41f4-ad04-10c762dc9c05
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 2c.cydsn\Lab 2c.cyprj|abdefe2b-593d-480e-9909-decf97dcd1b8
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 2e.cydsn\Lab 2e.cyprj|a83153a1-0a50-4bc4-b222-f899f37e6bc7
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 3a.cydsn\Lab 3a.cyprj|03173004-c1fd-4201-ab55-6a3acfa2afbf
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 3d.cydsn\Lab 3d.cyprj|118bfa23-fd80-4ee8-9482-37318e8d8dba
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 3b.cydsn\Lab 3b.cyprj|fb47494b-e602-498d-8b3b-9b6c5cf2461a
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 4a.cydsn\Lab 4a.cyprj|87dba8a8-f596-47c9-80c9-12fb9db9d115
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 4b.cydsn\Lab 4b.cyprj|58159e9e-a958-4f1f-bc66-79a3c9f1c942
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 4d.cydsn\Lab 4d.cyprj|d5f90731-bea7-4db6-b6f5-a5f471a35575
+C:\Users\Gary\Documents\PSoC Creator\Workspace01\Lab 5a.cydsn\Lab 5a.cyprj|774609d4-7e29-4828-8acb-0d1d37421a27
